@@ -1,0 +1,239 @@
+{
+  "authority": "curated identifier baseline captured before N4 accepted the NAER N3b batch",
+  "entries": [
+    {
+      "term": "canary",
+      "aliases": []
+    },
+    {
+      "term": "canary deployment",
+      "aliases": [
+        "canary release"
+      ]
+    },
+    {
+      "term": "capsule",
+      "aliases": []
+    },
+    {
+      "term": "ratchet",
+      "aliases": []
+    },
+    {
+      "term": "gate",
+      "aliases": [
+        "quality gate"
+      ]
+    },
+    {
+      "term": "rollback",
+      "aliases": [
+        "revert deployment"
+      ]
+    },
+    {
+      "term": "roll forward",
+      "aliases": []
+    },
+    {
+      "term": "context window",
+      "aliases": [
+        "context length"
+      ]
+    },
+    {
+      "term": "embedding",
+      "aliases": [
+        "vector embedding"
+      ]
+    },
+    {
+      "term": "grounding",
+      "aliases": []
+    },
+    {
+      "term": "hallucination",
+      "aliases": []
+    },
+    {
+      "term": "tool calling",
+      "aliases": [
+        "function calling"
+      ]
+    },
+    {
+      "term": "least privilege",
+      "aliases": [
+        "principle of least privilege",
+        "PoLP"
+      ]
+    },
+    {
+      "term": "provenance",
+      "aliases": [
+        "data provenance"
+      ]
+    },
+    {
+      "term": "retrieval augmented generation",
+      "aliases": [
+        "RAG"
+      ]
+    },
+    {
+      "term": "chunking",
+      "aliases": [
+        "text chunking"
+      ]
+    },
+    {
+      "term": "reranking",
+      "aliases": [
+        "re-ranking"
+      ]
+    },
+    {
+      "term": "prompt injection",
+      "aliases": []
+    },
+    {
+      "term": "agent",
+      "aliases": [
+        "AI agent"
+      ]
+    },
+    {
+      "term": "orchestrator",
+      "aliases": []
+    },
+    {
+      "term": "idempotency",
+      "aliases": [
+        "idempotent"
+      ]
+    },
+    {
+      "term": "service level objective",
+      "aliases": [
+        "SLO"
+      ]
+    },
+    {
+      "term": "error budget",
+      "aliases": []
+    },
+    {
+      "term": "observability",
+      "aliases": []
+    },
+    {
+      "term": "incident",
+      "aliases": []
+    },
+    {
+      "term": "postmortem",
+      "aliases": [
+        "incident review"
+      ]
+    },
+    {
+      "term": "zero trust",
+      "aliases": []
+    },
+    {
+      "term": "secret rotation",
+      "aliases": [
+        "credential rotation"
+      ]
+    },
+    {
+      "term": "threat model",
+      "aliases": [
+        "threat modeling"
+      ]
+    },
+    {
+      "term": "rebase",
+      "aliases": []
+    },
+    {
+      "term": "cherry-pick",
+      "aliases": [
+        "cherry pick"
+      ]
+    },
+    {
+      "term": "pull request",
+      "aliases": [
+        "PR",
+        "merge request"
+      ]
+    },
+    {
+      "term": "sdcv",
+      "aliases": []
+    },
+    {
+      "term": "backpressure",
+      "aliases": []
+    },
+    {
+      "term": "feature flag",
+      "aliases": [
+        "feature toggle",
+        "feature toggles"
+      ]
+    },
+    {
+      "term": "circuit breaker",
+      "aliases": []
+    },
+    {
+      "term": "eventual consistency",
+      "aliases": []
+    },
+    {
+      "term": "vector database",
+      "aliases": [
+        "vector store"
+      ]
+    },
+    {
+      "term": "prompt",
+      "aliases": [
+        "prompting",
+        "prompt engineering",
+        "prompting techniques"
+      ]
+    },
+    {
+      "term": "agent memory",
+      "aliases": [
+        "memory",
+        "chat memory",
+        "session memory"
+      ]
+    },
+    {
+      "term": "autonomous agent",
+      "aliases": [
+        "agentic AI",
+        "intelligent agent"
+      ]
+    },
+    {
+      "term": "token window",
+      "aliases": []
+    },
+    {
+      "term": "AI hallucination",
+      "aliases": []
+    },
+    {
+      "term": "orchestration",
+      "aliases": [
+        "LLM orchestration"
+      ]
+    }
+  ]
+}

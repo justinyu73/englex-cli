@@ -1,0 +1,43 @@
+name: 錯誤回報 Bug report
+description: 回報 englex CLI 或本機行為的問題
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: 發生什麼問題
+      description: 簡述預期行為與實際行為。
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 重現步驟
+      description: 請貼出你實際執行的 englex 指令與看到的輸出。
+      placeholder: |
+        $ englex scan "..."
+        （貼上輸出）
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: "`pip show englex` 的版本，或安裝來源（englex-0.6.0 wheel / pip install . / pipx）。"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 環境
+      description: 作業系統 / Python 版本（例：WSL Ubuntu、Python 3.11）。
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 隱私確認
+      options:
+        - label: 我確認貼出的輸出不含私人 overlay 詞條或機敏內容。
+          required: true

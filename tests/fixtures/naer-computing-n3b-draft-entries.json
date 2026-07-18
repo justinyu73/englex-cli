@@ -1,0 +1,732 @@
+[
+  {
+    "schema_version": 2,
+    "term": "authentication",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全",
+        "definition": "驗證請求者所宣稱身分是否成立的流程，常以密碼、權杖、憑證或多因素證明完成。",
+        "context_triggers": [
+          "identity",
+          "login",
+          "token"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "data encryption",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全",
+        "definition": "使用密碼演算法與金鑰將可讀資料轉成未持有適當金鑰者無法理解的形式，以保護儲存或傳輸中的內容。",
+        "context_triggers": [
+          "key",
+          "at rest",
+          "in transit"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "public key",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全",
+        "definition": "非對稱密碼系統中可公開散布的一半金鑰，通常用於驗證簽章或讓他人加密送往持有者的資料。",
+        "context_triggers": [
+          "asymmetric",
+          "signature",
+          "PKI"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "private key",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全",
+        "definition": "非對稱密碼系統中必須由持有者保密的金鑰，用來產生簽章或解開以配對公開金鑰加密的資料。",
+        "context_triggers": [
+          "asymmetric",
+          "signing",
+          "secret"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "certificate",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "安全／PKI",
+        "definition": "在 PKI 語境中，由發行者簽署、用來綁定主體身分與公開金鑰並附帶有效期限等資訊的資料物件；須與一般證書區分。",
+        "context_triggers": [
+          "X.509",
+          "TLS",
+          "issuer"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "credentials",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "安全／身分",
+        "definition": "用於證明身分或取得存取權的一組資訊或物件，例如密碼、權杖、憑證或 API 金鑰；實際型態應依系統判讀。",
+        "context_triggers": [
+          "login",
+          "access",
+          "token"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "cipher",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "安全／密碼學",
+        "definition": "依密鑰把明文轉為密文，或反向還原的演算法與規則；有時也被用來指其產生的密文，需由上下文區分。",
+        "context_triggers": [
+          "plaintext",
+          "ciphertext",
+          "key"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "secure channel",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全／網路",
+        "definition": "兩端之間具備身分驗證、機密性與完整性保護的通訊路徑，使中途攔截或竄改能被防護或偵測。",
+        "context_triggers": [
+          "TLS",
+          "transport",
+          "integrity"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "vulnerability",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全",
+        "definition": "系統設計、實作、設定或相依元件中的弱點，可能被攻擊者利用而破壞機密性、完整性或可用性。",
+        "context_triggers": [
+          "CVE",
+          "patch",
+          "exploit"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "end to end encryption",
+    "aliases": [
+      "end-to-end encryption"
+    ],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "安全／通訊",
+        "definition": "資料在發送端即被加密，並只由預期接收端解密的設計；中繼服務即使轉送內容也不應取得可讀明文。",
+        "context_triggers": [
+          "messaging",
+          "recipient",
+          "plaintext"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "distributed processing",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "分散式系統",
+        "definition": "把計算工作拆分並交由多個節點協作執行的方式，以取得擴充性、吞吐量或地理分散等效益。",
+        "context_triggers": [
+          "node",
+          "cluster",
+          "workload"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "fault tolerance",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "可靠性工程",
+        "definition": "元件、節點或部分流程失效時，系統仍能維持已定義服務水準或以受控方式降級的能力。",
+        "context_triggers": [
+          "failure",
+          "redundancy",
+          "recovery"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "replication",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "分散式系統",
+        "definition": "將同一份資料或服務狀態維持在多個副本上的機制，用於提高讀取能力、可用性或故障復原能力。",
+        "context_triggers": [
+          "replica",
+          "leader",
+          "synchronization"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "deadlock",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "並行／資料庫",
+        "definition": "多個執行單元各自持有資源並等待對方釋放資源，形成循環等待而都無法繼續前進的狀態。",
+        "context_triggers": [
+          "lock",
+          "wait",
+          "transaction"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "transaction processing",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "資料庫／交易系統",
+        "definition": "以具明確開始、提交或回復邊界的工作單位處理資料變更，讓一組相關操作能以受控的一致方式完成。",
+        "context_triggers": [
+          "commit",
+          "rollback",
+          "ACID"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "concurrent processes",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "並行系統",
+        "definition": "可在重疊時間區間內各自推進的多個程序或工作單元；是否真正平行執行仍取決於排程器與硬體資源。",
+        "context_triggers": [
+          "process",
+          "scheduler",
+          "parallel"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "availability",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "SRE／可靠性",
+        "definition": "服務在約定期間內可被使用者成功存取並完成預期功能的程度；計算方式與排除條件須依 SLO 或服務契約判讀。",
+        "context_triggers": [
+          "SLO",
+          "uptime",
+          "error rate"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "consistency",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "分散式系統／資料庫",
+        "definition": "資料讀寫結果遵循特定可觀察規則的性質；可能指交易約束、線性一致性或最終一致性，必須依系統模型判讀。",
+        "context_triggers": [
+          "replica",
+          "transaction",
+          "eventual consistency"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "Transmission Control Protocol/Internet Protocol; TCP/IP",
+    "aliases": [
+      "TCP/IP"
+    ],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "網路／協定",
+        "definition": "網際網路通訊所依賴的協定族，其中 TCP 負責可靠位元組傳輸，IP 負責跨網路定址與封包遞送。",
+        "context_triggers": [
+          "transport",
+          "IP address",
+          "packet"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "address resolution protocol，ARP",
+    "aliases": [
+      "ARP",
+      "address resolution protocol"
+    ],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "網路／協定",
+        "definition": "區域網路中依 IP 位址查得對應鏈路層硬體位址的協定，讓主機能把 IP 封包交給同一網段的正確介面。",
+        "context_triggers": [
+          "MAC address",
+          "LAN",
+          "IP address"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "network protocol",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "網路／協定",
+        "definition": "定義網路端點如何編碼、傳送、接收與解讀訊息的共同規則，通常包含格式、時序、錯誤處理與狀態行為。",
+        "context_triggers": [
+          "message",
+          "packet",
+          "handshake"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "proxy server",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "網路／基礎設施",
+        "definition": "代表用戶端或服務端轉送請求與回應的中介伺服器，可用於存取控制、快取、路由隔離或流量觀測。",
+        "context_triggers": [
+          "forward proxy",
+          "reverse proxy",
+          "cache"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "topology",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "網路／分散式系統",
+        "definition": "節點與連線的配置關係；可指實體網路佈線、邏輯連線圖或分散式系統的通訊結構，須依上下文判讀。",
+        "context_triggers": [
+          "node",
+          "link",
+          "network"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "streaming",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "資料處理／媒體",
+        "definition": "資料在產生或抵達時便持續傳遞與處理的模式；可能指事件資料管線或影音播放，需由工作負載判讀。",
+        "context_triggers": [
+          "event",
+          "consumer",
+          "media"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "schema",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "資料／Schema",
+        "definition": "描述資料欄位、型別、結構、關係或允許值的約定；可用於資料庫、事件訊息或 API，須依所在介面判讀。",
+        "context_triggers": [
+          "field",
+          "validation",
+          "API"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "data model",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "資料／Schema",
+        "definition": "用來表示資料實體、關係、約束與操作方式的抽象規則，作為儲存設計與應用程式理解資料的共同基礎。",
+        "context_triggers": [
+          "entity",
+          "relationship",
+          "constraint"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "relational model",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "資料庫",
+        "definition": "以關係（通常呈現為表格）組織資料，並以鍵、約束與關聯運算描述資料間連結的資料模型。",
+        "context_triggers": [
+          "table",
+          "SQL",
+          "relation"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "primary key",
+    "aliases": [],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "資料庫",
+        "definition": "關聯表中用來唯一識別每一列的欄位或欄位組合，通常同時要求唯一且不可為空值。",
+        "context_triggers": [
+          "table",
+          "unique",
+          "foreign key"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "partition",
+    "aliases": [],
+    "status": "需判讀",
+    "senses": [
+      {
+        "domain": "資料／分散式系統",
+        "definition": "依規則把資料、工作或資源切分為可獨立處理的區段；可能指資料庫分區、訊息分割或網路分割，須依系統判讀。",
+        "context_triggers": [
+          "shard",
+          "database",
+          "key range"
+        ],
+        "context_required": true
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  },
+  {
+    "schema_version": 2,
+    "term": "information retrieval(IR)",
+    "aliases": [
+      "information retrieval",
+      "IR"
+    ],
+    "status": "常用",
+    "senses": [
+      {
+        "domain": "資訊檢索",
+        "definition": "從大量文件或資料項目中，依查詢與相關性排序找出可能有用結果的技術與系統領域。",
+        "context_triggers": [
+          "query",
+          "ranking",
+          "index"
+        ],
+        "context_required": false
+      }
+    ],
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://data.gov.tw/dataset/15275"
+    },
+    "trust_level": "ai_drafted"
+  }
+]

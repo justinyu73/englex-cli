@@ -1,0 +1,6108 @@
+{
+  "snapshot_sha256": "d8d65ba4097d45dd1c5d6b737fc942a1bd92d74d76ce6d6fb5348001b11b75bd",
+  "normalization": "Unicode NFKC, casefold, and ASCII/Unicode whitespace collapse on English labels",
+  "summary": {
+    "source_rows": 1532,
+    "unique_source_terms": 1495,
+    "duplicate_groups": 35,
+    "duplicate_rows": 37,
+    "canonical_matches": 4,
+    "alias_conflicts": 1,
+    "unmapped": 1455
+  },
+  "duplicate_terms": [
+    {
+      "term": "background",
+      "source_rows": [
+        47,
+        48
+      ]
+    },
+    {
+      "term": "block",
+      "source_rows": [
+        73,
+        74
+      ]
+    },
+    {
+      "term": "cell",
+      "source_rows": [
+        116,
+        117,
+        118
+      ]
+    },
+    {
+      "term": "computer instruction",
+      "source_rows": [
+        179,
+        180
+      ]
+    },
+    {
+      "term": "copy",
+      "source_rows": [
+        225,
+        226
+      ]
+    },
+    {
+      "term": "cursor",
+      "source_rows": [
+        237,
+        238
+      ]
+    },
+    {
+      "term": "error",
+      "source_rows": [
+        393,
+        394
+      ]
+    },
+    {
+      "term": "increment",
+      "source_rows": [
+        551,
+        552
+      ]
+    },
+    {
+      "term": "list",
+      "source_rows": [
+        671,
+        672
+      ]
+    },
+    {
+      "term": "map",
+      "source_rows": [
+        718,
+        719
+      ]
+    },
+    {
+      "term": "mask",
+      "source_rows": [
+        721,
+        722
+      ]
+    },
+    {
+      "term": "media",
+      "source_rows": [
+        732,
+        733
+      ]
+    },
+    {
+      "term": "monitor",
+      "source_rows": [
+        774,
+        775
+      ]
+    },
+    {
+      "term": "operation",
+      "source_rows": [
+        840,
+        841
+      ]
+    },
+    {
+      "term": "order",
+      "source_rows": [
+        860,
+        861
+      ]
+    },
+    {
+      "term": "parallel",
+      "source_rows": [
+        892,
+        893
+      ]
+    },
+    {
+      "term": "patch",
+      "source_rows": [
+        915,
+        916
+      ]
+    },
+    {
+      "term": "physical",
+      "source_rows": [
+        933,
+        934
+      ]
+    },
+    {
+      "term": "ping",
+      "source_rows": [
+        940,
+        941
+      ]
+    },
+    {
+      "term": "populate",
+      "source_rows": [
+        960,
+        961
+      ]
+    },
+    {
+      "term": "queue",
+      "source_rows": [
+        1028,
+        1029
+      ]
+    },
+    {
+      "term": "record",
+      "source_rows": [
+        1052,
+        1053
+      ]
+    },
+    {
+      "term": "redundacy",
+      "source_rows": [
+        1058,
+        1059
+      ]
+    },
+    {
+      "term": "registration",
+      "source_rows": [
+        1067,
+        1068
+      ]
+    },
+    {
+      "term": "release",
+      "source_rows": [
+        1075,
+        1076
+      ]
+    },
+    {
+      "term": "rlogin",
+      "source_rows": [
+        1130,
+        1131
+      ]
+    },
+    {
+      "term": "scale",
+      "source_rows": [
+        1156,
+        1157
+      ]
+    },
+    {
+      "term": "scene",
+      "source_rows": [
+        1163,
+        1164
+      ]
+    },
+    {
+      "term": "set",
+      "source_rows": [
+        1222,
+        1223
+      ]
+    },
+    {
+      "term": "signature",
+      "source_rows": [
+        1236,
+        1237
+      ]
+    },
+    {
+      "term": "space",
+      "source_rows": [
+        1273,
+        1274
+      ]
+    },
+    {
+      "term": "storage",
+      "source_rows": [
+        1311,
+        1312
+      ]
+    },
+    {
+      "term": "track",
+      "source_rows": [
+        1406,
+        1407,
+        1408
+      ]
+    },
+    {
+      "term": "type",
+      "source_rows": [
+        1437,
+        1438
+      ]
+    },
+    {
+      "term": "union",
+      "source_rows": [
+        1452,
+        1453
+      ]
+    }
+  ],
+  "canonical_matches": [
+    {
+      "term": "agent",
+      "existing_term": "agent"
+    },
+    {
+      "term": "gate",
+      "existing_term": "gate"
+    },
+    {
+      "term": "prompt",
+      "existing_term": "prompt"
+    },
+    {
+      "term": "rollback",
+      "existing_term": "rollback"
+    }
+  ],
+  "alias_conflicts": [
+    {
+      "term": "memory",
+      "existing_term": "agent memory"
+    }
+  ],
+  "new_terms": [
+    {
+      "source_row": 1,
+      "term": "(uncompressing); decompress"
+    },
+    {
+      "source_row": 2,
+      "term": "abort"
+    },
+    {
+      "source_row": 3,
+      "term": "accelerator"
+    },
+    {
+      "source_row": 4,
+      "term": "access"
+    },
+    {
+      "source_row": 5,
+      "term": "access path"
+    },
+    {
+      "source_row": 6,
+      "term": "access right"
+    },
+    {
+      "source_row": 7,
+      "term": "accountability"
+    },
+    {
+      "source_row": 8,
+      "term": "accumulator"
+    },
+    {
+      "source_row": 9,
+      "term": "acknowledgment"
+    },
+    {
+      "source_row": 10,
+      "term": "adapter; adaptor"
+    },
+    {
+      "source_row": 11,
+      "term": "address"
+    },
+    {
+      "source_row": 12,
+      "term": "address resolution protocol，ARP"
+    },
+    {
+      "source_row": 13,
+      "term": "addressing"
+    },
+    {
+      "source_row": 14,
+      "term": "affirmation"
+    },
+    {
+      "source_row": 16,
+      "term": "alarm"
+    },
+    {
+      "source_row": 17,
+      "term": "algorithm"
+    },
+    {
+      "source_row": 18,
+      "term": "alignment"
+    },
+    {
+      "source_row": 19,
+      "term": "allocation"
+    },
+    {
+      "source_row": 20,
+      "term": "alphabet"
+    },
+    {
+      "source_row": 21,
+      "term": "alphanumeric"
+    },
+    {
+      "source_row": 22,
+      "term": "analog data"
+    },
+    {
+      "source_row": 23,
+      "term": "analog-to-digital converter (ADC)"
+    },
+    {
+      "source_row": 24,
+      "term": "AND gate"
+    },
+    {
+      "source_row": 25,
+      "term": "animation"
+    },
+    {
+      "source_row": 26,
+      "term": "application software"
+    },
+    {
+      "source_row": 27,
+      "term": "arbitration"
+    },
+    {
+      "source_row": 28,
+      "term": "architecture"
+    },
+    {
+      "source_row": 29,
+      "term": "arithmetic and logic unit"
+    },
+    {
+      "source_row": 30,
+      "term": "arithmetic operator"
+    },
+    {
+      "source_row": 31,
+      "term": "array"
+    },
+    {
+      "source_row": 32,
+      "term": "artificial intelligence (AI)"
+    },
+    {
+      "source_row": 33,
+      "term": "ASCII character set"
+    },
+    {
+      "source_row": 34,
+      "term": "assembler"
+    },
+    {
+      "source_row": 35,
+      "term": "assignment"
+    },
+    {
+      "source_row": 36,
+      "term": "asynchronous"
+    },
+    {
+      "source_row": 37,
+      "term": "attribute"
+    },
+    {
+      "source_row": 38,
+      "term": "audio compression"
+    },
+    {
+      "source_row": 39,
+      "term": "audit"
+    },
+    {
+      "source_row": 40,
+      "term": "authentication"
+    },
+    {
+      "source_row": 41,
+      "term": "automated information system (AIS)"
+    },
+    {
+      "source_row": 42,
+      "term": "automated office"
+    },
+    {
+      "source_row": 43,
+      "term": "automated teller machine"
+    },
+    {
+      "source_row": 44,
+      "term": "automatic patching"
+    },
+    {
+      "source_row": 45,
+      "term": "auxiliary storage"
+    },
+    {
+      "source_row": 46,
+      "term": "availability"
+    },
+    {
+      "source_row": 49,
+      "term": "backup"
+    },
+    {
+      "source_row": 50,
+      "term": "backward recovery"
+    },
+    {
+      "source_row": 51,
+      "term": "bacterium"
+    },
+    {
+      "source_row": 52,
+      "term": "banner"
+    },
+    {
+      "source_row": 53,
+      "term": "bar code"
+    },
+    {
+      "source_row": 54,
+      "term": "baseline"
+    },
+    {
+      "source_row": 55,
+      "term": "batch processing"
+    },
+    {
+      "source_row": 56,
+      "term": "beacon"
+    },
+    {
+      "source_row": 57,
+      "term": "before image"
+    },
+    {
+      "source_row": 58,
+      "term": "benchmark"
+    },
+    {
+      "source_row": 59,
+      "term": "benign environment"
+    },
+    {
+      "source_row": 60,
+      "term": "beta test"
+    },
+    {
+      "source_row": 61,
+      "term": "bias"
+    },
+    {
+      "source_row": 62,
+      "term": "big endian"
+    },
+    {
+      "source_row": 63,
+      "term": "binary"
+    },
+    {
+      "source_row": 64,
+      "term": "bind"
+    },
+    {
+      "source_row": 65,
+      "term": "biometric"
+    },
+    {
+      "source_row": 66,
+      "term": "bipolar"
+    },
+    {
+      "source_row": 67,
+      "term": "bistable"
+    },
+    {
+      "source_row": 68,
+      "term": "bit"
+    },
+    {
+      "source_row": 69,
+      "term": "bit string"
+    },
+    {
+      "source_row": 70,
+      "term": "bitmap"
+    },
+    {
+      "source_row": 71,
+      "term": "black box testing"
+    },
+    {
+      "source_row": 72,
+      "term": "blink"
+    },
+    {
+      "source_row": 75,
+      "term": "block diagram"
+    },
+    {
+      "source_row": 76,
+      "term": "board"
+    },
+    {
+      "source_row": 77,
+      "term": "board computer"
+    },
+    {
+      "source_row": 78,
+      "term": "bomb"
+    },
+    {
+      "source_row": 79,
+      "term": "bombing"
+    },
+    {
+      "source_row": 80,
+      "term": "Boolean"
+    },
+    {
+      "source_row": 81,
+      "term": "Boolean operation"
+    },
+    {
+      "source_row": 82,
+      "term": "boot"
+    },
+    {
+      "source_row": 83,
+      "term": "bootstrap"
+    },
+    {
+      "source_row": 84,
+      "term": "border"
+    },
+    {
+      "source_row": 85,
+      "term": "bot"
+    },
+    {
+      "source_row": 86,
+      "term": "bottom-up"
+    },
+    {
+      "source_row": 87,
+      "term": "bounding box"
+    },
+    {
+      "source_row": 88,
+      "term": "branch"
+    },
+    {
+      "source_row": 89,
+      "term": "breach"
+    },
+    {
+      "source_row": 90,
+      "term": "break"
+    },
+    {
+      "source_row": 91,
+      "term": "breakpoint"
+    },
+    {
+      "source_row": 92,
+      "term": "browse"
+    },
+    {
+      "source_row": 93,
+      "term": "brute-force attack"
+    },
+    {
+      "source_row": 94,
+      "term": "buffer"
+    },
+    {
+      "source_row": 95,
+      "term": "bug"
+    },
+    {
+      "source_row": 96,
+      "term": "built-in"
+    },
+    {
+      "source_row": 97,
+      "term": "bulletin board"
+    },
+    {
+      "source_row": 98,
+      "term": "bulletin board system (BBS)"
+    },
+    {
+      "source_row": 99,
+      "term": "bus"
+    },
+    {
+      "source_row": 100,
+      "term": "bypass"
+    },
+    {
+      "source_row": 101,
+      "term": "byte"
+    },
+    {
+      "source_row": 102,
+      "term": "cache"
+    },
+    {
+      "source_row": 103,
+      "term": "calculator"
+    },
+    {
+      "source_row": 104,
+      "term": "calendar program"
+    },
+    {
+      "source_row": 105,
+      "term": "call"
+    },
+    {
+      "source_row": 106,
+      "term": "callback"
+    },
+    {
+      "source_row": 107,
+      "term": "CAM"
+    },
+    {
+      "source_row": 108,
+      "term": "campus wide information system"
+    },
+    {
+      "source_row": 109,
+      "term": "capture"
+    },
+    {
+      "source_row": 110,
+      "term": "card"
+    },
+    {
+      "source_row": 111,
+      "term": "card cage"
+    },
+    {
+      "source_row": 112,
+      "term": "cardinal number"
+    },
+    {
+      "source_row": 113,
+      "term": "carriage return"
+    },
+    {
+      "source_row": 114,
+      "term": "carry"
+    },
+    {
+      "source_row": 115,
+      "term": "case sensitivity"
+    },
+    {
+      "source_row": 119,
+      "term": "certificate"
+    },
+    {
+      "source_row": 120,
+      "term": "certification"
+    },
+    {
+      "source_row": 121,
+      "term": "chaining"
+    },
+    {
+      "source_row": 122,
+      "term": "change file"
+    },
+    {
+      "source_row": 123,
+      "term": "channel"
+    },
+    {
+      "source_row": 124,
+      "term": "character"
+    },
+    {
+      "source_row": 125,
+      "term": "character display device"
+    },
+    {
+      "source_row": 126,
+      "term": "character generator"
+    },
+    {
+      "source_row": 127,
+      "term": "character printer"
+    },
+    {
+      "source_row": 128,
+      "term": "character set"
+    },
+    {
+      "source_row": 129,
+      "term": "character string"
+    },
+    {
+      "source_row": 130,
+      "term": "check bit"
+    },
+    {
+      "source_row": 131,
+      "term": "checkout"
+    },
+    {
+      "source_row": 132,
+      "term": "checkpoint"
+    },
+    {
+      "source_row": 133,
+      "term": "checksum"
+    },
+    {
+      "source_row": 134,
+      "term": "chip"
+    },
+    {
+      "source_row": 135,
+      "term": "cipher"
+    },
+    {
+      "source_row": 136,
+      "term": "ciphertext"
+    },
+    {
+      "source_row": 137,
+      "term": "circuit board"
+    },
+    {
+      "source_row": 138,
+      "term": "clear"
+    },
+    {
+      "source_row": 139,
+      "term": "click"
+    },
+    {
+      "source_row": 140,
+      "term": "click rate"
+    },
+    {
+      "source_row": 141,
+      "term": "clickthrough"
+    },
+    {
+      "source_row": 142,
+      "term": "client"
+    },
+    {
+      "source_row": 143,
+      "term": "client-server"
+    },
+    {
+      "source_row": 144,
+      "term": "clipboard"
+    },
+    {
+      "source_row": 145,
+      "term": "clock rate"
+    },
+    {
+      "source_row": 146,
+      "term": "clone"
+    },
+    {
+      "source_row": 147,
+      "term": "closed system"
+    },
+    {
+      "source_row": 148,
+      "term": "cloud computing"
+    },
+    {
+      "source_row": 149,
+      "term": "code by section-position"
+    },
+    {
+      "source_row": 150,
+      "term": "code generator"
+    },
+    {
+      "source_row": 151,
+      "term": "codec"
+    },
+    {
+      "source_row": 152,
+      "term": "coded set"
+    },
+    {
+      "source_row": 153,
+      "term": "collision"
+    },
+    {
+      "source_row": 154,
+      "term": "color map"
+    },
+    {
+      "source_row": 155,
+      "term": "color monitor"
+    },
+    {
+      "source_row": 156,
+      "term": "color printer"
+    },
+    {
+      "source_row": 157,
+      "term": "color scanner"
+    },
+    {
+      "source_row": 158,
+      "term": "command"
+    },
+    {
+      "source_row": 159,
+      "term": "compact"
+    },
+    {
+      "source_row": 160,
+      "term": "compact disc"
+    },
+    {
+      "source_row": 161,
+      "term": "compact disk; CD"
+    },
+    {
+      "source_row": 162,
+      "term": "comparator"
+    },
+    {
+      "source_row": 163,
+      "term": "compartmentalization"
+    },
+    {
+      "source_row": 164,
+      "term": "compatibility"
+    },
+    {
+      "source_row": 165,
+      "term": "compilation"
+    },
+    {
+      "source_row": 166,
+      "term": "compiler"
+    },
+    {
+      "source_row": 167,
+      "term": "complement"
+    },
+    {
+      "source_row": 168,
+      "term": "complexity"
+    },
+    {
+      "source_row": 169,
+      "term": "compromise"
+    },
+    {
+      "source_row": 170,
+      "term": "computer"
+    },
+    {
+      "source_row": 171,
+      "term": "computer aided design and manufacturing，CAD/CAM"
+    },
+    {
+      "source_row": 172,
+      "term": "computer art"
+    },
+    {
+      "source_row": 173,
+      "term": "computer center"
+    },
+    {
+      "source_row": 174,
+      "term": "computer crime"
+    },
+    {
+      "source_row": 175,
+      "term": "computer fraud"
+    },
+    {
+      "source_row": 176,
+      "term": "computer game"
+    },
+    {
+      "source_row": 177,
+      "term": "computer generation"
+    },
+    {
+      "source_row": 178,
+      "term": "computer graphics"
+    },
+    {
+      "source_row": 181,
+      "term": "computer integrated manufacturing，CIM"
+    },
+    {
+      "source_row": 182,
+      "term": "computer Intrusion"
+    },
+    {
+      "source_row": 183,
+      "term": "computer language"
+    },
+    {
+      "source_row": 184,
+      "term": "computer network"
+    },
+    {
+      "source_row": 185,
+      "term": "computer program"
+    },
+    {
+      "source_row": 186,
+      "term": "computer security (COMPUSEC)"
+    },
+    {
+      "source_row": 187,
+      "term": "computer simulation"
+    },
+    {
+      "source_row": 188,
+      "term": "computer system"
+    },
+    {
+      "source_row": 189,
+      "term": "computer typesetting"
+    },
+    {
+      "source_row": 190,
+      "term": "computer vision"
+    },
+    {
+      "source_row": 191,
+      "term": "computer word"
+    },
+    {
+      "source_row": 192,
+      "term": "concatenate"
+    },
+    {
+      "source_row": 193,
+      "term": "concept description"
+    },
+    {
+      "source_row": 194,
+      "term": "concept formation"
+    },
+    {
+      "source_row": 195,
+      "term": "concept generalization"
+    },
+    {
+      "source_row": 196,
+      "term": "concurrent execution"
+    },
+    {
+      "source_row": 197,
+      "term": "concurrent processes"
+    },
+    {
+      "source_row": 198,
+      "term": "conditional statement"
+    },
+    {
+      "source_row": 199,
+      "term": "configuration management (CM)"
+    },
+    {
+      "source_row": 200,
+      "term": "congestion"
+    },
+    {
+      "source_row": 201,
+      "term": "connectability"
+    },
+    {
+      "source_row": 202,
+      "term": "connection"
+    },
+    {
+      "source_row": 203,
+      "term": "connectivity"
+    },
+    {
+      "source_row": 204,
+      "term": "connector"
+    },
+    {
+      "source_row": 205,
+      "term": "consistency"
+    },
+    {
+      "source_row": 206,
+      "term": "console; CON"
+    },
+    {
+      "source_row": 207,
+      "term": "constant"
+    },
+    {
+      "source_row": 208,
+      "term": "constraint"
+    },
+    {
+      "source_row": 209,
+      "term": "container"
+    },
+    {
+      "source_row": 210,
+      "term": "content provider"
+    },
+    {
+      "source_row": 211,
+      "term": "context"
+    },
+    {
+      "source_row": 212,
+      "term": "contextual search"
+    },
+    {
+      "source_row": 213,
+      "term": "contingency procedure"
+    },
+    {
+      "source_row": 214,
+      "term": "continuous forms"
+    },
+    {
+      "source_row": 215,
+      "term": "contraction"
+    },
+    {
+      "source_row": 216,
+      "term": "contrast"
+    },
+    {
+      "source_row": 217,
+      "term": "control"
+    },
+    {
+      "source_row": 218,
+      "term": "control character"
+    },
+    {
+      "source_row": 219,
+      "term": "control panel"
+    },
+    {
+      "source_row": 220,
+      "term": "controller"
+    },
+    {
+      "source_row": 221,
+      "term": "convention"
+    },
+    {
+      "source_row": 222,
+      "term": "conversational"
+    },
+    {
+      "source_row": 223,
+      "term": "conversion"
+    },
+    {
+      "source_row": 224,
+      "term": "converter"
+    },
+    {
+      "source_row": 227,
+      "term": "counter"
+    },
+    {
+      "source_row": 228,
+      "term": "courseware"
+    },
+    {
+      "source_row": 229,
+      "term": "CPU"
+    },
+    {
+      "source_row": 230,
+      "term": "crash"
+    },
+    {
+      "source_row": 231,
+      "term": "credentials"
+    },
+    {
+      "source_row": 232,
+      "term": "critical error"
+    },
+    {
+      "source_row": 233,
+      "term": "critical path"
+    },
+    {
+      "source_row": 234,
+      "term": "cryptoanalysis"
+    },
+    {
+      "source_row": 235,
+      "term": "cryptography"
+    },
+    {
+      "source_row": 236,
+      "term": "cryptology"
+    },
+    {
+      "source_row": 239,
+      "term": "custom software"
+    },
+    {
+      "source_row": 240,
+      "term": "customize"
+    },
+    {
+      "source_row": 241,
+      "term": "cut and paste"
+    },
+    {
+      "source_row": 242,
+      "term": "cyberspace"
+    },
+    {
+      "source_row": 243,
+      "term": "cybersquatter"
+    },
+    {
+      "source_row": 244,
+      "term": "cycle"
+    },
+    {
+      "source_row": 245,
+      "term": "cylinder"
+    },
+    {
+      "source_row": 246,
+      "term": "daemon"
+    },
+    {
+      "source_row": 247,
+      "term": "data"
+    },
+    {
+      "source_row": 248,
+      "term": "data acquisition"
+    },
+    {
+      "source_row": 249,
+      "term": "data administration"
+    },
+    {
+      "source_row": 250,
+      "term": "data administrator (DA)"
+    },
+    {
+      "source_row": 251,
+      "term": "data bus"
+    },
+    {
+      "source_row": 252,
+      "term": "data circuit"
+    },
+    {
+      "source_row": 253,
+      "term": "data collection"
+    },
+    {
+      "source_row": 254,
+      "term": "data communication"
+    },
+    {
+      "source_row": 255,
+      "term": "data compression"
+    },
+    {
+      "source_row": 256,
+      "term": "data concentrator"
+    },
+    {
+      "source_row": 257,
+      "term": "data dictionary"
+    },
+    {
+      "source_row": 258,
+      "term": "data directory"
+    },
+    {
+      "source_row": 259,
+      "term": "data element"
+    },
+    {
+      "source_row": 260,
+      "term": "data encapsulation"
+    },
+    {
+      "source_row": 261,
+      "term": "data encryption"
+    },
+    {
+      "source_row": 262,
+      "term": "data entry"
+    },
+    {
+      "source_row": 263,
+      "term": "data file"
+    },
+    {
+      "source_row": 264,
+      "term": "data flow"
+    },
+    {
+      "source_row": 265,
+      "term": "data flow diagram"
+    },
+    {
+      "source_row": 266,
+      "term": "data format"
+    },
+    {
+      "source_row": 267,
+      "term": "data link"
+    },
+    {
+      "source_row": 268,
+      "term": "data management"
+    },
+    {
+      "source_row": 269,
+      "term": "data mining"
+    },
+    {
+      "source_row": 270,
+      "term": "data model"
+    },
+    {
+      "source_row": 271,
+      "term": "data network"
+    },
+    {
+      "source_row": 272,
+      "term": "data processing (DP)"
+    },
+    {
+      "source_row": 273,
+      "term": "data protection"
+    },
+    {
+      "source_row": 274,
+      "term": "data rate"
+    },
+    {
+      "source_row": 275,
+      "term": "data sharing"
+    },
+    {
+      "source_row": 276,
+      "term": "data station"
+    },
+    {
+      "source_row": 277,
+      "term": "data structure"
+    },
+    {
+      "source_row": 278,
+      "term": "data switching exchange (DSE)"
+    },
+    {
+      "source_row": 279,
+      "term": "data terminal equipment (DTE)"
+    },
+    {
+      "source_row": 280,
+      "term": "data type"
+    },
+    {
+      "source_row": 281,
+      "term": "data warehouse"
+    },
+    {
+      "source_row": 282,
+      "term": "database"
+    },
+    {
+      "source_row": 283,
+      "term": "database language"
+    },
+    {
+      "source_row": 284,
+      "term": "database management system (DBMS)"
+    },
+    {
+      "source_row": 285,
+      "term": "date and time stamp"
+    },
+    {
+      "source_row": 286,
+      "term": "de facto standard"
+    },
+    {
+      "source_row": 287,
+      "term": "deadlock"
+    },
+    {
+      "source_row": 288,
+      "term": "debug"
+    },
+    {
+      "source_row": 289,
+      "term": "debugger"
+    },
+    {
+      "source_row": 290,
+      "term": "decipher"
+    },
+    {
+      "source_row": 291,
+      "term": "declaration"
+    },
+    {
+      "source_row": 292,
+      "term": "decode"
+    },
+    {
+      "source_row": 293,
+      "term": "decryption"
+    },
+    {
+      "source_row": 294,
+      "term": "default"
+    },
+    {
+      "source_row": 295,
+      "term": "deference"
+    },
+    {
+      "source_row": 296,
+      "term": "definition"
+    },
+    {
+      "source_row": 297,
+      "term": "delete"
+    },
+    {
+      "source_row": 298,
+      "term": "delimiter"
+    },
+    {
+      "source_row": 299,
+      "term": "demonstration"
+    },
+    {
+      "source_row": 300,
+      "term": "descriptor"
+    },
+    {
+      "source_row": 301,
+      "term": "desktop"
+    },
+    {
+      "source_row": 302,
+      "term": "desktop computer"
+    },
+    {
+      "source_row": 303,
+      "term": "destination"
+    },
+    {
+      "source_row": 304,
+      "term": "detection"
+    },
+    {
+      "source_row": 305,
+      "term": "developer"
+    },
+    {
+      "source_row": 306,
+      "term": "deviation"
+    },
+    {
+      "source_row": 307,
+      "term": "device"
+    },
+    {
+      "source_row": 308,
+      "term": "diagnostic program"
+    },
+    {
+      "source_row": 309,
+      "term": "diagram"
+    },
+    {
+      "source_row": 310,
+      "term": "dialog"
+    },
+    {
+      "source_row": 311,
+      "term": "dialog box"
+    },
+    {
+      "source_row": 312,
+      "term": "dictionary attack"
+    },
+    {
+      "source_row": 313,
+      "term": "digital"
+    },
+    {
+      "source_row": 314,
+      "term": "digital computer"
+    },
+    {
+      "source_row": 315,
+      "term": "digital video disc (DVD)"
+    },
+    {
+      "source_row": 316,
+      "term": "digital watermark"
+    },
+    {
+      "source_row": 317,
+      "term": "digitizer"
+    },
+    {
+      "source_row": 318,
+      "term": "direct access"
+    },
+    {
+      "source_row": 319,
+      "term": "direct access storage"
+    },
+    {
+      "source_row": 320,
+      "term": "direct address"
+    },
+    {
+      "source_row": 321,
+      "term": "directed graph；digraph"
+    },
+    {
+      "source_row": 322,
+      "term": "disassemble"
+    },
+    {
+      "source_row": 323,
+      "term": "disc"
+    },
+    {
+      "source_row": 324,
+      "term": "disclosure"
+    },
+    {
+      "source_row": 325,
+      "term": "discrete data"
+    },
+    {
+      "source_row": 326,
+      "term": "discrete signal"
+    },
+    {
+      "source_row": 327,
+      "term": "disk"
+    },
+    {
+      "source_row": 328,
+      "term": "display"
+    },
+    {
+      "source_row": 329,
+      "term": "display device"
+    },
+    {
+      "source_row": 330,
+      "term": "display screen"
+    },
+    {
+      "source_row": 331,
+      "term": "distance learning"
+    },
+    {
+      "source_row": 332,
+      "term": "distributed database"
+    },
+    {
+      "source_row": 333,
+      "term": "distributed processing"
+    },
+    {
+      "source_row": 334,
+      "term": "distribution group"
+    },
+    {
+      "source_row": 335,
+      "term": "dock"
+    },
+    {
+      "source_row": 336,
+      "term": "document"
+    },
+    {
+      "source_row": 337,
+      "term": "domain model"
+    },
+    {
+      "source_row": 338,
+      "term": "domain name"
+    },
+    {
+      "source_row": 339,
+      "term": "domain slamming"
+    },
+    {
+      "source_row": 340,
+      "term": "dongle"
+    },
+    {
+      "source_row": 341,
+      "term": "dopant"
+    },
+    {
+      "source_row": 342,
+      "term": "DOS"
+    },
+    {
+      "source_row": 343,
+      "term": "dot-matrix printer"
+    },
+    {
+      "source_row": 344,
+      "term": "double precision"
+    },
+    {
+      "source_row": 345,
+      "term": "double-click"
+    },
+    {
+      "source_row": 346,
+      "term": "down time"
+    },
+    {
+      "source_row": 347,
+      "term": "download"
+    },
+    {
+      "source_row": 348,
+      "term": "downstream"
+    },
+    {
+      "source_row": 349,
+      "term": "downward compatibility"
+    },
+    {
+      "source_row": 350,
+      "term": "drag"
+    },
+    {
+      "source_row": 351,
+      "term": "drag and drop"
+    },
+    {
+      "source_row": 352,
+      "term": "drop-dead halt"
+    },
+    {
+      "source_row": 353,
+      "term": "dummy"
+    },
+    {
+      "source_row": 354,
+      "term": "dummy instruction"
+    },
+    {
+      "source_row": 355,
+      "term": "dump"
+    },
+    {
+      "source_row": 356,
+      "term": "duplex printer"
+    },
+    {
+      "source_row": 357,
+      "term": "dynamic allocation"
+    },
+    {
+      "source_row": 358,
+      "term": "e-business"
+    },
+    {
+      "source_row": 359,
+      "term": "e-commerce"
+    },
+    {
+      "source_row": 360,
+      "term": "e-currency"
+    },
+    {
+      "source_row": 361,
+      "term": "e-govemment affairs"
+    },
+    {
+      "source_row": 362,
+      "term": "e-zine"
+    },
+    {
+      "source_row": 363,
+      "term": "e-zine；electronic magazine"
+    },
+    {
+      "source_row": 364,
+      "term": "edit"
+    },
+    {
+      "source_row": 365,
+      "term": "editor"
+    },
+    {
+      "source_row": 366,
+      "term": "electronic cash"
+    },
+    {
+      "source_row": 367,
+      "term": "electronic document interchange (EDI)"
+    },
+    {
+      "source_row": 368,
+      "term": "electronic form"
+    },
+    {
+      "source_row": 369,
+      "term": "electronic funds transfer ；EFT"
+    },
+    {
+      "source_row": 370,
+      "term": "electronic paper"
+    },
+    {
+      "source_row": 371,
+      "term": "electronic publishing"
+    },
+    {
+      "source_row": 372,
+      "term": "electronic wallet；wallet"
+    },
+    {
+      "source_row": 373,
+      "term": "embedded"
+    },
+    {
+      "source_row": 374,
+      "term": "emoticons"
+    },
+    {
+      "source_row": 375,
+      "term": "empty medium"
+    },
+    {
+      "source_row": 376,
+      "term": "emulation"
+    },
+    {
+      "source_row": 377,
+      "term": "enable"
+    },
+    {
+      "source_row": 378,
+      "term": "encode"
+    },
+    {
+      "source_row": 379,
+      "term": "encoder"
+    },
+    {
+      "source_row": 380,
+      "term": "encrypt"
+    },
+    {
+      "source_row": 381,
+      "term": "end to end encryption"
+    },
+    {
+      "source_row": 382,
+      "term": "engine"
+    },
+    {
+      "source_row": 383,
+      "term": "enterprise network"
+    },
+    {
+      "source_row": 384,
+      "term": "entity"
+    },
+    {
+      "source_row": 385,
+      "term": "entrance"
+    },
+    {
+      "source_row": 386,
+      "term": "entrapment"
+    },
+    {
+      "source_row": 387,
+      "term": "envelope"
+    },
+    {
+      "source_row": 388,
+      "term": "environment"
+    },
+    {
+      "source_row": 389,
+      "term": "equivalence"
+    },
+    {
+      "source_row": 390,
+      "term": "equivalence gate"
+    },
+    {
+      "source_row": 391,
+      "term": "erasable storage"
+    },
+    {
+      "source_row": 392,
+      "term": "erase"
+    },
+    {
+      "source_row": 395,
+      "term": "error rate"
+    },
+    {
+      "source_row": 396,
+      "term": "error ratio"
+    },
+    {
+      "source_row": 397,
+      "term": "escape character (ESC)"
+    },
+    {
+      "source_row": 398,
+      "term": "exception"
+    },
+    {
+      "source_row": 399,
+      "term": "EXCLUSIVE-OR gate"
+    },
+    {
+      "source_row": 400,
+      "term": "EXCLUSIVE-OR operation"
+    },
+    {
+      "source_row": 401,
+      "term": "execution"
+    },
+    {
+      "source_row": 402,
+      "term": "exhaustive attack"
+    },
+    {
+      "source_row": 403,
+      "term": "exit"
+    },
+    {
+      "source_row": 404,
+      "term": "expand"
+    },
+    {
+      "source_row": 405,
+      "term": "expansion board"
+    },
+    {
+      "source_row": 406,
+      "term": "expert system"
+    },
+    {
+      "source_row": 407,
+      "term": "explosion-proof"
+    },
+    {
+      "source_row": 408,
+      "term": "export/import"
+    },
+    {
+      "source_row": 409,
+      "term": "exposure"
+    },
+    {
+      "source_row": 410,
+      "term": "expression"
+    },
+    {
+      "source_row": 411,
+      "term": "extend"
+    },
+    {
+      "source_row": 412,
+      "term": "extendability"
+    },
+    {
+      "source_row": 413,
+      "term": "extract"
+    },
+    {
+      "source_row": 414,
+      "term": "fact"
+    },
+    {
+      "source_row": 415,
+      "term": "failsafe"
+    },
+    {
+      "source_row": 416,
+      "term": "failsoft"
+    },
+    {
+      "source_row": 417,
+      "term": "failure recovery"
+    },
+    {
+      "source_row": 418,
+      "term": "fan-in"
+    },
+    {
+      "source_row": 419,
+      "term": "fan-out"
+    },
+    {
+      "source_row": 420,
+      "term": "fault tolerance"
+    },
+    {
+      "source_row": 421,
+      "term": "feasibility"
+    },
+    {
+      "source_row": 422,
+      "term": "feature"
+    },
+    {
+      "source_row": 423,
+      "term": "field"
+    },
+    {
+      "source_row": 424,
+      "term": "FIFO"
+    },
+    {
+      "source_row": 425,
+      "term": "fifth generation language"
+    },
+    {
+      "source_row": 426,
+      "term": "file"
+    },
+    {
+      "source_row": 427,
+      "term": "file allocation table"
+    },
+    {
+      "source_row": 428,
+      "term": "file management system"
+    },
+    {
+      "source_row": 429,
+      "term": "fill"
+    },
+    {
+      "source_row": 430,
+      "term": "filler"
+    },
+    {
+      "source_row": 431,
+      "term": "filter"
+    },
+    {
+      "source_row": 432,
+      "term": "find"
+    },
+    {
+      "source_row": 433,
+      "term": "fingerprint"
+    },
+    {
+      "source_row": 434,
+      "term": "fingerprint recognition"
+    },
+    {
+      "source_row": 435,
+      "term": "firmware"
+    },
+    {
+      "source_row": 436,
+      "term": "first generation language"
+    },
+    {
+      "source_row": 437,
+      "term": "first in first out"
+    },
+    {
+      "source_row": 438,
+      "term": "fixed point arithmetic"
+    },
+    {
+      "source_row": 439,
+      "term": "flash card"
+    },
+    {
+      "source_row": 440,
+      "term": "flash memory"
+    },
+    {
+      "source_row": 441,
+      "term": "flat file"
+    },
+    {
+      "source_row": 442,
+      "term": "flaw"
+    },
+    {
+      "source_row": 443,
+      "term": "floating-point number"
+    },
+    {
+      "source_row": 444,
+      "term": "flowchart"
+    },
+    {
+      "source_row": 445,
+      "term": "foreground"
+    },
+    {
+      "source_row": 446,
+      "term": "foreground image"
+    },
+    {
+      "source_row": 447,
+      "term": "foreground processing"
+    },
+    {
+      "source_row": 448,
+      "term": "fork"
+    },
+    {
+      "source_row": 449,
+      "term": "form factor"
+    },
+    {
+      "source_row": 450,
+      "term": "formal logic"
+    },
+    {
+      "source_row": 451,
+      "term": "format"
+    },
+    {
+      "source_row": 452,
+      "term": "format effector"
+    },
+    {
+      "source_row": 453,
+      "term": "formatting"
+    },
+    {
+      "source_row": 454,
+      "term": "fourth generation language"
+    },
+    {
+      "source_row": 455,
+      "term": "fragmentation"
+    },
+    {
+      "source_row": 456,
+      "term": "frame"
+    },
+    {
+      "source_row": 457,
+      "term": "frame rate"
+    },
+    {
+      "source_row": 458,
+      "term": "frame relay"
+    },
+    {
+      "source_row": 459,
+      "term": "framework"
+    },
+    {
+      "source_row": 460,
+      "term": "frequently asked questions(FAQ)"
+    },
+    {
+      "source_row": 461,
+      "term": "front-end processor(FEP)"
+    },
+    {
+      "source_row": 462,
+      "term": "FTP"
+    },
+    {
+      "source_row": 463,
+      "term": "full adder"
+    },
+    {
+      "source_row": 464,
+      "term": "full subtracter"
+    },
+    {
+      "source_row": 465,
+      "term": "function"
+    },
+    {
+      "source_row": 466,
+      "term": "function call"
+    },
+    {
+      "source_row": 467,
+      "term": "function library"
+    },
+    {
+      "source_row": 468,
+      "term": "functional design"
+    },
+    {
+      "source_row": 469,
+      "term": "fuzzy computing"
+    },
+    {
+      "source_row": 470,
+      "term": "fuzzy logic"
+    },
+    {
+      "source_row": 472,
+      "term": "gate array"
+    },
+    {
+      "source_row": 473,
+      "term": "general-purpose computer"
+    },
+    {
+      "source_row": 474,
+      "term": "generalization"
+    },
+    {
+      "source_row": 475,
+      "term": "generator"
+    },
+    {
+      "source_row": 476,
+      "term": "genetic programming"
+    },
+    {
+      "source_row": 477,
+      "term": "gestural input"
+    },
+    {
+      "source_row": 478,
+      "term": "ghost"
+    },
+    {
+      "source_row": 479,
+      "term": "glass-box testing"
+    },
+    {
+      "source_row": 480,
+      "term": "global search and replace"
+    },
+    {
+      "source_row": 481,
+      "term": "glove input"
+    },
+    {
+      "source_row": 482,
+      "term": "grammar"
+    },
+    {
+      "source_row": 483,
+      "term": "graph"
+    },
+    {
+      "source_row": 484,
+      "term": "graphic character"
+    },
+    {
+      "source_row": 485,
+      "term": "graphics card"
+    },
+    {
+      "source_row": 486,
+      "term": "graphics terminal"
+    },
+    {
+      "source_row": 487,
+      "term": "gray level"
+    },
+    {
+      "source_row": 488,
+      "term": "grid computing"
+    },
+    {
+      "source_row": 489,
+      "term": "grid technology"
+    },
+    {
+      "source_row": 490,
+      "term": "gridline"
+    },
+    {
+      "source_row": 491,
+      "term": "groupware"
+    },
+    {
+      "source_row": 492,
+      "term": "guard"
+    },
+    {
+      "source_row": 493,
+      "term": "GUI"
+    },
+    {
+      "source_row": 494,
+      "term": "half adder"
+    },
+    {
+      "source_row": 495,
+      "term": "half subtracter"
+    },
+    {
+      "source_row": 496,
+      "term": "halt instruction"
+    },
+    {
+      "source_row": 497,
+      "term": "handle"
+    },
+    {
+      "source_row": 498,
+      "term": "handshaking"
+    },
+    {
+      "source_row": 499,
+      "term": "Hanzi"
+    },
+    {
+      "source_row": 500,
+      "term": "Hanzi input"
+    },
+    {
+      "source_row": 501,
+      "term": "Hanzi output"
+    },
+    {
+      "source_row": 502,
+      "term": "Hanzi recognition"
+    },
+    {
+      "source_row": 503,
+      "term": "haptic display"
+    },
+    {
+      "source_row": 504,
+      "term": "hard"
+    },
+    {
+      "source_row": 505,
+      "term": "hard copy"
+    },
+    {
+      "source_row": 506,
+      "term": "hard disk"
+    },
+    {
+      "source_row": 507,
+      "term": "hard disk drive(HDD)"
+    },
+    {
+      "source_row": 508,
+      "term": "hard error"
+    },
+    {
+      "source_row": 509,
+      "term": "hardware"
+    },
+    {
+      "source_row": 510,
+      "term": "head"
+    },
+    {
+      "source_row": 511,
+      "term": "head mounted display"
+    },
+    {
+      "source_row": 512,
+      "term": "header"
+    },
+    {
+      "source_row": 513,
+      "term": "heap"
+    },
+    {
+      "source_row": 514,
+      "term": "help desk"
+    },
+    {
+      "source_row": 515,
+      "term": "heuristic method"
+    },
+    {
+      "source_row": 516,
+      "term": "hexadecimal"
+    },
+    {
+      "source_row": 517,
+      "term": "hide"
+    },
+    {
+      "source_row": 518,
+      "term": "hierarchical"
+    },
+    {
+      "source_row": 519,
+      "term": "high byte"
+    },
+    {
+      "source_row": 520,
+      "term": "high end"
+    },
+    {
+      "source_row": 521,
+      "term": "high-level language"
+    },
+    {
+      "source_row": 522,
+      "term": "hop"
+    },
+    {
+      "source_row": 523,
+      "term": "host computer"
+    },
+    {
+      "source_row": 524,
+      "term": "housekeeping"
+    },
+    {
+      "source_row": 525,
+      "term": "HTML; Hypertext Markup Language"
+    },
+    {
+      "source_row": 526,
+      "term": "hue"
+    },
+    {
+      "source_row": 527,
+      "term": "human machine interface"
+    },
+    {
+      "source_row": 528,
+      "term": "hybrid computer"
+    },
+    {
+      "source_row": 529,
+      "term": "hyperlink"
+    },
+    {
+      "source_row": 530,
+      "term": "hypermedia"
+    },
+    {
+      "source_row": 531,
+      "term": "hypertext"
+    },
+    {
+      "source_row": 532,
+      "term": "I/O; input/output"
+    },
+    {
+      "source_row": 533,
+      "term": "icon"
+    },
+    {
+      "source_row": 534,
+      "term": "identifier"
+    },
+    {
+      "source_row": 535,
+      "term": "identity gate"
+    },
+    {
+      "source_row": 536,
+      "term": "ideogram"
+    },
+    {
+      "source_row": 537,
+      "term": "idle"
+    },
+    {
+      "source_row": 538,
+      "term": "if then rule"
+    },
+    {
+      "source_row": 539,
+      "term": "IF-AND-ONLY-IF gate"
+    },
+    {
+      "source_row": 540,
+      "term": "IF-THEN gate"
+    },
+    {
+      "source_row": 541,
+      "term": "illegal"
+    },
+    {
+      "source_row": 542,
+      "term": "image"
+    },
+    {
+      "source_row": 543,
+      "term": "image interpretation"
+    },
+    {
+      "source_row": 544,
+      "term": "image processing"
+    },
+    {
+      "source_row": 545,
+      "term": "imaging"
+    },
+    {
+      "source_row": 546,
+      "term": "implementation"
+    },
+    {
+      "source_row": 547,
+      "term": "implication"
+    },
+    {
+      "source_row": 548,
+      "term": "implicit addressing"
+    },
+    {
+      "source_row": 549,
+      "term": "inclusion"
+    },
+    {
+      "source_row": 550,
+      "term": "INCLUSIVE-OR gate"
+    },
+    {
+      "source_row": 553,
+      "term": "index"
+    },
+    {
+      "source_row": 554,
+      "term": "index register"
+    },
+    {
+      "source_row": 555,
+      "term": "indicator"
+    },
+    {
+      "source_row": 556,
+      "term": "indirect address"
+    },
+    {
+      "source_row": 557,
+      "term": "indirect instruction"
+    },
+    {
+      "source_row": 558,
+      "term": "infection"
+    },
+    {
+      "source_row": 559,
+      "term": "information"
+    },
+    {
+      "source_row": 560,
+      "term": "information base"
+    },
+    {
+      "source_row": 561,
+      "term": "information center"
+    },
+    {
+      "source_row": 562,
+      "term": "information explosion"
+    },
+    {
+      "source_row": 563,
+      "term": "information object"
+    },
+    {
+      "source_row": 564,
+      "term": "information processing"
+    },
+    {
+      "source_row": 565,
+      "term": "information provider"
+    },
+    {
+      "source_row": 566,
+      "term": "information resource"
+    },
+    {
+      "source_row": 567,
+      "term": "information retrieval(IR)"
+    },
+    {
+      "source_row": 568,
+      "term": "information security"
+    },
+    {
+      "source_row": 569,
+      "term": "information sink"
+    },
+    {
+      "source_row": 570,
+      "term": "information source"
+    },
+    {
+      "source_row": 571,
+      "term": "information system"
+    },
+    {
+      "source_row": 572,
+      "term": "information technology; IT"
+    },
+    {
+      "source_row": 573,
+      "term": "information warehouse"
+    },
+    {
+      "source_row": 574,
+      "term": "information warfare"
+    },
+    {
+      "source_row": 575,
+      "term": "inhibit"
+    },
+    {
+      "source_row": 576,
+      "term": "initial state"
+    },
+    {
+      "source_row": 577,
+      "term": "initialization"
+    },
+    {
+      "source_row": 578,
+      "term": "inkjet printer"
+    },
+    {
+      "source_row": 579,
+      "term": "inline"
+    },
+    {
+      "source_row": 580,
+      "term": "inoculate"
+    },
+    {
+      "source_row": 581,
+      "term": "input"
+    },
+    {
+      "source_row": 582,
+      "term": "input buffer"
+    },
+    {
+      "source_row": 583,
+      "term": "input data"
+    },
+    {
+      "source_row": 584,
+      "term": "input unit"
+    },
+    {
+      "source_row": 585,
+      "term": "input/output"
+    },
+    {
+      "source_row": 586,
+      "term": "input/output bus"
+    },
+    {
+      "source_row": 587,
+      "term": "input/output channel"
+    },
+    {
+      "source_row": 588,
+      "term": "input/output unit"
+    },
+    {
+      "source_row": 589,
+      "term": "inquiry"
+    },
+    {
+      "source_row": 590,
+      "term": "insert"
+    },
+    {
+      "source_row": 591,
+      "term": "inspection"
+    },
+    {
+      "source_row": 592,
+      "term": "install"
+    },
+    {
+      "source_row": 593,
+      "term": "instance"
+    },
+    {
+      "source_row": 594,
+      "term": "instantiation"
+    },
+    {
+      "source_row": 595,
+      "term": "instruction"
+    },
+    {
+      "source_row": 596,
+      "term": "instruction code"
+    },
+    {
+      "source_row": 597,
+      "term": "instruction set"
+    },
+    {
+      "source_row": 598,
+      "term": "integer type"
+    },
+    {
+      "source_row": 599,
+      "term": "integrated circuit ; IC"
+    },
+    {
+      "source_row": 600,
+      "term": "integrated software"
+    },
+    {
+      "source_row": 601,
+      "term": "intelligence"
+    },
+    {
+      "source_row": 602,
+      "term": "intelligent database"
+    },
+    {
+      "source_row": 603,
+      "term": "intelligent terminal"
+    },
+    {
+      "source_row": 604,
+      "term": "interaction"
+    },
+    {
+      "source_row": 605,
+      "term": "interactive mode"
+    },
+    {
+      "source_row": 606,
+      "term": "interconnectivity"
+    },
+    {
+      "source_row": 607,
+      "term": "interface"
+    },
+    {
+      "source_row": 608,
+      "term": "interlock"
+    },
+    {
+      "source_row": 609,
+      "term": "intermediate equipment"
+    },
+    {
+      "source_row": 610,
+      "term": "intermediate node"
+    },
+    {
+      "source_row": 611,
+      "term": "intermittent error"
+    },
+    {
+      "source_row": 612,
+      "term": "Internet of Things； the"
+    },
+    {
+      "source_row": 613,
+      "term": "interoperability"
+    },
+    {
+      "source_row": 614,
+      "term": "interpret"
+    },
+    {
+      "source_row": 615,
+      "term": "interpreter"
+    },
+    {
+      "source_row": 616,
+      "term": "interrogating"
+    },
+    {
+      "source_row": 617,
+      "term": "interrupt"
+    },
+    {
+      "source_row": 618,
+      "term": "intruder"
+    },
+    {
+      "source_row": 619,
+      "term": "invoke"
+    },
+    {
+      "source_row": 620,
+      "term": "iteration"
+    },
+    {
+      "source_row": 621,
+      "term": "jitter"
+    },
+    {
+      "source_row": 622,
+      "term": "job"
+    },
+    {
+      "source_row": 623,
+      "term": "job processing"
+    },
+    {
+      "source_row": 624,
+      "term": "job queue"
+    },
+    {
+      "source_row": 625,
+      "term": "join"
+    },
+    {
+      "source_row": 626,
+      "term": "journal"
+    },
+    {
+      "source_row": 627,
+      "term": "joystick"
+    },
+    {
+      "source_row": 628,
+      "term": "JPEG"
+    },
+    {
+      "source_row": 629,
+      "term": "jump"
+    },
+    {
+      "source_row": 630,
+      "term": "jump instruction"
+    },
+    {
+      "source_row": 631,
+      "term": "k"
+    },
+    {
+      "source_row": 632,
+      "term": "Kalman filter"
+    },
+    {
+      "source_row": 633,
+      "term": "kernel"
+    },
+    {
+      "source_row": 634,
+      "term": "key"
+    },
+    {
+      "source_row": 635,
+      "term": "keyboard"
+    },
+    {
+      "source_row": 636,
+      "term": "keyboard layout"
+    },
+    {
+      "source_row": 637,
+      "term": "keypad"
+    },
+    {
+      "source_row": 638,
+      "term": "keyword"
+    },
+    {
+      "source_row": 639,
+      "term": "kludge"
+    },
+    {
+      "source_row": 640,
+      "term": "knowledge"
+    },
+    {
+      "source_row": 641,
+      "term": "knowledge acquisition"
+    },
+    {
+      "source_row": 642,
+      "term": "knowledge base (K-base; KB)"
+    },
+    {
+      "source_row": 643,
+      "term": "known-plaintext attack"
+    },
+    {
+      "source_row": 644,
+      "term": "label"
+    },
+    {
+      "source_row": 645,
+      "term": "language"
+    },
+    {
+      "source_row": 646,
+      "term": "laptop computer"
+    },
+    {
+      "source_row": 647,
+      "term": "large-scale integration (LSI）"
+    },
+    {
+      "source_row": 648,
+      "term": "laser printer"
+    },
+    {
+      "source_row": 649,
+      "term": "laser scanner"
+    },
+    {
+      "source_row": 650,
+      "term": "last in, first out；LIFO"
+    },
+    {
+      "source_row": 651,
+      "term": "latch"
+    },
+    {
+      "source_row": 652,
+      "term": "layer"
+    },
+    {
+      "source_row": 653,
+      "term": "layout"
+    },
+    {
+      "source_row": 654,
+      "term": "leaf"
+    },
+    {
+      "source_row": 655,
+      "term": "learning"
+    },
+    {
+      "source_row": 656,
+      "term": "left justified"
+    },
+    {
+      "source_row": 657,
+      "term": "legacy"
+    },
+    {
+      "source_row": 658,
+      "term": "lexicographic sort"
+    },
+    {
+      "source_row": 659,
+      "term": "library"
+    },
+    {
+      "source_row": 660,
+      "term": "life cycle"
+    },
+    {
+      "source_row": 661,
+      "term": "lightpen"
+    },
+    {
+      "source_row": 662,
+      "term": "limiter"
+    },
+    {
+      "source_row": 663,
+      "term": "line"
+    },
+    {
+      "source_row": 664,
+      "term": "line feed character (LF)"
+    },
+    {
+      "source_row": 665,
+      "term": "line printer"
+    },
+    {
+      "source_row": 666,
+      "term": "line spacing"
+    },
+    {
+      "source_row": 667,
+      "term": "line width"
+    },
+    {
+      "source_row": 668,
+      "term": "linear"
+    },
+    {
+      "source_row": 669,
+      "term": "link"
+    },
+    {
+      "source_row": 670,
+      "term": "liquid-crystal display (LCD)"
+    },
+    {
+      "source_row": 673,
+      "term": "little endian"
+    },
+    {
+      "source_row": 674,
+      "term": "liveware"
+    },
+    {
+      "source_row": 675,
+      "term": "load"
+    },
+    {
+      "source_row": 676,
+      "term": "load and go"
+    },
+    {
+      "source_row": 677,
+      "term": "loader"
+    },
+    {
+      "source_row": 678,
+      "term": "local"
+    },
+    {
+      "source_row": 679,
+      "term": "local host"
+    },
+    {
+      "source_row": 680,
+      "term": "lock"
+    },
+    {
+      "source_row": 681,
+      "term": "log"
+    },
+    {
+      "source_row": 682,
+      "term": "logic"
+    },
+    {
+      "source_row": 683,
+      "term": "logic bomb"
+    },
+    {
+      "source_row": 684,
+      "term": "logic chip"
+    },
+    {
+      "source_row": 685,
+      "term": "logic circuit"
+    },
+    {
+      "source_row": 686,
+      "term": "logic device"
+    },
+    {
+      "source_row": 687,
+      "term": "logic operation"
+    },
+    {
+      "source_row": 688,
+      "term": "login"
+    },
+    {
+      "source_row": 689,
+      "term": "logoff"
+    },
+    {
+      "source_row": 690,
+      "term": "logon"
+    },
+    {
+      "source_row": 691,
+      "term": "logout"
+    },
+    {
+      "source_row": 692,
+      "term": "loop"
+    },
+    {
+      "source_row": 693,
+      "term": "loop body"
+    },
+    {
+      "source_row": 694,
+      "term": "loophole"
+    },
+    {
+      "source_row": 695,
+      "term": "lossless compression"
+    },
+    {
+      "source_row": 696,
+      "term": "lossy compression"
+    },
+    {
+      "source_row": 697,
+      "term": "low-level language"
+    },
+    {
+      "source_row": 698,
+      "term": "lowercase"
+    },
+    {
+      "source_row": 699,
+      "term": "luminosity"
+    },
+    {
+      "source_row": 700,
+      "term": "machine address"
+    },
+    {
+      "source_row": 701,
+      "term": "machine code"
+    },
+    {
+      "source_row": 702,
+      "term": "machine translation"
+    },
+    {
+      "source_row": 703,
+      "term": "macroinstruction"
+    },
+    {
+      "source_row": 704,
+      "term": "magnetic card"
+    },
+    {
+      "source_row": 705,
+      "term": "magnetic disk"
+    },
+    {
+      "source_row": 706,
+      "term": "main program"
+    },
+    {
+      "source_row": 707,
+      "term": "main storage"
+    },
+    {
+      "source_row": 708,
+      "term": "mainframe"
+    },
+    {
+      "source_row": 709,
+      "term": "mainframe computer"
+    },
+    {
+      "source_row": 710,
+      "term": "maintainability"
+    },
+    {
+      "source_row": 711,
+      "term": "majority"
+    },
+    {
+      "source_row": 712,
+      "term": "majority gate"
+    },
+    {
+      "source_row": 713,
+      "term": "majority operation"
+    },
+    {
+      "source_row": 714,
+      "term": "male connector"
+    },
+    {
+      "source_row": 715,
+      "term": "malware"
+    },
+    {
+      "source_row": 716,
+      "term": "man machine interface，MMI"
+    },
+    {
+      "source_row": 717,
+      "term": "manager"
+    },
+    {
+      "source_row": 720,
+      "term": "markup language"
+    },
+    {
+      "source_row": 723,
+      "term": "masquerade"
+    },
+    {
+      "source_row": 724,
+      "term": "mass storage"
+    },
+    {
+      "source_row": 725,
+      "term": "massively parallel processing(MPP)"
+    },
+    {
+      "source_row": 726,
+      "term": "master station"
+    },
+    {
+      "source_row": 727,
+      "term": "matching"
+    },
+    {
+      "source_row": 728,
+      "term": "mathematical expression"
+    },
+    {
+      "source_row": 729,
+      "term": "mean time between failures (MTBF)"
+    },
+    {
+      "source_row": 730,
+      "term": "mean time to failure (MTTF)"
+    },
+    {
+      "source_row": 731,
+      "term": "mean time to repair (MTTR)"
+    },
+    {
+      "source_row": 734,
+      "term": "medium scale integration"
+    },
+    {
+      "source_row": 735,
+      "term": "megaflops"
+    },
+    {
+      "source_row": 736,
+      "term": "member"
+    },
+    {
+      "source_row": 737,
+      "term": "memo pad"
+    },
+    {
+      "source_row": 739,
+      "term": "memory bank"
+    },
+    {
+      "source_row": 740,
+      "term": "memory cell"
+    },
+    {
+      "source_row": 741,
+      "term": "memory chip"
+    },
+    {
+      "source_row": 742,
+      "term": "memory dump"
+    },
+    {
+      "source_row": 743,
+      "term": "memory management"
+    },
+    {
+      "source_row": 744,
+      "term": "memory-resident"
+    },
+    {
+      "source_row": 745,
+      "term": "menu"
+    },
+    {
+      "source_row": 746,
+      "term": "menu item"
+    },
+    {
+      "source_row": 747,
+      "term": "merge"
+    },
+    {
+      "source_row": 748,
+      "term": "metadata"
+    },
+    {
+      "source_row": 749,
+      "term": "metafile"
+    },
+    {
+      "source_row": 750,
+      "term": "metalanguage"
+    },
+    {
+      "source_row": 751,
+      "term": "MFLOPS"
+    },
+    {
+      "source_row": 752,
+      "term": "microchip"
+    },
+    {
+      "source_row": 753,
+      "term": "microcircuit"
+    },
+    {
+      "source_row": 754,
+      "term": "microcomputer"
+    },
+    {
+      "source_row": 755,
+      "term": "microimage"
+    },
+    {
+      "source_row": 756,
+      "term": "microinstruction"
+    },
+    {
+      "source_row": 757,
+      "term": "microprocessor"
+    },
+    {
+      "source_row": 758,
+      "term": "middleware"
+    },
+    {
+      "source_row": 759,
+      "term": "midrange computer"
+    },
+    {
+      "source_row": 760,
+      "term": "migration"
+    },
+    {
+      "source_row": 761,
+      "term": "minicomputer"
+    },
+    {
+      "source_row": 762,
+      "term": "mnemonic"
+    },
+    {
+      "source_row": 763,
+      "term": "mobile computing"
+    },
+    {
+      "source_row": 764,
+      "term": "model"
+    },
+    {
+      "source_row": 765,
+      "term": "modeling"
+    },
+    {
+      "source_row": 766,
+      "term": "modem"
+    },
+    {
+      "source_row": 767,
+      "term": "modifiability"
+    },
+    {
+      "source_row": 768,
+      "term": "modification"
+    },
+    {
+      "source_row": 769,
+      "term": "modular design"
+    },
+    {
+      "source_row": 770,
+      "term": "modular software"
+    },
+    {
+      "source_row": 771,
+      "term": "modularity"
+    },
+    {
+      "source_row": 772,
+      "term": "module"
+    },
+    {
+      "source_row": 773,
+      "term": "monadic"
+    },
+    {
+      "source_row": 776,
+      "term": "monomedia"
+    },
+    {
+      "source_row": 777,
+      "term": "monostable"
+    },
+    {
+      "source_row": 778,
+      "term": "Moore’s Law"
+    },
+    {
+      "source_row": 779,
+      "term": "morphing"
+    },
+    {
+      "source_row": 780,
+      "term": "motherboard"
+    },
+    {
+      "source_row": 781,
+      "term": "mount"
+    },
+    {
+      "source_row": 782,
+      "term": "mouse"
+    },
+    {
+      "source_row": 783,
+      "term": "mouse pointer"
+    },
+    {
+      "source_row": 784,
+      "term": "multiboot"
+    },
+    {
+      "source_row": 785,
+      "term": "multifunction peripheral(MFP)"
+    },
+    {
+      "source_row": 786,
+      "term": "multilayer"
+    },
+    {
+      "source_row": 787,
+      "term": "multimedia"
+    },
+    {
+      "source_row": 788,
+      "term": "multiplier"
+    },
+    {
+      "source_row": 789,
+      "term": "multiprocessing"
+    },
+    {
+      "source_row": 790,
+      "term": "multiprocessor"
+    },
+    {
+      "source_row": 791,
+      "term": "multiprogramming"
+    },
+    {
+      "source_row": 792,
+      "term": "multitasking"
+    },
+    {
+      "source_row": 793,
+      "term": "multiuser systems"
+    },
+    {
+      "source_row": 794,
+      "term": "musical instrument digital interface，MIDI"
+    },
+    {
+      "source_row": 795,
+      "term": "namespace"
+    },
+    {
+      "source_row": 796,
+      "term": "naming authority"
+    },
+    {
+      "source_row": 797,
+      "term": "NAND gate"
+    },
+    {
+      "source_row": 798,
+      "term": "navigation"
+    },
+    {
+      "source_row": 799,
+      "term": "negation"
+    },
+    {
+      "source_row": 800,
+      "term": "negative acknowledge character (NAK)"
+    },
+    {
+      "source_row": 801,
+      "term": "negative image"
+    },
+    {
+      "source_row": 802,
+      "term": "nest"
+    },
+    {
+      "source_row": 803,
+      "term": "net address"
+    },
+    {
+      "source_row": 804,
+      "term": "netspionage"
+    },
+    {
+      "source_row": 805,
+      "term": "network administrator"
+    },
+    {
+      "source_row": 806,
+      "term": "network agent"
+    },
+    {
+      "source_row": 807,
+      "term": "network browser"
+    },
+    {
+      "source_row": 808,
+      "term": "network computer(NC)"
+    },
+    {
+      "source_row": 809,
+      "term": "network database"
+    },
+    {
+      "source_row": 810,
+      "term": "network file system"
+    },
+    {
+      "source_row": 811,
+      "term": "network protocol"
+    },
+    {
+      "source_row": 812,
+      "term": "network weaving"
+    },
+    {
+      "source_row": 813,
+      "term": "networking"
+    },
+    {
+      "source_row": 814,
+      "term": "no operation instruction (no-op)"
+    },
+    {
+      "source_row": 815,
+      "term": "NOR gate"
+    },
+    {
+      "source_row": 816,
+      "term": "normal form"
+    },
+    {
+      "source_row": 817,
+      "term": "normalization"
+    },
+    {
+      "source_row": 818,
+      "term": "NOT gate"
+    },
+    {
+      "source_row": 819,
+      "term": "notarization"
+    },
+    {
+      "source_row": 820,
+      "term": "notation"
+    },
+    {
+      "source_row": 821,
+      "term": "notebook computer"
+    },
+    {
+      "source_row": 822,
+      "term": "null address"
+    },
+    {
+      "source_row": 823,
+      "term": "null pointer"
+    },
+    {
+      "source_row": 824,
+      "term": "null string"
+    },
+    {
+      "source_row": 825,
+      "term": "numerical"
+    },
+    {
+      "source_row": 826,
+      "term": "O-ROM disk"
+    },
+    {
+      "source_row": 827,
+      "term": "object code"
+    },
+    {
+      "source_row": 828,
+      "term": "object computer"
+    },
+    {
+      "source_row": 829,
+      "term": "object program"
+    },
+    {
+      "source_row": 830,
+      "term": "octal system"
+    },
+    {
+      "source_row": 831,
+      "term": "office automation (OA)"
+    },
+    {
+      "source_row": 832,
+      "term": "offline"
+    },
+    {
+      "source_row": 833,
+      "term": "offset"
+    },
+    {
+      "source_row": 834,
+      "term": "on-board computer"
+    },
+    {
+      "source_row": 835,
+      "term": "on-screen keyboard"
+    },
+    {
+      "source_row": 836,
+      "term": "online"
+    },
+    {
+      "source_row": 837,
+      "term": "online transaction processing; OLTP"
+    },
+    {
+      "source_row": 838,
+      "term": "operand"
+    },
+    {
+      "source_row": 839,
+      "term": "operating system(OS)"
+    },
+    {
+      "source_row": 842,
+      "term": "operation code"
+    },
+    {
+      "source_row": 843,
+      "term": "operation exception"
+    },
+    {
+      "source_row": 844,
+      "term": "operational amplifier"
+    },
+    {
+      "source_row": 845,
+      "term": "operator"
+    },
+    {
+      "source_row": 846,
+      "term": "operator console"
+    },
+    {
+      "source_row": 847,
+      "term": "operator control panel"
+    },
+    {
+      "source_row": 848,
+      "term": "operator precedence"
+    },
+    {
+      "source_row": 849,
+      "term": "optical character"
+    },
+    {
+      "source_row": 850,
+      "term": "optical character reader"
+    },
+    {
+      "source_row": 851,
+      "term": "optical character recognition"
+    },
+    {
+      "source_row": 852,
+      "term": "optical disk drive"
+    },
+    {
+      "source_row": 853,
+      "term": "optical disk storage"
+    },
+    {
+      "source_row": 854,
+      "term": "optical disk； optical disc"
+    },
+    {
+      "source_row": 855,
+      "term": "optical drive"
+    },
+    {
+      "source_row": 856,
+      "term": "optical fiber"
+    },
+    {
+      "source_row": 857,
+      "term": "optical head"
+    },
+    {
+      "source_row": 858,
+      "term": "option"
+    },
+    {
+      "source_row": 859,
+      "term": "OR gate"
+    },
+    {
+      "source_row": 862,
+      "term": "output data"
+    },
+    {
+      "source_row": 863,
+      "term": "output device"
+    },
+    {
+      "source_row": 864,
+      "term": "outsourcing"
+    },
+    {
+      "source_row": 865,
+      "term": "overflow"
+    },
+    {
+      "source_row": 866,
+      "term": "overhead"
+    },
+    {
+      "source_row": 867,
+      "term": "overlay"
+    },
+    {
+      "source_row": 868,
+      "term": "overprint"
+    },
+    {
+      "source_row": 869,
+      "term": "override"
+    },
+    {
+      "source_row": 870,
+      "term": "overstrike"
+    },
+    {
+      "source_row": 871,
+      "term": "overwritable disk"
+    },
+    {
+      "source_row": 872,
+      "term": "overwrite"
+    },
+    {
+      "source_row": 873,
+      "term": "pack"
+    },
+    {
+      "source_row": 874,
+      "term": "package"
+    },
+    {
+      "source_row": 875,
+      "term": "packing"
+    },
+    {
+      "source_row": 876,
+      "term": "padding"
+    },
+    {
+      "source_row": 877,
+      "term": "padlocking"
+    },
+    {
+      "source_row": 878,
+      "term": "page"
+    },
+    {
+      "source_row": 879,
+      "term": "page description language(PDL)"
+    },
+    {
+      "source_row": 880,
+      "term": "page layout"
+    },
+    {
+      "source_row": 881,
+      "term": "page printer"
+    },
+    {
+      "source_row": 882,
+      "term": "pagination"
+    },
+    {
+      "source_row": 883,
+      "term": "paging"
+    },
+    {
+      "source_row": 884,
+      "term": "Paintbrush"
+    },
+    {
+      "source_row": 885,
+      "term": "palette"
+    },
+    {
+      "source_row": 886,
+      "term": "palmtop computer"
+    },
+    {
+      "source_row": 887,
+      "term": "panning"
+    },
+    {
+      "source_row": 888,
+      "term": "paper feed"
+    },
+    {
+      "source_row": 889,
+      "term": "paper skip"
+    },
+    {
+      "source_row": 890,
+      "term": "paperless office"
+    },
+    {
+      "source_row": 891,
+      "term": "paradigm"
+    },
+    {
+      "source_row": 894,
+      "term": "parallel computing"
+    },
+    {
+      "source_row": 895,
+      "term": "parallel interface"
+    },
+    {
+      "source_row": 896,
+      "term": "parallel operation"
+    },
+    {
+      "source_row": 897,
+      "term": "parallel port"
+    },
+    {
+      "source_row": 898,
+      "term": "parallel processing"
+    },
+    {
+      "source_row": 899,
+      "term": "parallel transmission"
+    },
+    {
+      "source_row": 900,
+      "term": "parameter"
+    },
+    {
+      "source_row": 901,
+      "term": "parameter association"
+    },
+    {
+      "source_row": 902,
+      "term": "parameter passing"
+    },
+    {
+      "source_row": 903,
+      "term": "parent node"
+    },
+    {
+      "source_row": 904,
+      "term": "parent type"
+    },
+    {
+      "source_row": 905,
+      "term": "parity"
+    },
+    {
+      "source_row": 906,
+      "term": "parity check"
+    },
+    {
+      "source_row": 907,
+      "term": "parse"
+    },
+    {
+      "source_row": 908,
+      "term": "partition"
+    },
+    {
+      "source_row": 909,
+      "term": "pass by address"
+    },
+    {
+      "source_row": 910,
+      "term": "pass by reference"
+    },
+    {
+      "source_row": 911,
+      "term": "pass by value"
+    },
+    {
+      "source_row": 912,
+      "term": "password"
+    },
+    {
+      "source_row": 913,
+      "term": "password attack"
+    },
+    {
+      "source_row": 914,
+      "term": "paste"
+    },
+    {
+      "source_row": 917,
+      "term": "pathname"
+    },
+    {
+      "source_row": 918,
+      "term": "pattern"
+    },
+    {
+      "source_row": 919,
+      "term": "pattern matching"
+    },
+    {
+      "source_row": 920,
+      "term": "pattern recognition"
+    },
+    {
+      "source_row": 921,
+      "term": "payload"
+    },
+    {
+      "source_row": 922,
+      "term": "PC board"
+    },
+    {
+      "source_row": 923,
+      "term": "PDA"
+    },
+    {
+      "source_row": 924,
+      "term": "penetration"
+    },
+    {
+      "source_row": 925,
+      "term": "period"
+    },
+    {
+      "source_row": 926,
+      "term": "peripheral equipment"
+    },
+    {
+      "source_row": 927,
+      "term": "peripheral power supply (PPS)"
+    },
+    {
+      "source_row": 928,
+      "term": "permission"
+    },
+    {
+      "source_row": 929,
+      "term": "persistence"
+    },
+    {
+      "source_row": 930,
+      "term": "personal computer (PC)"
+    },
+    {
+      "source_row": 931,
+      "term": "photocomposer"
+    },
+    {
+      "source_row": 932,
+      "term": "phototypesetter"
+    },
+    {
+      "source_row": 935,
+      "term": "physical address"
+    },
+    {
+      "source_row": 936,
+      "term": "physical record"
+    },
+    {
+      "source_row": 937,
+      "term": "pictogram"
+    },
+    {
+      "source_row": 938,
+      "term": "picture processing"
+    },
+    {
+      "source_row": 939,
+      "term": "piggyback entry"
+    },
+    {
+      "source_row": 942,
+      "term": "piracy"
+    },
+    {
+      "source_row": 943,
+      "term": "pitch"
+    },
+    {
+      "source_row": 944,
+      "term": "pixel"
+    },
+    {
+      "source_row": 945,
+      "term": "placeholder"
+    },
+    {
+      "source_row": 946,
+      "term": "plaintext"
+    },
+    {
+      "source_row": 947,
+      "term": "platform"
+    },
+    {
+      "source_row": 948,
+      "term": "playback"
+    },
+    {
+      "source_row": 949,
+      "term": "player"
+    },
+    {
+      "source_row": 950,
+      "term": "plotter"
+    },
+    {
+      "source_row": 951,
+      "term": "plug and play (PnP)"
+    },
+    {
+      "source_row": 952,
+      "term": "plug-compatible"
+    },
+    {
+      "source_row": 953,
+      "term": "plug-in"
+    },
+    {
+      "source_row": 954,
+      "term": "plugboard"
+    },
+    {
+      "source_row": 955,
+      "term": "pocket calculator"
+    },
+    {
+      "source_row": 956,
+      "term": "point of sales； POS"
+    },
+    {
+      "source_row": 957,
+      "term": "pointer"
+    },
+    {
+      "source_row": 958,
+      "term": "polling"
+    },
+    {
+      "source_row": 959,
+      "term": "pop up menu"
+    },
+    {
+      "source_row": 962,
+      "term": "port"
+    },
+    {
+      "source_row": 963,
+      "term": "portability"
+    },
+    {
+      "source_row": 964,
+      "term": "portable computer"
+    },
+    {
+      "source_row": 965,
+      "term": "portal"
+    },
+    {
+      "source_row": 966,
+      "term": "postamble"
+    },
+    {
+      "source_row": 967,
+      "term": "postcodition"
+    },
+    {
+      "source_row": 968,
+      "term": "postmortem dump"
+    },
+    {
+      "source_row": 969,
+      "term": "potential recipient"
+    },
+    {
+      "source_row": 970,
+      "term": "power-on self-test(POST)"
+    },
+    {
+      "source_row": 971,
+      "term": "preamble"
+    },
+    {
+      "source_row": 972,
+      "term": "predicate"
+    },
+    {
+      "source_row": 973,
+      "term": "prefetch"
+    },
+    {
+      "source_row": 974,
+      "term": "preset"
+    },
+    {
+      "source_row": 975,
+      "term": "preview"
+    },
+    {
+      "source_row": 976,
+      "term": "primary key"
+    },
+    {
+      "source_row": 977,
+      "term": "primitive"
+    },
+    {
+      "source_row": 978,
+      "term": "print"
+    },
+    {
+      "source_row": 979,
+      "term": "print buffer"
+    },
+    {
+      "source_row": 980,
+      "term": "print preview"
+    },
+    {
+      "source_row": 981,
+      "term": "print server"
+    },
+    {
+      "source_row": 982,
+      "term": "print through"
+    },
+    {
+      "source_row": 983,
+      "term": "printed circuit board (PCB)"
+    },
+    {
+      "source_row": 984,
+      "term": "printer"
+    },
+    {
+      "source_row": 985,
+      "term": "printout"
+    },
+    {
+      "source_row": 986,
+      "term": "priority"
+    },
+    {
+      "source_row": 987,
+      "term": "privacy"
+    },
+    {
+      "source_row": 988,
+      "term": "private key"
+    },
+    {
+      "source_row": 989,
+      "term": "private management domain (PRMD)"
+    },
+    {
+      "source_row": 990,
+      "term": "privileged instruction"
+    },
+    {
+      "source_row": 991,
+      "term": "privileges"
+    },
+    {
+      "source_row": 992,
+      "term": "probe"
+    },
+    {
+      "source_row": 993,
+      "term": "procedural language"
+    },
+    {
+      "source_row": 994,
+      "term": "procedure"
+    },
+    {
+      "source_row": 995,
+      "term": "process"
+    },
+    {
+      "source_row": 996,
+      "term": "processing"
+    },
+    {
+      "source_row": 997,
+      "term": "processor"
+    },
+    {
+      "source_row": 998,
+      "term": "production rule"
+    },
+    {
+      "source_row": 999,
+      "term": "profile"
+    },
+    {
+      "source_row": 1000,
+      "term": "program"
+    },
+    {
+      "source_row": 1001,
+      "term": "program library"
+    },
+    {
+      "source_row": 1002,
+      "term": "programmable logic array (PLA)"
+    },
+    {
+      "source_row": 1003,
+      "term": "programmable read-only memory; PROM"
+    },
+    {
+      "source_row": 1004,
+      "term": "programmed input/output"
+    },
+    {
+      "source_row": 1005,
+      "term": "programmer"
+    },
+    {
+      "source_row": 1006,
+      "term": "programming"
+    },
+    {
+      "source_row": 1007,
+      "term": "programming language"
+    },
+    {
+      "source_row": 1009,
+      "term": "propagation"
+    },
+    {
+      "source_row": 1010,
+      "term": "propagation delay"
+    },
+    {
+      "source_row": 1011,
+      "term": "proprietary software"
+    },
+    {
+      "source_row": 1012,
+      "term": "prototype"
+    },
+    {
+      "source_row": 1013,
+      "term": "prototyping"
+    },
+    {
+      "source_row": 1014,
+      "term": "proxy"
+    },
+    {
+      "source_row": 1015,
+      "term": "proxy server"
+    },
+    {
+      "source_row": 1016,
+      "term": "public key"
+    },
+    {
+      "source_row": 1017,
+      "term": "puck"
+    },
+    {
+      "source_row": 1018,
+      "term": "pull-down menu"
+    },
+    {
+      "source_row": 1019,
+      "term": "purge"
+    },
+    {
+      "source_row": 1020,
+      "term": "push"
+    },
+    {
+      "source_row": 1021,
+      "term": "push technology"
+    },
+    {
+      "source_row": 1022,
+      "term": "put"
+    },
+    {
+      "source_row": 1023,
+      "term": "quality assurance (QA)"
+    },
+    {
+      "source_row": 1024,
+      "term": "quality of service"
+    },
+    {
+      "source_row": 1025,
+      "term": "quantization"
+    },
+    {
+      "source_row": 1026,
+      "term": "quantum"
+    },
+    {
+      "source_row": 1027,
+      "term": "query language"
+    },
+    {
+      "source_row": 1030,
+      "term": "quit"
+    },
+    {
+      "source_row": 1031,
+      "term": "QWERTY keyboard"
+    },
+    {
+      "source_row": 1032,
+      "term": "radio button"
+    },
+    {
+      "source_row": 1033,
+      "term": "radix"
+    },
+    {
+      "source_row": 1034,
+      "term": "radix complement"
+    },
+    {
+      "source_row": 1035,
+      "term": "radix notation"
+    },
+    {
+      "source_row": 1036,
+      "term": "raise"
+    },
+    {
+      "source_row": 1037,
+      "term": "random access memory; RAM"
+    },
+    {
+      "source_row": 1038,
+      "term": "random number"
+    },
+    {
+      "source_row": 1039,
+      "term": "raster display"
+    },
+    {
+      "source_row": 1040,
+      "term": "read"
+    },
+    {
+      "source_row": 1041,
+      "term": "read head"
+    },
+    {
+      "source_row": 1042,
+      "term": "read-only memory; ROM"
+    },
+    {
+      "source_row": 1043,
+      "term": "read/write head"
+    },
+    {
+      "source_row": 1044,
+      "term": "reader"
+    },
+    {
+      "source_row": 1045,
+      "term": "ready"
+    },
+    {
+      "source_row": 1046,
+      "term": "real memory"
+    },
+    {
+      "source_row": 1047,
+      "term": "real-time"
+    },
+    {
+      "source_row": 1048,
+      "term": "real-time animation"
+    },
+    {
+      "source_row": 1049,
+      "term": "real-time operating system (RTOS)"
+    },
+    {
+      "source_row": 1050,
+      "term": "reboot"
+    },
+    {
+      "source_row": 1051,
+      "term": "receipt notification"
+    },
+    {
+      "source_row": 1054,
+      "term": "recovery"
+    },
+    {
+      "source_row": 1055,
+      "term": "recovery time"
+    },
+    {
+      "source_row": 1056,
+      "term": "recursion"
+    },
+    {
+      "source_row": 1057,
+      "term": "reduce"
+    },
+    {
+      "source_row": 1060,
+      "term": "redundant code"
+    },
+    {
+      "source_row": 1061,
+      "term": "reference"
+    },
+    {
+      "source_row": 1062,
+      "term": "reference edge"
+    },
+    {
+      "source_row": 1063,
+      "term": "refresh"
+    },
+    {
+      "source_row": 1064,
+      "term": "refresh cycle"
+    },
+    {
+      "source_row": 1065,
+      "term": "region fill"
+    },
+    {
+      "source_row": 1066,
+      "term": "register"
+    },
+    {
+      "source_row": 1069,
+      "term": "registration authority"
+    },
+    {
+      "source_row": 1070,
+      "term": "relational calculus"
+    },
+    {
+      "source_row": 1071,
+      "term": "relational data model"
+    },
+    {
+      "source_row": 1072,
+      "term": "relational database"
+    },
+    {
+      "source_row": 1073,
+      "term": "relational model"
+    },
+    {
+      "source_row": 1074,
+      "term": "relative address"
+    },
+    {
+      "source_row": 1077,
+      "term": "reliability"
+    },
+    {
+      "source_row": 1078,
+      "term": "relocatable address"
+    },
+    {
+      "source_row": 1079,
+      "term": "remote batch processing"
+    },
+    {
+      "source_row": 1080,
+      "term": "remote database access"
+    },
+    {
+      "source_row": 1081,
+      "term": "remote login"
+    },
+    {
+      "source_row": 1082,
+      "term": "remote maintenance"
+    },
+    {
+      "source_row": 1083,
+      "term": "rendering"
+    },
+    {
+      "source_row": 1084,
+      "term": "reorganization"
+    },
+    {
+      "source_row": 1085,
+      "term": "repeater"
+    },
+    {
+      "source_row": 1086,
+      "term": "replacement"
+    },
+    {
+      "source_row": 1087,
+      "term": "replay"
+    },
+    {
+      "source_row": 1088,
+      "term": "replication"
+    },
+    {
+      "source_row": 1089,
+      "term": "reply"
+    },
+    {
+      "source_row": 1090,
+      "term": "report"
+    },
+    {
+      "source_row": 1091,
+      "term": "repository"
+    },
+    {
+      "source_row": 1092,
+      "term": "repudiation"
+    },
+    {
+      "source_row": 1093,
+      "term": "Request for Discussion (RFD)"
+    },
+    {
+      "source_row": 1094,
+      "term": "rerun"
+    },
+    {
+      "source_row": 1095,
+      "term": "rescue point"
+    },
+    {
+      "source_row": 1096,
+      "term": "reserved character"
+    },
+    {
+      "source_row": 1097,
+      "term": "reserved word"
+    },
+    {
+      "source_row": 1098,
+      "term": "reset"
+    },
+    {
+      "source_row": 1099,
+      "term": "resident"
+    },
+    {
+      "source_row": 1100,
+      "term": "resident program"
+    },
+    {
+      "source_row": 1101,
+      "term": "resize"
+    },
+    {
+      "source_row": 1102,
+      "term": "resolution"
+    },
+    {
+      "source_row": 1103,
+      "term": "resolve"
+    },
+    {
+      "source_row": 1104,
+      "term": "resource"
+    },
+    {
+      "source_row": 1105,
+      "term": "resource allocation"
+    },
+    {
+      "source_row": 1106,
+      "term": "response"
+    },
+    {
+      "source_row": 1107,
+      "term": "response time"
+    },
+    {
+      "source_row": 1108,
+      "term": "restart"
+    },
+    {
+      "source_row": 1109,
+      "term": "restore"
+    },
+    {
+      "source_row": 1110,
+      "term": "retrace"
+    },
+    {
+      "source_row": 1111,
+      "term": "retrieval"
+    },
+    {
+      "source_row": 1112,
+      "term": "retro virus"
+    },
+    {
+      "source_row": 1113,
+      "term": "return"
+    },
+    {
+      "source_row": 1114,
+      "term": "Return key"
+    },
+    {
+      "source_row": 1115,
+      "term": "return statement"
+    },
+    {
+      "source_row": 1116,
+      "term": "return to zero(RZ)"
+    },
+    {
+      "source_row": 1117,
+      "term": "reusability"
+    },
+    {
+      "source_row": 1118,
+      "term": "reverse engineering"
+    },
+    {
+      "source_row": 1119,
+      "term": "reverse search"
+    },
+    {
+      "source_row": 1120,
+      "term": "rewritable optical disk"
+    },
+    {
+      "source_row": 1121,
+      "term": "ribbon cartridge"
+    },
+    {
+      "source_row": 1122,
+      "term": "rich media"
+    },
+    {
+      "source_row": 1123,
+      "term": "rich text"
+    },
+    {
+      "source_row": 1124,
+      "term": "right click"
+    },
+    {
+      "source_row": 1125,
+      "term": "right justify"
+    },
+    {
+      "source_row": 1126,
+      "term": "right-aligned"
+    },
+    {
+      "source_row": 1127,
+      "term": "risk"
+    },
+    {
+      "source_row": 1128,
+      "term": "risk analysis"
+    },
+    {
+      "source_row": 1129,
+      "term": "risk assessment"
+    },
+    {
+      "source_row": 1132,
+      "term": "robot"
+    },
+    {
+      "source_row": 1133,
+      "term": "robot system"
+    },
+    {
+      "source_row": 1134,
+      "term": "robust"
+    },
+    {
+      "source_row": 1135,
+      "term": "roll in"
+    },
+    {
+      "source_row": 1136,
+      "term": "roll out"
+    },
+    {
+      "source_row": 1138,
+      "term": "root"
+    },
+    {
+      "source_row": 1139,
+      "term": "root directory"
+    },
+    {
+      "source_row": 1140,
+      "term": "root node"
+    },
+    {
+      "source_row": 1141,
+      "term": "rotate"
+    },
+    {
+      "source_row": 1142,
+      "term": "routine"
+    },
+    {
+      "source_row": 1143,
+      "term": "run time"
+    },
+    {
+      "source_row": 1144,
+      "term": "run-length encoding"
+    },
+    {
+      "source_row": 1145,
+      "term": "runtime"
+    },
+    {
+      "source_row": 1146,
+      "term": "sample and hold device"
+    },
+    {
+      "source_row": 1147,
+      "term": "sampling"
+    },
+    {
+      "source_row": 1148,
+      "term": "sampling rate"
+    },
+    {
+      "source_row": 1149,
+      "term": "sanitizing"
+    },
+    {
+      "source_row": 1150,
+      "term": "satellite computer"
+    },
+    {
+      "source_row": 1151,
+      "term": "save"
+    },
+    {
+      "source_row": 1152,
+      "term": "scaffolding"
+    },
+    {
+      "source_row": 1153,
+      "term": "scalability"
+    },
+    {
+      "source_row": 1154,
+      "term": "scalar"
+    },
+    {
+      "source_row": 1155,
+      "term": "scalar processor"
+    },
+    {
+      "source_row": 1158,
+      "term": "scale factor"
+    },
+    {
+      "source_row": 1159,
+      "term": "scan"
+    },
+    {
+      "source_row": 1160,
+      "term": "scan line"
+    },
+    {
+      "source_row": 1161,
+      "term": "scanner"
+    },
+    {
+      "source_row": 1162,
+      "term": "scavenge"
+    },
+    {
+      "source_row": 1165,
+      "term": "scene analysis"
+    },
+    {
+      "source_row": 1166,
+      "term": "scheduler"
+    },
+    {
+      "source_row": 1167,
+      "term": "schema"
+    },
+    {
+      "source_row": 1168,
+      "term": "scientific visualization"
+    },
+    {
+      "source_row": 1169,
+      "term": "scope"
+    },
+    {
+      "source_row": 1170,
+      "term": "scrambler"
+    },
+    {
+      "source_row": 1171,
+      "term": "screen"
+    },
+    {
+      "source_row": 1172,
+      "term": "screen dump"
+    },
+    {
+      "source_row": 1173,
+      "term": "screen editor"
+    },
+    {
+      "source_row": 1174,
+      "term": "screen saver"
+    },
+    {
+      "source_row": 1175,
+      "term": "script"
+    },
+    {
+      "source_row": 1176,
+      "term": "scroll bar"
+    },
+    {
+      "source_row": 1177,
+      "term": "scroll wheel"
+    },
+    {
+      "source_row": 1178,
+      "term": "scrolling"
+    },
+    {
+      "source_row": 1179,
+      "term": "seamless integration"
+    },
+    {
+      "source_row": 1180,
+      "term": "search"
+    },
+    {
+      "source_row": 1181,
+      "term": "search and replace"
+    },
+    {
+      "source_row": 1182,
+      "term": "search engine"
+    },
+    {
+      "source_row": 1183,
+      "term": "search key"
+    },
+    {
+      "source_row": 1184,
+      "term": "search path"
+    },
+    {
+      "source_row": 1185,
+      "term": "search robot"
+    },
+    {
+      "source_row": 1186,
+      "term": "search space"
+    },
+    {
+      "source_row": 1187,
+      "term": "second-generation language (2GL)"
+    },
+    {
+      "source_row": 1188,
+      "term": "secondary storage"
+    },
+    {
+      "source_row": 1189,
+      "term": "secret key"
+    },
+    {
+      "source_row": 1190,
+      "term": "sector"
+    },
+    {
+      "source_row": 1191,
+      "term": "secure channel"
+    },
+    {
+      "source_row": 1192,
+      "term": "security"
+    },
+    {
+      "source_row": 1193,
+      "term": "security level"
+    },
+    {
+      "source_row": 1194,
+      "term": "security log"
+    },
+    {
+      "source_row": 1195,
+      "term": "See abnormal end"
+    },
+    {
+      "source_row": 1196,
+      "term": "seed"
+    },
+    {
+      "source_row": 1197,
+      "term": "seek"
+    },
+    {
+      "source_row": 1198,
+      "term": "seek time"
+    },
+    {
+      "source_row": 1199,
+      "term": "selected cell"
+    },
+    {
+      "source_row": 1200,
+      "term": "self-adapting"
+    },
+    {
+      "source_row": 1201,
+      "term": "semantics"
+    },
+    {
+      "source_row": 1202,
+      "term": "sensitive information"
+    },
+    {
+      "source_row": 1203,
+      "term": "sensitivity"
+    },
+    {
+      "source_row": 1204,
+      "term": "sensor"
+    },
+    {
+      "source_row": 1205,
+      "term": "sentence"
+    },
+    {
+      "source_row": 1206,
+      "term": "separator"
+    },
+    {
+      "source_row": 1207,
+      "term": "sequence"
+    },
+    {
+      "source_row": 1208,
+      "term": "sequential access"
+    },
+    {
+      "source_row": 1209,
+      "term": "sequential access storage"
+    },
+    {
+      "source_row": 1210,
+      "term": "sequential algorithm"
+    },
+    {
+      "source_row": 1211,
+      "term": "sequential circuit"
+    },
+    {
+      "source_row": 1212,
+      "term": "serial"
+    },
+    {
+      "source_row": 1213,
+      "term": "serial interface"
+    },
+    {
+      "source_row": 1214,
+      "term": "serial port"
+    },
+    {
+      "source_row": 1215,
+      "term": "serial printer"
+    },
+    {
+      "source_row": 1216,
+      "term": "servelet"
+    },
+    {
+      "source_row": 1217,
+      "term": "server"
+    },
+    {
+      "source_row": 1218,
+      "term": "service"
+    },
+    {
+      "source_row": 1219,
+      "term": "service access point (SAP)"
+    },
+    {
+      "source_row": 1220,
+      "term": "servomechanism"
+    },
+    {
+      "source_row": 1221,
+      "term": "session"
+    },
+    {
+      "source_row": 1224,
+      "term": "setting"
+    },
+    {
+      "source_row": 1225,
+      "term": "seven-segment display"
+    },
+    {
+      "source_row": 1226,
+      "term": "sex changer"
+    },
+    {
+      "source_row": 1227,
+      "term": "shading"
+    },
+    {
+      "source_row": 1228,
+      "term": "shared data"
+    },
+    {
+      "source_row": 1229,
+      "term": "shared resource"
+    },
+    {
+      "source_row": 1230,
+      "term": "shell"
+    },
+    {
+      "source_row": 1231,
+      "term": "shielding"
+    },
+    {
+      "source_row": 1232,
+      "term": "shift"
+    },
+    {
+      "source_row": 1233,
+      "term": "shift register"
+    },
+    {
+      "source_row": 1234,
+      "term": "shortcut key"
+    },
+    {
+      "source_row": 1235,
+      "term": "shrinking"
+    },
+    {
+      "source_row": 1238,
+      "term": "simulation"
+    },
+    {
+      "source_row": 1239,
+      "term": "simultaneous"
+    },
+    {
+      "source_row": 1240,
+      "term": "simultaneous processing"
+    },
+    {
+      "source_row": 1241,
+      "term": "single-board"
+    },
+    {
+      "source_row": 1242,
+      "term": "single-precision"
+    },
+    {
+      "source_row": 1243,
+      "term": "single-step"
+    },
+    {
+      "source_row": 1244,
+      "term": "site"
+    },
+    {
+      "source_row": 1245,
+      "term": "skip"
+    },
+    {
+      "source_row": 1246,
+      "term": "sleep mode"
+    },
+    {
+      "source_row": 1247,
+      "term": "small-scale integration(SSI)"
+    },
+    {
+      "source_row": 1248,
+      "term": "smart card"
+    },
+    {
+      "source_row": 1249,
+      "term": "smart home"
+    },
+    {
+      "source_row": 1250,
+      "term": "smart terminal"
+    },
+    {
+      "source_row": 1251,
+      "term": "smiley"
+    },
+    {
+      "source_row": 1252,
+      "term": "smoke test"
+    },
+    {
+      "source_row": 1253,
+      "term": "smooth"
+    },
+    {
+      "source_row": 1254,
+      "term": "snapshot dump"
+    },
+    {
+      "source_row": 1255,
+      "term": "soft copy"
+    },
+    {
+      "source_row": 1256,
+      "term": "software"
+    },
+    {
+      "source_row": 1257,
+      "term": "software engineering"
+    },
+    {
+      "source_row": 1258,
+      "term": "software library"
+    },
+    {
+      "source_row": 1259,
+      "term": "software package"
+    },
+    {
+      "source_row": 1260,
+      "term": "software piracy"
+    },
+    {
+      "source_row": 1261,
+      "term": "sort"
+    },
+    {
+      "source_row": 1262,
+      "term": "sort algorithm"
+    },
+    {
+      "source_row": 1263,
+      "term": "sort key"
+    },
+    {
+      "source_row": 1264,
+      "term": "sort pass"
+    },
+    {
+      "source_row": 1265,
+      "term": "sorter"
+    },
+    {
+      "source_row": 1266,
+      "term": "sound card"
+    },
+    {
+      "source_row": 1267,
+      "term": "source"
+    },
+    {
+      "source_row": 1268,
+      "term": "source code"
+    },
+    {
+      "source_row": 1269,
+      "term": "source data"
+    },
+    {
+      "source_row": 1270,
+      "term": "source file"
+    },
+    {
+      "source_row": 1271,
+      "term": "source language"
+    },
+    {
+      "source_row": 1272,
+      "term": "source program"
+    },
+    {
+      "source_row": 1275,
+      "term": "spamming"
+    },
+    {
+      "source_row": 1276,
+      "term": "speaker identification"
+    },
+    {
+      "source_row": 1277,
+      "term": "special character"
+    },
+    {
+      "source_row": 1278,
+      "term": "specification"
+    },
+    {
+      "source_row": 1279,
+      "term": "specification language"
+    },
+    {
+      "source_row": 1280,
+      "term": "speech"
+    },
+    {
+      "source_row": 1281,
+      "term": "speech analysis"
+    },
+    {
+      "source_row": 1282,
+      "term": "speech coding"
+    },
+    {
+      "source_row": 1283,
+      "term": "speech compression"
+    },
+    {
+      "source_row": 1284,
+      "term": "speech input"
+    },
+    {
+      "source_row": 1285,
+      "term": "speech output"
+    },
+    {
+      "source_row": 1286,
+      "term": "speech recognition"
+    },
+    {
+      "source_row": 1287,
+      "term": "speech signal"
+    },
+    {
+      "source_row": 1288,
+      "term": "speech synthesis"
+    },
+    {
+      "source_row": 1289,
+      "term": "spline"
+    },
+    {
+      "source_row": 1290,
+      "term": "split screen"
+    },
+    {
+      "source_row": 1291,
+      "term": "spoken command"
+    },
+    {
+      "source_row": 1292,
+      "term": "spoken menu"
+    },
+    {
+      "source_row": 1293,
+      "term": "spoken vocabulary"
+    },
+    {
+      "source_row": 1294,
+      "term": "spoofing"
+    },
+    {
+      "source_row": 1295,
+      "term": "spooling"
+    },
+    {
+      "source_row": 1296,
+      "term": "spreadsheet"
+    },
+    {
+      "source_row": 1297,
+      "term": "square wave"
+    },
+    {
+      "source_row": 1298,
+      "term": "stable state"
+    },
+    {
+      "source_row": 1299,
+      "term": "stack"
+    },
+    {
+      "source_row": 1300,
+      "term": "stack pointer"
+    },
+    {
+      "source_row": 1301,
+      "term": "standard ASCII"
+    },
+    {
+      "source_row": 1302,
+      "term": "Standard Generalized Markup Language"
+    },
+    {
+      "source_row": 1303,
+      "term": "start bit"
+    },
+    {
+      "source_row": 1304,
+      "term": "start-of-frame"
+    },
+    {
+      "source_row": 1305,
+      "term": "startup"
+    },
+    {
+      "source_row": 1306,
+      "term": "statement"
+    },
+    {
+      "source_row": 1307,
+      "term": "static allocation"
+    },
+    {
+      "source_row": 1308,
+      "term": "static image"
+    },
+    {
+      "source_row": 1309,
+      "term": "status"
+    },
+    {
+      "source_row": 1310,
+      "term": "step"
+    },
+    {
+      "source_row": 1313,
+      "term": "store-and-forward"
+    },
+    {
+      "source_row": 1314,
+      "term": "streaming"
+    },
+    {
+      "source_row": 1315,
+      "term": "stretch"
+    },
+    {
+      "source_row": 1316,
+      "term": "string"
+    },
+    {
+      "source_row": 1317,
+      "term": "stroke"
+    },
+    {
+      "source_row": 1318,
+      "term": "structure"
+    },
+    {
+      "source_row": 1319,
+      "term": "structured design"
+    },
+    {
+      "source_row": 1320,
+      "term": "style"
+    },
+    {
+      "source_row": 1321,
+      "term": "style sheet"
+    },
+    {
+      "source_row": 1322,
+      "term": "subdirectory"
+    },
+    {
+      "source_row": 1323,
+      "term": "submission"
+    },
+    {
+      "source_row": 1324,
+      "term": "subprogram"
+    },
+    {
+      "source_row": 1325,
+      "term": "subroutine"
+    },
+    {
+      "source_row": 1326,
+      "term": "subscriber"
+    },
+    {
+      "source_row": 1327,
+      "term": "subscript"
+    },
+    {
+      "source_row": 1328,
+      "term": "substitution"
+    },
+    {
+      "source_row": 1329,
+      "term": "substrate"
+    },
+    {
+      "source_row": 1330,
+      "term": "subtracter"
+    },
+    {
+      "source_row": 1331,
+      "term": "suite"
+    },
+    {
+      "source_row": 1332,
+      "term": "summer"
+    },
+    {
+      "source_row": 1333,
+      "term": "super-large-scale integration (SLSI)"
+    },
+    {
+      "source_row": 1334,
+      "term": "superscript"
+    },
+    {
+      "source_row": 1335,
+      "term": "support software"
+    },
+    {
+      "source_row": 1336,
+      "term": "suspend"
+    },
+    {
+      "source_row": 1337,
+      "term": "swapping"
+    },
+    {
+      "source_row": 1338,
+      "term": "symbolic address"
+    },
+    {
+      "source_row": 1339,
+      "term": "symbolic language"
+    },
+    {
+      "source_row": 1340,
+      "term": "sync signal"
+    },
+    {
+      "source_row": 1341,
+      "term": "synchronization"
+    },
+    {
+      "source_row": 1342,
+      "term": "synchronous protocol"
+    },
+    {
+      "source_row": 1343,
+      "term": "synchronous transmission"
+    },
+    {
+      "source_row": 1344,
+      "term": "syntax"
+    },
+    {
+      "source_row": 1345,
+      "term": "synthesis"
+    },
+    {
+      "source_row": 1346,
+      "term": "synthesizer"
+    },
+    {
+      "source_row": 1347,
+      "term": "system administrator; sysadmin"
+    },
+    {
+      "source_row": 1348,
+      "term": "system software"
+    },
+    {
+      "source_row": 1349,
+      "term": "table lookup"
+    },
+    {
+      "source_row": 1350,
+      "term": "tabulate"
+    },
+    {
+      "source_row": 1351,
+      "term": "tactile glove"
+    },
+    {
+      "source_row": 1352,
+      "term": "tag"
+    },
+    {
+      "source_row": 1353,
+      "term": "tailgate"
+    },
+    {
+      "source_row": 1354,
+      "term": "tap"
+    },
+    {
+      "source_row": 1355,
+      "term": "tape"
+    },
+    {
+      "source_row": 1356,
+      "term": "tape unit"
+    },
+    {
+      "source_row": 1357,
+      "term": "target"
+    },
+    {
+      "source_row": 1358,
+      "term": "target computer"
+    },
+    {
+      "source_row": 1359,
+      "term": "target language"
+    },
+    {
+      "source_row": 1360,
+      "term": "target program"
+    },
+    {
+      "source_row": 1361,
+      "term": "task"
+    },
+    {
+      "source_row": 1362,
+      "term": "telecommuting"
+    },
+    {
+      "source_row": 1363,
+      "term": "telepresence"
+    },
+    {
+      "source_row": 1364,
+      "term": "teleprocessing"
+    },
+    {
+      "source_row": 1365,
+      "term": "teletext TV"
+    },
+    {
+      "source_row": 1366,
+      "term": "Telnet"
+    },
+    {
+      "source_row": 1367,
+      "term": "Tempest"
+    },
+    {
+      "source_row": 1368,
+      "term": "template"
+    },
+    {
+      "source_row": 1369,
+      "term": "tens complement"
+    },
+    {
+      "source_row": 1370,
+      "term": "terminal"
+    },
+    {
+      "source_row": 1371,
+      "term": "terminate"
+    },
+    {
+      "source_row": 1372,
+      "term": "terminator"
+    },
+    {
+      "source_row": 1373,
+      "term": "test data"
+    },
+    {
+      "source_row": 1374,
+      "term": "text"
+    },
+    {
+      "source_row": 1375,
+      "term": "text editing"
+    },
+    {
+      "source_row": 1376,
+      "term": "text processing"
+    },
+    {
+      "source_row": 1377,
+      "term": "text-to-speech conversion"
+    },
+    {
+      "source_row": 1378,
+      "term": "third generation language"
+    },
+    {
+      "source_row": 1379,
+      "term": "third-generation computer"
+    },
+    {
+      "source_row": 1380,
+      "term": "thrashing"
+    },
+    {
+      "source_row": 1381,
+      "term": "thread"
+    },
+    {
+      "source_row": 1382,
+      "term": "threat"
+    },
+    {
+      "source_row": 1383,
+      "term": "threshold"
+    },
+    {
+      "source_row": 1384,
+      "term": "thumbnail"
+    },
+    {
+      "source_row": 1385,
+      "term": "tiling"
+    },
+    {
+      "source_row": 1386,
+      "term": "time and date stamp"
+    },
+    {
+      "source_row": 1387,
+      "term": "time bomb"
+    },
+    {
+      "source_row": 1388,
+      "term": "time sharing"
+    },
+    {
+      "source_row": 1389,
+      "term": "time slicing"
+    },
+    {
+      "source_row": 1390,
+      "term": "timeout"
+    },
+    {
+      "source_row": 1391,
+      "term": "timer"
+    },
+    {
+      "source_row": 1392,
+      "term": "timestamp"
+    },
+    {
+      "source_row": 1393,
+      "term": "timing signal"
+    },
+    {
+      "source_row": 1394,
+      "term": "title bar"
+    },
+    {
+      "source_row": 1395,
+      "term": "tone"
+    },
+    {
+      "source_row": 1396,
+      "term": "toner"
+    },
+    {
+      "source_row": 1397,
+      "term": "toolbar"
+    },
+    {
+      "source_row": 1398,
+      "term": "toolbox"
+    },
+    {
+      "source_row": 1399,
+      "term": "toolkit"
+    },
+    {
+      "source_row": 1400,
+      "term": "top-down programming"
+    },
+    {
+      "source_row": 1401,
+      "term": "top-level domain name"
+    },
+    {
+      "source_row": 1402,
+      "term": "topic group"
+    },
+    {
+      "source_row": 1403,
+      "term": "topology"
+    },
+    {
+      "source_row": 1404,
+      "term": "touch screen"
+    },
+    {
+      "source_row": 1405,
+      "term": "trace"
+    },
+    {
+      "source_row": 1409,
+      "term": "transaction"
+    },
+    {
+      "source_row": 1410,
+      "term": "transaction processing"
+    },
+    {
+      "source_row": 1411,
+      "term": "transcribe"
+    },
+    {
+      "source_row": 1412,
+      "term": "transfer"
+    },
+    {
+      "source_row": 1413,
+      "term": "transfer rate"
+    },
+    {
+      "source_row": 1414,
+      "term": "transform"
+    },
+    {
+      "source_row": 1415,
+      "term": "translate"
+    },
+    {
+      "source_row": 1416,
+      "term": "translating"
+    },
+    {
+      "source_row": 1417,
+      "term": "Transmission Control Protocol/Internet Protocol; TCP/IP"
+    },
+    {
+      "source_row": 1418,
+      "term": "trap"
+    },
+    {
+      "source_row": 1419,
+      "term": "trapdoor"
+    },
+    {
+      "source_row": 1420,
+      "term": "tree"
+    },
+    {
+      "source_row": 1421,
+      "term": "tree structure"
+    },
+    {
+      "source_row": 1422,
+      "term": "tributary station"
+    },
+    {
+      "source_row": 1423,
+      "term": "trichromatic"
+    },
+    {
+      "source_row": 1424,
+      "term": "trigger"
+    },
+    {
+      "source_row": 1425,
+      "term": "troubleshoot"
+    },
+    {
+      "source_row": 1426,
+      "term": "truncation"
+    },
+    {
+      "source_row": 1427,
+      "term": "trunk"
+    },
+    {
+      "source_row": 1428,
+      "term": "trusted computer system"
+    },
+    {
+      "source_row": 1429,
+      "term": "truth table"
+    },
+    {
+      "source_row": 1430,
+      "term": "tunneling"
+    },
+    {
+      "source_row": 1431,
+      "term": "Turing machine"
+    },
+    {
+      "source_row": 1432,
+      "term": "turnaround time"
+    },
+    {
+      "source_row": 1433,
+      "term": "twisted pair"
+    },
+    {
+      "source_row": 1434,
+      "term": "two-address instruction"
+    },
+    {
+      "source_row": 1435,
+      "term": "two-dimensional"
+    },
+    {
+      "source_row": 1436,
+      "term": "two's complement"
+    },
+    {
+      "source_row": 1439,
+      "term": "ubiquitous computing (UC)"
+    },
+    {
+      "source_row": 1440,
+      "term": "ultra-large-scale integration(ULSI)"
+    },
+    {
+      "source_row": 1441,
+      "term": "unary"
+    },
+    {
+      "source_row": 1442,
+      "term": "uncertainty"
+    },
+    {
+      "source_row": 1443,
+      "term": "unconditional jump"
+    },
+    {
+      "source_row": 1444,
+      "term": "undelete"
+    },
+    {
+      "source_row": 1445,
+      "term": "underflow"
+    },
+    {
+      "source_row": 1446,
+      "term": "underline"
+    },
+    {
+      "source_row": 1447,
+      "term": "undo"
+    },
+    {
+      "source_row": 1448,
+      "term": "undock"
+    },
+    {
+      "source_row": 1449,
+      "term": "Unicode"
+    },
+    {
+      "source_row": 1450,
+      "term": "Unified Modeling Language; UML"
+    },
+    {
+      "source_row": 1451,
+      "term": "Uniform Resource Identifier; URI"
+    },
+    {
+      "source_row": 1454,
+      "term": "unit"
+    },
+    {
+      "source_row": 1455,
+      "term": "unit test"
+    },
+    {
+      "source_row": 1456,
+      "term": "Universal Resource Locator; URL"
+    },
+    {
+      "source_row": 1457,
+      "term": "universal serial bus; USB"
+    },
+    {
+      "source_row": 1458,
+      "term": "Universal Time Coordinate (UTC)"
+    },
+    {
+      "source_row": 1459,
+      "term": "UNIX"
+    },
+    {
+      "source_row": 1460,
+      "term": "up time"
+    },
+    {
+      "source_row": 1461,
+      "term": "update"
+    },
+    {
+      "source_row": 1462,
+      "term": "upgrade"
+    },
+    {
+      "source_row": 1463,
+      "term": "upload"
+    },
+    {
+      "source_row": 1464,
+      "term": "upward-compatible"
+    },
+    {
+      "source_row": 1465,
+      "term": "user"
+    },
+    {
+      "source_row": 1466,
+      "term": "user agent (UA)"
+    },
+    {
+      "source_row": 1467,
+      "term": "user data"
+    },
+    {
+      "source_row": 1468,
+      "term": "user friendly"
+    },
+    {
+      "source_row": 1469,
+      "term": "user group"
+    },
+    {
+      "source_row": 1470,
+      "term": "user interface"
+    },
+    {
+      "source_row": 1471,
+      "term": "user manual"
+    },
+    {
+      "source_row": 1472,
+      "term": "user profile"
+    },
+    {
+      "source_row": 1473,
+      "term": "utility program"
+    },
+    {
+      "source_row": 1474,
+      "term": "value"
+    },
+    {
+      "source_row": 1475,
+      "term": "value added network"
+    },
+    {
+      "source_row": 1476,
+      "term": "variable"
+    },
+    {
+      "source_row": 1477,
+      "term": "verification"
+    },
+    {
+      "source_row": 1478,
+      "term": "verification test"
+    },
+    {
+      "source_row": 1479,
+      "term": "very large scale integration"
+    },
+    {
+      "source_row": 1480,
+      "term": "video compression"
+    },
+    {
+      "source_row": 1481,
+      "term": "videodisc"
+    },
+    {
+      "source_row": 1482,
+      "term": "view"
+    },
+    {
+      "source_row": 1483,
+      "term": "virtual"
+    },
+    {
+      "source_row": 1484,
+      "term": "virtual memory (VM)"
+    },
+    {
+      "source_row": 1485,
+      "term": "virtual path"
+    },
+    {
+      "source_row": 1486,
+      "term": "virtual peripheral"
+    },
+    {
+      "source_row": 1487,
+      "term": "virtual reality (VR)"
+    },
+    {
+      "source_row": 1488,
+      "term": "virus"
+    },
+    {
+      "source_row": 1489,
+      "term": "visibility"
+    },
+    {
+      "source_row": 1490,
+      "term": "vision system"
+    },
+    {
+      "source_row": 1491,
+      "term": "visualization"
+    },
+    {
+      "source_row": 1492,
+      "term": "vocoder"
+    },
+    {
+      "source_row": 1493,
+      "term": "voice control"
+    },
+    {
+      "source_row": 1494,
+      "term": "voice recognition"
+    },
+    {
+      "source_row": 1495,
+      "term": "volatile storage"
+    },
+    {
+      "source_row": 1496,
+      "term": "vulnerability"
+    },
+    {
+      "source_row": 1497,
+      "term": "wafer"
+    },
+    {
+      "source_row": 1498,
+      "term": "wait state"
+    },
+    {
+      "source_row": 1499,
+      "term": "walk-through"
+    },
+    {
+      "source_row": 1500,
+      "term": "watchdog timer"
+    },
+    {
+      "source_row": 1501,
+      "term": "watermark"
+    },
+    {
+      "source_row": 1502,
+      "term": "What-You-See-Before-You-Get-It"
+    },
+    {
+      "source_row": 1503,
+      "term": "white box testing"
+    },
+    {
+      "source_row": 1504,
+      "term": "whiteboard"
+    },
+    {
+      "source_row": 1505,
+      "term": "wildcard character"
+    },
+    {
+      "source_row": 1506,
+      "term": "window"
+    },
+    {
+      "source_row": 1507,
+      "term": "windowing"
+    },
+    {
+      "source_row": 1508,
+      "term": "Windows"
+    },
+    {
+      "source_row": 1509,
+      "term": "wire-pin printer"
+    },
+    {
+      "source_row": 1510,
+      "term": "wireless"
+    },
+    {
+      "source_row": 1511,
+      "term": "wiretapping"
+    },
+    {
+      "source_row": 1512,
+      "term": "wizard"
+    },
+    {
+      "source_row": 1513,
+      "term": "word"
+    },
+    {
+      "source_row": 1514,
+      "term": "word length"
+    },
+    {
+      "source_row": 1515,
+      "term": "word processing"
+    },
+    {
+      "source_row": 1516,
+      "term": "workstation"
+    },
+    {
+      "source_row": 1517,
+      "term": "worm"
+    },
+    {
+      "source_row": 1518,
+      "term": "wraparound"
+    },
+    {
+      "source_row": 1519,
+      "term": "write"
+    },
+    {
+      "source_row": 1520,
+      "term": "write head"
+    },
+    {
+      "source_row": 1521,
+      "term": "write protection"
+    },
+    {
+      "source_row": 1522,
+      "term": "write-many"
+    },
+    {
+      "source_row": 1523,
+      "term": "write-once"
+    },
+    {
+      "source_row": 1524,
+      "term": "WYSIWYG"
+    },
+    {
+      "source_row": 1525,
+      "term": "XML"
+    },
+    {
+      "source_row": 1526,
+      "term": "XOR gate"
+    },
+    {
+      "source_row": 1527,
+      "term": "yellow pages"
+    },
+    {
+      "source_row": 1528,
+      "term": "zero out"
+    },
+    {
+      "source_row": 1529,
+      "term": "zero suppression"
+    },
+    {
+      "source_row": 1530,
+      "term": "zerofill"
+    },
+    {
+      "source_row": 1531,
+      "term": "zombie computer"
+    },
+    {
+      "source_row": 1532,
+      "term": "zooming"
+    }
+  ]
+}

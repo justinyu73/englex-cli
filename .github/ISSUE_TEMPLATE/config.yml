@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 貢獻指南
+    url: https://github.com/justinyu73/englex-cli/blob/main/CONTRIBUTING.md
+    about: 新增詞條、升級信任等級、與離線／隱私約束，請先讀 CONTRIBUTING。

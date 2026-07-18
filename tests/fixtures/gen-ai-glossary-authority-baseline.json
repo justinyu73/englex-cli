@@ -1,0 +1,6 @@
+{
+  "source_commit": "beee4ed4f0a81f53a1c367de63740cfcac729ba8",
+  "identifiers": [
+    "agent", "agent memory", "agentic ai", "ai agent", "ai hallucination", "autonomous agent", "backpressure", "canary", "canary deployment", "canary release", "capsule", "chat memory", "cherry pick", "cherry-pick", "chunking", "circuit breaker", "context length", "context window", "credential rotation", "data provenance", "embedding", "error budget", "eventual consistency", "feature flag", "feature toggle", "feature toggles", "function calling", "gate", "grounding", "hallucination", "idempotency", "idempotent", "incident", "incident review", "intelligent agent", "least privilege", "memory", "merge request", "observability", "orchestrator", "polp", "postmortem", "pr", "principle of least privilege", "prompt", "prompt engineering", "prompt injection", "prompting", "prompting techniques", "provenance", "pull request", "quality gate", "rag", "ratchet", "re-ranking", "rebase", "reranking", "retrieval augmented generation", "revert deployment", "roll forward", "rollback", "sdcv", "secret rotation", "service level objective", "session memory", "slo", "text chunking", "threat model", "threat modeling", "token window", "tool calling", "vector database", "vector embedding", "vector store", "zero trust"
+  ]
+}

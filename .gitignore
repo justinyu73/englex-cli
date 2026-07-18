@@ -1,0 +1,12 @@
+# Local Python environments, build output, and interpreter caches
+.venv/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# Packaged VS Code extension artifact (build on demand)
+*.vsix
+
+# loop-hybrid runtime state (goal/run stores, workspaces, status snapshot) — never versioned
+runtime/

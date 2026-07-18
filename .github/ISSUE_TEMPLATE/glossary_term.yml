@@ -1,0 +1,46 @@
+name: 詞條提議 Glossary term
+description: 提議新增或修訂一個 AI／軟體工程術語
+labels: [glossary]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        新詞條一律從 `ai_drafted` 起步，須有原創繁中工程解釋。提議前請讀 [CONTRIBUTING](../blob/main/CONTRIBUTING.md)。
+        提議即可，實際草擬與 import 由維護者流程處理；你也可直接開 PR 附草稿 fixture。
+  - type: input
+    id: term
+    attributes:
+      label: 術語（英文 canonical）
+      placeholder: 例：reconcile
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 為什麼值得收（字面 vs 工程義）
+      description: 說明它在工程脈絡的意思，以及字面／直譯為何容易誤解。
+    validations:
+      required: true
+  - type: textarea
+    id: senses
+    attributes:
+      label: 可能義項與上下文線索
+      description: 若同一詞有多義項，請分別列出，並給每個義項的同行線索（context_triggers）。
+    validations:
+      required: false
+  - type: input
+    id: source
+    attributes:
+      label: 候選來源（HTTPS）
+      description: 可檢查的 HTTPS 來源 URL；若無合適公開來源，寫「no_public_source」並說明理由。來源是候選／證據，不是定義逐字來源，也不保證正確。
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: 約束確認
+      options:
+        - label: 繁中解釋為原創，未直接複製外部雙語標籤當定義。
+          required: true
+        - label: 我理解此詞條會標為 ai_drafted，待人工抽查後才可能升級。
+          required: true

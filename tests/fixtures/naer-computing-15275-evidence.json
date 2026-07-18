@@ -1,0 +1,23 @@
+{
+  "catalog_url": "https://data.gov.tw/dataset/15275",
+  "resource_url": "https://opendata.naer.edu.tw/學術名詞/國家教育研究院-兩岸對照名詞-計算機學術名詞.csv",
+  "retrieved_at": "2026-07-14",
+  "license_url": "https://data.nat.gov.tw/license",
+  "license_name": "政府資料開放授權條款－第1版",
+  "selected_discipline": {
+    "id": "computing",
+    "label": "計算機學術名詞",
+    "inclusion_reason": "The N1 intake scope explicitly selects the NAER computing discipline. The frozen CSV supplies candidate English labels for offline curation comparison only; it is not a runtime source or an Englex definition source."
+  },
+  "encoding": "UTF-8 with BOM",
+  "observed_columns": [
+    "序號",
+    "英文名稱",
+    "中文名稱",
+    "中國大陸譯名",
+    "來源網站"
+  ],
+  "row_count": 1532,
+  "sha256": "d8d65ba4097d45dd1c5d6b737fc942a1bd92d74d76ce6d6fb5348001b11b75bd",
+  "required_attribution": "資料來源：國家教育研究院，政府資料開放平臺「國家教育研究院－兩岸對照名詞－計算機學術名詞」，依政府資料開放授權條款第1版使用。"
+}

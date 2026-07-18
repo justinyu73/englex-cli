@@ -1,0 +1,72 @@
+{
+  "name": "englex-selection",
+  "displayName": "Englex Selection",
+  "description": "Explain engineering terms from explicit selection, input lookup, or terminal links through the local Englex CLI.",
+  "version": "0.6.0",
+  "publisher": "englex-local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinyu73/englex-cli.git",
+    "directory": "vscode-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/justinyu73/englex-cli/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onCommand:englex.explainSelection",
+    "onCommand:englex.lookupInput",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "englex.explainSelection",
+        "title": "Englex: Explain Selected Engineering Terms"
+      },
+      {
+        "command": "englex.lookupInput",
+        "title": "Englex: Look Up Engineering Term"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "englex.explainSelection",
+          "when": "editorHasSelection",
+          "group": "navigation@100"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "englex.explainSelection",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "englex.lookupInput",
+        "key": "ctrl+alt+l",
+        "mac": "cmd+alt+l"
+      }
+    ],
+    "configuration": {
+      "title": "Englex",
+      "properties": {
+        "englex.executable": {
+          "type": "string",
+          "default": "englex",
+          "description": "Local Englex executable used by explicit selection, input lookup, and terminal-link scans."
+        }
+      }
+    }
+  }
+}

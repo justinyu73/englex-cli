@@ -1,0 +1,11 @@
+{
+  "source_url": "https://github.com/danielskry/gen-ai-glossary/blob/beee4ed4f0a81f53a1c367de63740cfcac729ba8/data/terms.json",
+  "source_commit": "beee4ed4f0a81f53a1c367de63740cfcac729ba8",
+  "terms": [
+    {
+      "term": "Orchestration",
+      "aliases": ["LLM orchestration"],
+      "category": "orchestration"
+    }
+  ]
+}

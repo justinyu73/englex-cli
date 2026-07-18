@@ -1,0 +1,107 @@
+[
+  {
+    "term": "Agent",
+    "definition": "AI agents are autonomous software systems that use artificial intelligence to perform tasks, make decisions, and interact with their environment on behalf of a user or another system. They apply reasoning, planning, and memory, and can adapt over time to pursue goals more effectively.",
+    "category": "agents",
+    "aliases": ["AI agent", "autonomous agent", "agentic AI", "intelligent agent"],
+    "sources": [
+      "https://cloud.google.com/discover/what-are-ai-agents",
+      "https://www.ibm.com/think/topics/ai-agents",
+      "https://github.com/resources/articles/what-are-ai-agents"
+    ]
+  },
+  {
+    "term": "Tool Calling",
+    "definition": "Tool calling (also known as function calling) is the capability for an AI model to invoke external tools, APIs, or systems in order to extend what it can do. It allows the model to access, retrieve, and manipulate data or perform actions outside its training data by passing structured arguments to defined functions or custom tools. This makes it possible to build applications where the model not only reasons and generates language, but also interacts with databases, services, and other software components provided by your application.",
+    "category": "orchestration",
+    "aliases": ["function calling", "open functions", "actions"],
+    "sources": [
+      "https://www.ibm.com/think/topics/tool-calling",
+      "https://blog.langchain.com/tool-calling-with-langchain/",
+      "https://platform.openai.com/docs/guides/function-calling"
+    ]
+  },
+  {
+    "term": "Orchestration",
+    "definition": "Orchestration is the coordination and management of multiple systems, models, tools, and services to carry out tasks in a structured and reliable way. In the context of AI, orchestration ensures that prompts, workflows, external tools, memory, and control flow work together so the overall system behaves predictably and achieves its intended goals.",
+    "category": "orchestration",
+    "aliases": ["LLM orchestration"],
+    "sources": [
+      "https://www.ibm.com/think/topics/ai-orchestration",
+      "https://www.databricks.com/glossary/orchestration"
+    ]
+  },
+  {
+    "term": "Retrieval-Augmented Generation",
+    "definition": "Retrieval-Augmented Generation (RAG) is a technique where a model retrieves relevant information from an external knowledge source and uses it as context before generating a response. This improves the accuracy, grounding and reliability of the model by ensuring that answers are informed by up-to-date and authoritative data beyond the model's original training corpus.",
+    "category": "retrieval",
+    "aliases": ["RAG"],
+    "sources": [
+      "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+      "https://blogs.nvidia.com/blog/what-is-retrieval-augmented-generation/"
+    ]
+  },
+  {
+    "term": "Embedding",
+    "definition": "Embeddings are vector representations of data such as text, images or audio, where each item is mapped to a point in a continuous numerical space. The distance between points reflects semantic similarity, allowing machine learning systems to search, compare, cluster and classify information based on meaning. Embeddings are fundamental for tasks like semantic search, recommendations, anomaly detection and grouping related content.",
+    "category": "retrieval",
+    "aliases": ["vector embedding", "embeddings"],
+    "sources": [
+      "https://www.cloudflare.com/learning/ai/what-are-embeddings/",
+      "https://www.ibm.com/think/topics/embedding",
+      "https://platform.openai.com/docs/guides/embeddings"
+    ]
+  },
+  {
+    "term": "Vector Database",
+    "definition": "A vector database is a database designed to store, manage, and index high-dimensional vector embeddings for efficient similarity search. It represents data as numerical vectors, clusters them based on semantic relatedness, and enables fast retrieval through specialized indexes. Vector databases often support metadata filtering, CRUD operations, and horizontal scaling, making them well suited for AI applications that require low-latency search across large datasets.",
+    "category": "retrieval",
+    "aliases": ["vector store"],
+    "sources": [
+      "https://www.ibm.com/think/topics/vector-database",
+      "https://www.pinecone.io/learn/vector-database/",
+      "https://learn.microsoft.com/en-us/data-engineering/playbook/solutions/vector-database/"
+    ]
+  },
+  {
+    "term": "Prompt",
+    "definition": "A prompt is the input or instruction given to an AI system to guide its output. It provides context, goals, constraints or examples that influence how the model responds. Prompts are written in natural language (and sometimes combined with structured elements), and the clarity and structure of the prompt directly affect the quality of the AI's response.",
+    "category": "context-engineering",
+    "aliases": ["prompting", "prompt engineering", "prompting techniques"],
+    "sources": [
+      "https://dictionary.cambridge.org/dictionary/english/prompt",
+      "https://www.ulethbridge.ca/teachingcentre/what-are-prompts"
+    ]
+  },
+  {
+    "term": "Context Window",
+    "definition": "The context window is the amount of information a language model can consider at once when generating a response. It acts as the model's working memory, including both the input provided and the output it has generated so far. A larger context window allows the model to handle longer prompts, maintain coherence over extended interactions, and work with more complex information, while a smaller context window limits how much the model can reference at one time.",
+    "category": "context-engineering",
+    "aliases": ["token window"],
+    "sources": [
+      "https://www.coursera.org/articles/context-window",
+      "https://docs.claude.com/en/docs/build-with-claude/context-windows/"
+    ]
+  },
+  {
+    "term": "Memory",
+    "definition": "Agent memory refers to an AI agent's ability to store and recall information from previous interactions to guide future decisions and improve performance. Memory allows an agent to maintain context, recognize patterns over time, learn from feedback, and adapt to user preferences. In practice, memory often includes short-term memory that tracks the state of an ongoing conversation or task, and long-term memory that stores information across sessions for more persistent personalization and reasoning. While not all agents require memory, it becomes essential for agents that handle multi-step reasoning, goal-oriented tasks, or sustained user interaction.",
+    "category": "memory",
+    "aliases": ["agent memory", "chat memory", "session memory"],
+    "sources": [
+      "https://www.ibm.com/think/topics/ai-agent-memory",
+      "https://docs.langchain.com/oss/python/langgraph/memory"
+    ]
+  },
+  {
+    "term": "Hallucination",
+    "definition": "AI hallucinations occur when a model generates content that is factually incorrect, logically flawed, or entirely fabricated while presenting it as confident and accurate. These errors stem from limitations in training data, model architecture, bias, faulty grounding, or the probabilistic way large language models generate outputs. Hallucinations can appear as wrong facts, flawed reasoning, or invented details such as nonexistent studies, citations, or events. They influence everything from chat interactions to computer vision systems, and they can undermine trust, harm decision making, and introduce quality and safety risks in fields like healthcare, law, finance, and software development. Reducing hallucinations requires improved data quality, clear model constraints, retrieval augmented grounding, rigorous testing such as red teaming and adversarial evaluation, and ongoing human oversight.",
+    "category": "guardrails",
+    "aliases": ["AI hallucination", "model hallucination", "LLM hallucination", "generative AI hallucination"],
+    "sources": [
+      "https://www.ibm.com/think/topics/ai-hallucinations",
+      "https://cloud.google.com/discover/what-are-ai-hallucinations",
+      "https://www.computer.org/publications/tech-news/trends/hallucinations-in-ai-models"
+    ]
+  }
+]

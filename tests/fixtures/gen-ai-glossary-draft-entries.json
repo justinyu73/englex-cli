@@ -1,0 +1,32 @@
+[
+  {
+    "schema_version": 2,
+    "term": "orchestration",
+    "aliases": [
+      "LLM orchestration"
+    ],
+    "status": "需判讀",
+    "provenance": {
+      "version": 1,
+      "kind": "sourced",
+      "source_url": "https://github.com/danielskry/gen-ai-glossary/blob/beee4ed4f0a81f53a1c367de63740cfcac729ba8/data/terms.json"
+    },
+    "senses": [
+      {
+        "domain": "LLM／代理／工作流",
+        "definition": "在 AI 系統中協調 prompt、模型、工具、記憶與控制流程，使多個步驟依可預期順序執行的設計或控制層；實際職責仍須依產品架構判讀。",
+        "context_triggers": [
+          "workflow",
+          "tools",
+          "control flow"
+        ],
+        "context_required": true
+      }
+    ],
+    "trust_level": "maintainer_verified",
+    "attribution": {
+      "kind": "grandfathered",
+      "note": "原始 seed,無正式升級紀錄"
+    }
+  }
+]
