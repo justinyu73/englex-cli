@@ -62,7 +62,7 @@ class EnglexTests(unittest.TestCase):
 
     def test_prefix_search(self):
         results = find("roll")
-        self.assertEqual([entry["term"] for entry in results], ["roll forward", "rollback"])
+        self.assertEqual([entry["term"] for entry in results], ["roll forward", "rollback", "rollover"])
 
     def test_ranking_prefers_user_then_seed_then_aliases(self):
         user = {"term": "canary", "aliases": ["user alias"], "status": "私人", "senses": []}
@@ -386,7 +386,7 @@ class EnglexTests(unittest.TestCase):
             self.assertEqual(cli.main(["find", "--json", "roll"]), 0)
         payload = json.loads(output.getvalue())
         self.assertEqual(payload["schema_version"], 2)
-        self.assertEqual([entry["term"] for entry in payload["results"]], ["roll forward", "rollback"])
+        self.assertEqual([entry["term"] for entry in payload["results"]], ["roll forward", "rollback", "rollover"])
 
     def test_data_validation_reports_schema_duplicates_and_context_errors(self):
         entries = [
