@@ -36,7 +36,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 | --- | --- | --- | --- | --- | --- | --- |
 | Retrieval polish（已完成） | 固化搜尋行為的可理解性與使用者控制 | `--exact`、smoke、錯誤訊息、說明與 JSON 相容性 | 唯讀 | 不新增資料來源、網路或 query 留存 | 已以 CI／實際 smoke 驗證 | 精確模式不接受 inflection／fuzzy；全套測試與 smoke 通過 |
 | Curated curation expansion（等待新來源授權） | 在可追溯規則下增加本機詞彙覆蓋 | 固定 curated batch → shipped seed | 寫 shipped seed | 不得 fetch URL；provenance fail closed | 新來源／授權後才可啟動；完成時需 CI／PR 或實際 smoke | schema／provenance／canary／smoke 全通過 |
-| 快速工程語意與縮寫 P1–P5（已接受） | 從使用者明示選取的一行英文快速理解工程術語、縮寫與多義項 | selection／單行 → 終端 concise／expanded 或 JSON；限選取的 IDE 入口 | `scan` 只讀 private／curated；private add 只在使用者明示後寫 private overlay | 全離線；無查詢歷史、工作區／檔案／剪貼簿掃描、外部資料、provider 或靜默 fallback | JY 以固定 machine simulation 與 L1 loop 綠燈接受本 campaign | 詳見 P1–P5 審批包；P5 提供 checked-in WSL Extension Development Host 啟動契約，手動驗收從 `vscode-extension/` 按 F5 進行 |
+| 快速工程語意與縮寫 P1–P5（已接受） | 從使用者明示選取的一行英文快速理解工程術語、縮寫與多義項 | selection／單行 → 終端 concise／expanded 或 JSON；限選取的 IDE 入口 | `scan` 只讀 private／curated；private add 只在使用者明示後寫 private overlay | 全離線；無查詢歷史、工作區／檔案／剪貼簿掃描、外部資料、provider 或靜默 fallback | JY 以固定 machine simulation 綠燈接受本 campaign | 詳見 P1–P5 審批包；P5 提供 checked-in WSL Extension Development Host 啟動契約，手動驗收從 `vscode-extension/` 按 F5 進行 |
 
 ### 本機詞彙基底分層
 
@@ -69,7 +69,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 - 不上傳使用者輸入或 private overlay。
 - curated shipped glossary 與 private overlay 的資料權責、驗證方式與分享權限必須分離。
 - provenance 是來源紀錄，不等同詞條正確性、人類審查或人類產品驗收。
-- loop-hybrid 不保存本產品任務內容；englex 自己擁有產品目標、設計與驗收證據。
+- englex 自己擁有產品目標、設計與驗收證據，不依賴任何外部編排系統保存任務內容。
 
 ## 未來候選功能與拒絕條件
 
@@ -91,7 +91,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 
 ## v0.4 local-productivity campaign
 
-1. **C0 baseline（已完成）**：以 LH L1 report-only runner 記錄固定 Englex 基線；不宣稱產品 acceptance。
+1. **C0 baseline（已完成）**：記錄固定 Englex 基線；不宣稱產品 acceptance。
 2. **C1 local source visibility（已完成）**：新增不讀私人內容的固定資料層狀態輸出。
 3. **C2 locked-source coverage（已完成）**：僅以既有 gen-ai-glossary 鎖定來源新增帶 provenance 的小批術語，並擴展既有 sourced term 的低歧義別名。
 4. **C3 curated-only control（已完成）**：提供排除 private overlay 與 ECDICT 的顯式查詢模式。
@@ -110,7 +110,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 ## Campaign 執行順序
 
 1. **v0.5 private overlay lifecycle（已接受）**：已在既有本機資料權責內補齊明示 list 與保守 remove，並以 CI／PR 等價的可重跑實際 smoke 驗收。
-2. **快速工程語意與縮寫 P1–P5（已接受）**：JY 已批准整體執行並以固定 machine simulation 與 L1 loop 綠燈接受。`scan` 只處理使用者明示的一行、最多 200 字元的文字，以 private／curated 的精確 term、alias 與已審定縮寫輸出可解釋結果。P2 明示交接 private add，P3 提供固定排序與 concise／expanded 輸出，P4 記錄模塊組裝，P5 提供選取限定的 VS Code entry。simulation 驗證 source、temporary-XDG、offline install 與 VS Code adapter；完整範圍與停止契約見 P1–P5 審批包。
+2. **快速工程語意與縮寫 P1–P5（已接受）**：JY 已批准整體執行並以固定 machine simulation 綠燈接受。`scan` 只處理使用者明示的一行、最多 200 字元的文字，以 private／curated 的精確 term、alias 與已審定縮寫輸出可解釋結果。P2 明示交接 private add，P3 提供固定排序與 concise／expanded 輸出，P4 記錄模塊組裝，P5 提供選取限定的 VS Code entry。simulation 驗證 source、temporary-XDG、offline install 與 VS Code adapter；完整範圍與停止契約見 P1–P5 審批包。
 3. **Curated curation expansion（等待新來源授權）**：OS3 與已完成的 NAER computing batch 不構成持續擴充授權；後續僅在明示提供可用來源、授權與固定批次後，以既有 provenance 進入小批 curation，不得以自動網路取得替代授權。
 4. **NAER terminology intake（computing N1–N4 已完成；其他學科等待 N1 明示批准）**：已完成的 computing 快照、delta、草稿與 JY 接受批次已匯入 30 條 `ai_drafted` entries。其他學科仍須依 [NAER candidate-source specification](external-sources/naer-academic-terminology.md) 取得一個明示學科的可重現快照與 delta；只有 N3 的人工批次接受才可改動 curated seed。這不改變 runtime 離線邊界。
 5. **其他擴展**：任何 UI、同步、外部查詢、provider、檔案輸入或新依賴，皆需獨立產品與權限 campaign，不得從本機 lifecycle 工作單元外溢。
