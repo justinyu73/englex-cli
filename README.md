@@ -140,7 +140,7 @@ englex wishlist clear --yes
 englex wishlist disable
 ```
 
-維護者另有 dev-time 補批路徑：淨新待補詞達 5 個時，`python3 tools/wishlist_draft.py auto` 以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型，把 pending 詞草擬成 `ai_drafted` 詞條，驗證後 append-only 併入詞庫並清 wishlist——不進 wheel，查詢 runtime 維持全離線。VS Code 的 **Englex: Translate Wishlist Batch** 按鈕（狀態列 `$(sync) Englex 補批`）是同一動作的 UI 觸發器，需先在設定填 `englex.maintainerRepo` 指向本機 checkout；併入後會提示重新安裝讓新詞條生效。規則詳見 [docs/product-feature-map.md](docs/product-feature-map.md) 的「Wishlist AI 翻譯補批」一節。
+維護者另有 dev-time 補批路徑：手動執行 `python3 tools/wishlist_draft.py auto`（無數量門檻，≥1 淨新詞即跑，批次由人決定）會以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型，把 pending 詞草擬成 `ai_drafted` 詞條，驗證後 append-only 併入詞庫並清 wishlist——不進 wheel，查詢 runtime 維持全離線。VS Code 的 **Englex: Translate Wishlist Batch** 按鈕（狀態列 `$(sync) Englex 補批`）是同一動作的 UI 觸發器，需先在設定填 `englex.maintainerRepo` 指向本機 checkout；併入後會提示重新安裝讓新詞條生效。規則詳見 [docs/product-feature-map.md](docs/product-feature-map.md) 的「Wishlist AI 翻譯補批」一節。
 
 只有新增時明確回答 `yes` 的詞條才會出現在下列輸出；此命令只輸出 JSON 到終端，不會上傳：
 

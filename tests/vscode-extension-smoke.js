@@ -335,31 +335,31 @@ async function main() {
   });
   assert.strictEqual(wishlistAutoCalls.length, 0);
 
-  // (h) 確認後 auto 未達門檻 no-op → 顯示輸出，不出現重裝提示
+  // (h) auto 輸出不含「併入」（防禦：零淨新 no-op 訊息）→ 顯示輸出，不出現重裝提示
   informationResponses.push("觸發補批");
   await extension.translateWishlist(vscode, {
     ...batchSpies,
     runWishlistList: async () => ({ enabled: true, terms: ["a", "b", "c"], pending_new: 3 }),
-    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "淨新待補 3 個，未達 5，不觸發 AI 翻譯。\n"; },
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "沒有淨新待補詞，不觸發 AI 翻譯。\n"; },
   });
   assert.deepStrictEqual(wishlistAutoCalls, ["/repo"]);
-  assert.match(rendered, /未達 5/);
+  assert.match(rendered, /沒有淨新待補詞/);
   assert.ok(!informationMessages.some((entry) => entry.message.startsWith("已併入詞庫")));
   assert.strictEqual(reinstallCalls.length, 0);
 
-  // (i) 併入成功 → 狀態列計數歸零、提示重裝、使用者確認後以同一路徑重裝
+  // (i) 併入成功（無門檻，≥1 淨新詞即跑，人為決定）→ 狀態列計數歸零、提示重裝、確認後以同一路徑重裝
   const listPayloads = [
-    { enabled: true, terms: ["a", "b", "c", "d", "e"], pending_new: 5 },
+    { enabled: true, terms: ["a", "b", "c"], pending_new: 3 },
     { enabled: true, terms: [], pending_new: 0 },
   ];
   informationResponses.push("觸發補批", "重新安裝");
   await extension.translateWishlist(vscode, {
     ...batchSpies,
     runWishlistList: async () => listPayloads.shift(),
-    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "併入 5 條 ai_drafted（詞庫 entries → 159）；wishlist 清掉 5 個已收錄詞。\n"; },
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "併入 3 條 ai_drafted（詞庫 entries → 157）；wishlist 清掉 3 個已收錄詞。\n"; },
   });
   assert.deepStrictEqual(wishlistAutoCalls, ["/repo", "/repo"]);
-  assert.match(rendered, /併入 5 條 ai_drafted/);
+  assert.match(rendered, /併入 3 條 ai_drafted/);
   assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
   assert.ok(informationMessages.some((entry) => entry.message.startsWith("已併入詞庫。重新安裝 englex 讓新詞條生效？(python3 -m pip install --user /repo)")));
   assert.deepStrictEqual(reinstallCalls, ["/repo"]);

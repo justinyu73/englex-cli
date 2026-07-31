@@ -6,7 +6,7 @@
 ## [Unreleased]
 
 ### Added
-- **Wishlist AI 翻譯補批（dev-time curation）**：`tools/wishlist_draft.py auto`——淨新 wishlist 詞達 5 個時，以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型草擬，沿用 `merge` 的 ai_drafted-only 驗證、canonical/alias 去重、surgical append-only 併入與失敗回滾；未達門檻為離線 no-op。不進 wheel，查詢 runtime 維持全離線。實際 API 補批為人工驗收項（需憑證），同 VSIX smoke。
+- **Wishlist AI 翻譯補批（dev-time curation）**：`tools/wishlist_draft.py auto`——由維護者手動觸發（無數量門檻，≥1 淨新詞即跑，批次由人決定），以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型草擬，沿用 `merge` 的 ai_drafted-only 驗證、canonical/alias 去重、surgical append-only 併入與失敗回滾；零淨新詞為離線 no-op。不進 wheel，查詢 runtime 維持全離線。實際 API 補批為人工驗收項（需憑證），同 VSIX smoke。
 - **VS Code 補批按鈕**：`Englex: Translate Wishlist Batch` 指令與狀態列 `$(sync) Englex 補批`（顯示淨新待翻數）；需設定 `englex.maintainerRepo` 指向本機 englex-cli checkout，確認後執行上述 `auto`，併入成功可一鍵 `python3 -m pip install --user` 重裝讓新詞條生效（PEP 668 externally-managed 環境自動加 `--break-system-packages` 重試一次，仍只動 `~/.local`）。
 
 ### Fixed
