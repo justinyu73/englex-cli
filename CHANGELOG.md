@@ -11,13 +11,13 @@
 - **Chain C 詞庫更新供應鏈**：opt-in 本機 miss wishlist（`wishlist enable/disable/add/list/clear`）——查不到自動記或手動排入，只存詞、不外傳、預設關；dev-time 補批工具 `tools/wishlist_draft.py`（`brief` 出草擬清單、`merge` 驗 ai_drafted 後 append-only 併入並清 wishlist），不進 wheel。
 - **VS Code 擴充點選表面**：輸入框查詢 + 狀態列 `📖 Englex` 按鈕 + `Ctrl+Alt+L`（零剪貼簿，只看你輸入的字）；查不到一鍵加入 wishlist（術語形狀 guard 擋長句）；終端機可點連結（逐行本機比對詞庫）；終端機 hover 直接顯示定義。
 - 擴充輸出從只印匹配升級為顯示完整義項定義、信任等級與最可能義項。
-- `tools/mine_transcripts.py`（dev-time 詞彙挖掘輔助，收斂為查漏工具）。
+- dev-time 詞彙挖掘輔助（掃本機 transcript 抽候選詞、對詞庫去重）；屬維護者私有工具，未收進公開 repo。
 
 ### Changed
 - README 開場重構為「本機情境化 AI／工程術語理解」定位。
 
 ### Docs
-- `docs/glossary-update-supply-chain.md`（Chain C 規格）、`docs/vscode-extension-ux.md`（擴充 UX 決策、hover 比較、平台限制）。
+- Chain C 規格與擴充 UX 決策（hover 比較、平台限制）留於維護者私有 repo，未隨公開化釋出。
 
 ### Notes
 - 護城河哲學：需求塑形（miss）× AI 供給（ai_drafted）× 本機累積；個人詞彙有限，飽和後維護趨零。真正的「浮球」浮動覆蓋層非 VS Code 能力範圍。
@@ -30,7 +30,7 @@
 - 常見系統／流程術語批次（44 條，字面易誤解為主）；curated 詞條達 118 條、legacy 32 條。
 - opt-in 外部層：NAER computing 候選來源 intake、ECDICT 一般 fallback、sdcv StarDict 本機引擎（皆需明示啟用，不混入 curated 排名）。
 - 私下 wheel／pipx 散佈流程；selection-only VS Code entry（`vscode-extension/`）。
-- `tools/mine_transcripts.py`：dev-time 詞彙挖掘輔助（掃本機 transcript 抽反引號詞、對詞庫去重），不進 wheel、離線、不寫入詞庫。
+- dev-time 詞彙挖掘輔助（掃本機 transcript 抽反引號詞、對詞庫去重）：不進 wheel、離線、不寫入詞庫；屬維護者私有工具，未收進公開 repo。
 - GitHub Actions CI：push／PR 到 `main` 時跑 `validate-data` + `unittest` + P1–P5 機器驗收 + smoke 套件。
 
 ### Changed
