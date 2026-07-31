@@ -7,7 +7,12 @@ const path = require("path");
 
 const originalExecFile = childProcess.execFile;
 const wishlistAddCalls = [];
+let execFileBehavior = null; // 測試中段可替換的 stub 行為
 childProcess.execFile = (executable, args, options, callback) => {
+  if (execFileBehavior) {
+    execFileBehavior(executable, args, options, callback);
+    return;
+  }
   wishlistAddCalls.push({ executable, args, options });
   callback(null, "已加入本機 wishlist。\n", "");
 };
@@ -361,6 +366,32 @@ async function main() {
   assert.deepStrictEqual(informationMessages.slice(-1), [
     { message: "已重新安裝 englex，新詞條已生效。", actions: [] },
   ]);
+
+  // (j) PEP 668 externally-managed：runReinstall 以 --break-system-packages 重試一次；
+  //     非 PEP 668 的失敗不重試
+  const pipArgvs = [];
+  let pipAttempts = 0;
+  execFileBehavior = (file, args, options, callback) => {
+    pipArgvs.push(args);
+    pipAttempts += 1;
+    if (pipAttempts === 1) {
+      callback(new Error("Command failed"), "", "error: externally-managed-environment");
+      return;
+    }
+    callback(null, "Successfully installed englex-0.6.0", "");
+  };
+  await extension.runReinstall("/repo");
+  assert.deepStrictEqual(pipArgvs, [
+    ["-m", "pip", "install", "--user", "/repo"],
+    ["-m", "pip", "install", "--user", "--break-system-packages", "/repo"],
+  ]);
+  execFileBehavior = (file, args, options, callback) => {
+    pipArgvs.push(args);
+    callback(new Error("Command failed"), "", "ERROR: No matching distribution found");
+  };
+  await assert.rejects(() => extension.runReinstall("/repo"), /No matching distribution/);
+  assert.strictEqual(pipArgvs.length, 3);
+  execFileBehavior = null;
 
   extension.deactivate();
   childProcess.execFile = originalExecFile;
