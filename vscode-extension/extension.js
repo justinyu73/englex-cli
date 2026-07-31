@@ -41,6 +41,63 @@ function runWishlistAdd(executable, term) {
   });
 }
 
+function runWishlistList(executable) {
+  return new Promise((resolve, reject) => {
+    execFile(executable, ["wishlist", "list", "--json"], {
+      encoding: "utf8",
+      maxBuffer: 1024 * 1024,
+      windowsHide: true,
+    }, (error, stdout, stderr) => {
+      if (error) {
+        reject(new Error((stderr || error.message).trim()));
+        return;
+      }
+      try {
+        resolve(JSON.parse(stdout));
+      } catch (parseError) {
+        reject(new Error(`Englex returned invalid JSON: ${parseError.message}`));
+      }
+    });
+  });
+}
+
+// Maintainer-only dev-time batch: runs the repo-checkout tool that calls an
+// online model with the maintainer's own key. Never part of the lookup runtime.
+function runWishlistAuto(repoPath) {
+  return new Promise((resolve, reject) => {
+    execFile("python3", ["tools/wishlist_draft.py", "auto"], {
+      cwd: repoPath,
+      encoding: "utf8",
+      maxBuffer: 1024 * 1024,
+      windowsHide: true,
+    }, (error, stdout, stderr) => {
+      if (error) {
+        reject(new Error((stderr || stdout || error.message).trim()));
+        return;
+      }
+      resolve(stdout);
+    });
+  });
+}
+
+// The installed englex reads its seed via importlib.resources, so a merged
+// batch only takes effect after reinstalling from the checkout.
+function runReinstall(repoPath) {
+  return new Promise((resolve, reject) => {
+    execFile("python3", ["-m", "pip", "install", "--user", repoPath], {
+      encoding: "utf8",
+      maxBuffer: 1024 * 1024,
+      windowsHide: true,
+    }, (error, stdout, stderr) => {
+      if (error) {
+        reject(new Error((stderr || error.message).trim()));
+        return;
+      }
+      resolve(stdout);
+    });
+  });
+}
+
 const TRUST_LABEL = {
   ai_drafted: "AI 草擬，未審定",
   community: "社群提供，未維護者審定",
@@ -142,6 +199,85 @@ async function scanAndRender(vscode, text, runScanImplementation) {
   }
 }
 
+let wishlistStatusItem;
+
+async function refreshWishlistStatus(vscode, runWishlistListImplementation = runWishlistList) {
+  if (!wishlistStatusItem) {
+    return;
+  }
+  try {
+    const executable = vscode.workspace.getConfiguration("englex").get("executable", "englex");
+    const payload = await runWishlistListImplementation(executable);
+    const pending = payload && typeof payload.pending_new === "number" ? payload.pending_new : 0;
+    wishlistStatusItem.text = pending > 0 ? `$(sync) Englex 補批 (${pending})` : "$(sync) Englex 補批";
+  } catch (error) {
+    // 狀態列計數只是提示；取數失敗（例如 CLI 未安裝）不得影響擴充啟動。
+  }
+}
+
+// Maintainer-only dev-time flow: 讀 wishlist 淨新詞 → 確認後跑
+// tools/wishlist_draft.py auto（維護者金鑰、線上模型、ai_drafted 併入）→
+// 併入成功才提示重新安裝讓新詞條生效。門檻、驗證與併入全在 Python 工具側。
+async function translateWishlist(vscode, implementations = {}) {
+  const impls = { runWishlistList, runWishlistAuto, runReinstall, ...implementations };
+  const executable = vscode.workspace.getConfiguration("englex").get("executable", "englex");
+  let payload;
+  try {
+    payload = await impls.runWishlistList(executable);
+  } catch (error) {
+    vscode.window.showErrorMessage(`Englex wishlist list failed: ${error.message}`);
+    return;
+  }
+  const pending = typeof payload.pending_new === "number" ? payload.pending_new : 0;
+  if (pending === 0) {
+    vscode.window.showInformationMessage("wishlist 沒有淨新待翻詞。");
+    return;
+  }
+  const repoPath = vscode.workspace.getConfiguration("englex").get("maintainerRepo", "");
+  if (!repoPath) {
+    vscode.window.showWarningMessage(
+      `wishlist 有 ${pending} 個淨新待翻詞；翻譯補批是維護者功能，請先設定 englex.maintainerRepo 指向本機 englex-cli checkout。`,
+    );
+    return;
+  }
+  const confirm = await vscode.window.showInformationMessage(
+    `以維護者金鑰呼叫線上模型，草擬 ${pending} 個 wishlist 詞並併入詞庫？(dev-time；查詢 runtime 維持離線)`,
+    "觸發補批",
+  );
+  if (confirm !== "觸發補批") {
+    return;
+  }
+  let output;
+  try {
+    output = await impls.runWishlistAuto(repoPath);
+  } catch (error) {
+    vscode.window.showErrorMessage(`Englex wishlist auto failed: ${error.message}`);
+    return;
+  }
+  outputChannel = outputChannel || vscode.window.createOutputChannel("Englex Selection");
+  outputChannel.clear();
+  outputChannel.appendLine(output.trim());
+  outputChannel.show(true);
+  if (!output.includes("併入")) {
+    return;
+  }
+  await refreshWishlistStatus(vscode, impls.runWishlistList);
+  const reinstall = await vscode.window.showInformationMessage(
+    `已併入詞庫。重新安裝 englex 讓新詞條生效？(python3 -m pip install --user ${repoPath})`,
+    "重新安裝",
+    "稍後",
+  );
+  if (reinstall !== "重新安裝") {
+    return;
+  }
+  try {
+    await impls.runReinstall(repoPath);
+    vscode.window.showInformationMessage("已重新安裝 englex，新詞條已生效。");
+  } catch (error) {
+    vscode.window.showErrorMessage(`englex 重新安裝失敗: ${error.message}`);
+  }
+}
+
 function createTerminalLinkProvider(vscode, runScanImplementation = runScan) {
   const linksByLine = new Map();
 
@@ -186,7 +322,7 @@ function createTerminalLinkProvider(vscode, runScanImplementation = runScan) {
   };
 }
 
-function activate(context, vscodeImplementation, runScanImplementation = runScan) {
+function activate(context, vscodeImplementation, runScanImplementation = runScan, runWishlistListImplementation = runWishlistList) {
   const vscode = vscodeImplementation || require("vscode");
   const selectionCommand = vscode.commands.registerCommand(
     "englex.explainSelection",
@@ -196,14 +332,24 @@ function activate(context, vscodeImplementation, runScanImplementation = runScan
     "englex.lookupInput",
     () => lookupInput(vscode, runScanImplementation),
   );
+  const translateCommand = vscode.commands.registerCommand(
+    "englex.translateWishlist",
+    () => translateWishlist(vscode),
+  );
   const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   statusBarItem.text = "$(book) Englex";
   statusBarItem.command = "englex.lookupInput";
   statusBarItem.tooltip = "查工程術語（貼上詞→Enter）";
   statusBarItem.show();
+  wishlistStatusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+  wishlistStatusItem.text = "$(sync) Englex 補批";
+  wishlistStatusItem.command = "englex.translateWishlist";
+  wishlistStatusItem.tooltip = "觸發 wishlist AI 翻譯補批（維護者 dev-time）";
+  wishlistStatusItem.show();
   terminalLinkProvider = createTerminalLinkProvider(vscode, runScanImplementation);
   const terminalLinkRegistration = vscode.window.registerTerminalLinkProvider(terminalLinkProvider);
-  context.subscriptions.push(selectionCommand, inputCommand, statusBarItem, terminalLinkRegistration);
+  context.subscriptions.push(selectionCommand, inputCommand, translateCommand, statusBarItem, wishlistStatusItem, terminalLinkRegistration);
+  return refreshWishlistStatus(vscode, runWishlistListImplementation);
 }
 
 function deactivate() {
@@ -211,10 +357,14 @@ function deactivate() {
     terminalLinkProvider.dispose();
     terminalLinkProvider = undefined;
   }
+  if (wishlistStatusItem) {
+    wishlistStatusItem.dispose();
+    wishlistStatusItem = undefined;
+  }
   if (outputChannel) {
     outputChannel.dispose();
     outputChannel = undefined;
   }
 }
 
-module.exports = { activate, deactivate, explainSelection, isTermShape, lookupInput, render, runScan, runWishlistAdd };
+module.exports = { activate, deactivate, explainSelection, isTermShape, lookupInput, render, runReinstall, runScan, runWishlistAdd, runWishlistAuto, runWishlistList, translateWishlist };
