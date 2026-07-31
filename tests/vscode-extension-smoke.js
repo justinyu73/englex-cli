@@ -32,11 +32,14 @@ async function main() {
   let inputBoxOptions;
   let inputResponse = "reconcile";
   const informationMessages = [];
+  const informationResponses = [];
+  const warningMessages = [];
+  let maintainerRepoValue = "";
   let clipboardAccessed = false;
   const vscode = {
     commands: {
       registerCommand(id, handler) {
-        assert.ok(["englex.explainSelection", "englex.lookupInput"].includes(id));
+        assert.ok(["englex.explainSelection", "englex.lookupInput", "englex.translateWishlist"].includes(id));
         commandHandlers.set(id, handler);
         return { dispose() {} };
       },
@@ -44,7 +47,7 @@ async function main() {
     workspace: {
       getConfiguration(section) {
         assert.strictEqual(section, "englex");
-        return { get: (key, fallback) => key === "executable" ? "englex-test" : fallback };
+        return { get: (key, fallback) => key === "executable" ? "englex-test" : key === "maintainerRepo" ? maintainerRepoValue : fallback };
       },
     },
     window: {
@@ -82,9 +85,12 @@ async function main() {
       },
       async showInformationMessage(message, ...actions) {
         informationMessages.push({ message, actions });
-        return "加入 wishlist";
+        return informationResponses.length ? informationResponses.shift() : "加入 wishlist";
       },
-      showWarningMessage(message) { throw new Error(message); },
+      showWarningMessage(message, ...actions) {
+        warningMessages.push({ message, actions });
+        return undefined;
+      },
       showErrorMessage(message) { throw new Error(message); },
     },
     TerminalLink: class {
@@ -104,7 +110,7 @@ async function main() {
   };
   const context = { subscriptions: [] };
   const scanCalls = [];
-  extension.activate(context, vscode, async (receivedExecutable, receivedText) => {
+  await extension.activate(context, vscode, async (receivedExecutable, receivedText) => {
     scanCalls.push({ receivedExecutable, receivedText });
     if (receivedText === "unknownterm" || receivedText === "this is a very long sentence") {
       return { results: [], unmatched: [{ text: receivedText }] };
@@ -161,16 +167,21 @@ async function main() {
       }],
       unmatched: [],
     };
-  });
+  }, async () => ({ enabled: true, terms: ["alpha", "beta", "gamma"], pending_new: 3 }));
   assert.ok(commandHandlers.has("englex.explainSelection"));
   assert.ok(commandHandlers.has("englex.lookupInput"));
-  assert.strictEqual(statusBarItems.length, 1);
+  assert.ok(commandHandlers.has("englex.translateWishlist"));
+  assert.strictEqual(statusBarItems.length, 2);
   assert.strictEqual(statusBarItems[0].text, "$(book) Englex");
   assert.strictEqual(statusBarItems[0].command, "englex.lookupInput");
   assert.strictEqual(statusBarItems[0].tooltip, "查工程術語（貼上詞→Enter）");
   assert.strictEqual(statusBarItems[0].shown, true);
+  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批 (3)");
+  assert.strictEqual(statusBarItems[1].command, "englex.translateWishlist");
+  assert.strictEqual(statusBarItems[1].tooltip, "觸發 wishlist AI 翻譯補批（維護者 dev-time）");
+  assert.strictEqual(statusBarItems[1].shown, true);
   assert.strictEqual(terminalLinkProviders.length, 1);
-  assert.strictEqual(context.subscriptions.length, 4);
+  assert.strictEqual(context.subscriptions.length, 6);
   const terminalLinkProvider = terminalLinkProviders[0];
 
   let executable;
@@ -279,6 +290,78 @@ async function main() {
   assert.strictEqual(typeof extension.runScan, "function");
   assert.strictEqual(typeof extension.activate, "function");
   assert.ok(vscode.window.activeTextEditor.document.getText);
+
+  // --- englex.translateWishlist（維護者 dev-time 補批）---
+  const wishlistAutoCalls = [];
+  const reinstallCalls = [];
+  const batchSpies = {
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "unused"; },
+    runReinstall: async (repoPath) => { reinstallCalls.push(repoPath); return "ok"; },
+  };
+
+  // (e) 有淨新詞但未設 maintainerRepo → 引導警告，不跑補批
+  await extension.translateWishlist(vscode, {
+    ...batchSpies,
+    runWishlistList: async () => ({ enabled: true, terms: ["alpha", "beta", "gamma"], pending_new: 3 }),
+  });
+  assert.deepStrictEqual(warningMessages.slice(-1), [{
+    message: "wishlist 有 3 個淨新待翻詞；翻譯補批是維護者功能，請先設定 englex.maintainerRepo 指向本機 englex-cli checkout。",
+    actions: [],
+  }]);
+  assert.strictEqual(wishlistAutoCalls.length, 0);
+
+  // (f) 無淨新詞 → 單純提示，不警告、不跑補批
+  const infoCountBeforeZero = informationMessages.length;
+  await extension.translateWishlist(vscode, {
+    ...batchSpies,
+    runWishlistList: async () => ({ enabled: true, terms: [], pending_new: 0 }),
+  });
+  assert.deepStrictEqual(informationMessages.slice(infoCountBeforeZero), [
+    { message: "wishlist 沒有淨新待翻詞。", actions: [] },
+  ]);
+  assert.strictEqual(wishlistAutoCalls.length, 0);
+
+  // (g) 使用者不確認 → 不跑補批
+  maintainerRepoValue = "/repo";
+  informationResponses.push(undefined);
+  await extension.translateWishlist(vscode, {
+    ...batchSpies,
+    runWishlistList: async () => ({ enabled: true, terms: ["a", "b", "c"], pending_new: 3 }),
+  });
+  assert.strictEqual(wishlistAutoCalls.length, 0);
+
+  // (h) 確認後 auto 未達門檻 no-op → 顯示輸出，不出現重裝提示
+  informationResponses.push("觸發補批");
+  await extension.translateWishlist(vscode, {
+    ...batchSpies,
+    runWishlistList: async () => ({ enabled: true, terms: ["a", "b", "c"], pending_new: 3 }),
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "淨新待補 3 個，未達 5，不觸發 AI 翻譯。\n"; },
+  });
+  assert.deepStrictEqual(wishlistAutoCalls, ["/repo"]);
+  assert.match(rendered, /未達 5/);
+  assert.ok(!informationMessages.some((entry) => entry.message.startsWith("已併入詞庫")));
+  assert.strictEqual(reinstallCalls.length, 0);
+
+  // (i) 併入成功 → 狀態列計數歸零、提示重裝、使用者確認後以同一路徑重裝
+  const listPayloads = [
+    { enabled: true, terms: ["a", "b", "c", "d", "e"], pending_new: 5 },
+    { enabled: true, terms: [], pending_new: 0 },
+  ];
+  informationResponses.push("觸發補批", "重新安裝");
+  await extension.translateWishlist(vscode, {
+    ...batchSpies,
+    runWishlistList: async () => listPayloads.shift(),
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "併入 5 條 ai_drafted（詞庫 entries → 159）；wishlist 清掉 5 個已收錄詞。\n"; },
+  });
+  assert.deepStrictEqual(wishlistAutoCalls, ["/repo", "/repo"]);
+  assert.match(rendered, /併入 5 條 ai_drafted/);
+  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
+  assert.ok(informationMessages.some((entry) => entry.message.startsWith("已併入詞庫。重新安裝 englex 讓新詞條生效？(python3 -m pip install --user /repo)")));
+  assert.deepStrictEqual(reinstallCalls, ["/repo"]);
+  assert.deepStrictEqual(informationMessages.slice(-1), [
+    { message: "已重新安裝 englex，新詞條已生效。", actions: [] },
+  ]);
+
   extension.deactivate();
   childProcess.execFile = originalExecFile;
   console.log("vscode extension smoke passed");

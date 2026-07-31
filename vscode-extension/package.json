@@ -23,6 +23,7 @@
   "activationEvents": [
     "onCommand:englex.explainSelection",
     "onCommand:englex.lookupInput",
+    "onCommand:englex.translateWishlist",
     "onStartupFinished"
   ],
   "contributes": {
@@ -34,6 +35,10 @@
       {
         "command": "englex.lookupInput",
         "title": "Englex: Look Up Engineering Term"
+      },
+      {
+        "command": "englex.translateWishlist",
+        "title": "Englex: Translate Wishlist Batch (Maintainer)"
       }
     ],
     "menus": {
@@ -65,6 +70,11 @@
           "type": "string",
           "default": "englex",
           "description": "Local Englex executable used by explicit selection, input lookup, and terminal-link scans."
+        },
+        "englex.maintainerRepo": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a local englex-cli checkout used by the maintainer-only 'Translate Wishlist Batch' command (runs tools/wishlist_draft.py auto with the maintainer's own API key). Empty disables the batch trigger; lookup features never use it."
         }
       }
     }
