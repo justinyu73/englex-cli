@@ -81,17 +81,13 @@ if payload != {"schema_version": 2, "enabled": True, "terms": ["wishlist manual 
     raise SystemExit(f"wishlist list returned unexpected payload: {payload!r}")
 PY
 
-XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist list > "$data_home/wishlist-below-threshold.txt"
-grep -F "淨新 3 個，未達一批" "$data_home/wishlist-below-threshold.txt"
-if grep -F "值得跑一批" "$data_home/wishlist-below-threshold.txt"; then
-  echo "wishlist list nudged before reaching the batch threshold" >&2
-  exit 1
-fi
+XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist list > "$data_home/wishlist-pending-three.txt"
+grep -F "淨新待補 3 個（可手動觸發補批：tools/wishlist_draft.py brief）" "$data_home/wishlist-pending-three.txt"
 
 XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist add "wishlist smoke batch one" >/dev/null
 XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist add "wishlist smoke batch two" >/dev/null
-XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist list > "$data_home/wishlist-at-threshold.txt"
-grep -F "淨新待補 5 個（≥5，值得跑一批：tools/wishlist_draft.py brief）" "$data_home/wishlist-at-threshold.txt"
+XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist list > "$data_home/wishlist-pending-five.txt"
+grep -F "淨新待補 5 個（可手動觸發補批：tools/wishlist_draft.py brief）" "$data_home/wishlist-pending-five.txt"
 XDG_DATA_HOME="$data_home" python3 -B -m englex wishlist clear --yes
 XDG_DATA_HOME="$data_home" python3 -B - <<'PY'
 import json

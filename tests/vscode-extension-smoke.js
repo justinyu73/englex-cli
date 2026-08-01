@@ -7,7 +7,12 @@ const path = require("path");
 
 const originalExecFile = childProcess.execFile;
 const wishlistAddCalls = [];
+let execFileBehavior = null; // 測試中段可替換的 stub 行為
 childProcess.execFile = (executable, args, options, callback) => {
+  if (execFileBehavior) {
+    execFileBehavior(executable, args, options, callback);
+    return;
+  }
   wishlistAddCalls.push({ executable, args, options });
   callback(null, "已加入本機 wishlist。\n", "");
 };
@@ -330,37 +335,63 @@ async function main() {
   });
   assert.strictEqual(wishlistAutoCalls.length, 0);
 
-  // (h) 確認後 auto 未達門檻 no-op → 顯示輸出，不出現重裝提示
+  // (h) auto 輸出不含「併入」（防禦：零淨新 no-op 訊息）→ 顯示輸出，不出現重裝提示
   informationResponses.push("觸發補批");
   await extension.translateWishlist(vscode, {
     ...batchSpies,
     runWishlistList: async () => ({ enabled: true, terms: ["a", "b", "c"], pending_new: 3 }),
-    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "淨新待補 3 個，未達 5，不觸發 AI 翻譯。\n"; },
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "沒有淨新待補詞，不觸發 AI 翻譯。\n"; },
   });
   assert.deepStrictEqual(wishlistAutoCalls, ["/repo"]);
-  assert.match(rendered, /未達 5/);
+  assert.match(rendered, /沒有淨新待補詞/);
   assert.ok(!informationMessages.some((entry) => entry.message.startsWith("已併入詞庫")));
   assert.strictEqual(reinstallCalls.length, 0);
 
-  // (i) 併入成功 → 狀態列計數歸零、提示重裝、使用者確認後以同一路徑重裝
+  // (i) 併入成功（無門檻，≥1 淨新詞即跑，人為決定）→ 狀態列計數歸零、提示重裝、確認後以同一路徑重裝
   const listPayloads = [
-    { enabled: true, terms: ["a", "b", "c", "d", "e"], pending_new: 5 },
+    { enabled: true, terms: ["a", "b", "c"], pending_new: 3 },
     { enabled: true, terms: [], pending_new: 0 },
   ];
   informationResponses.push("觸發補批", "重新安裝");
   await extension.translateWishlist(vscode, {
     ...batchSpies,
     runWishlistList: async () => listPayloads.shift(),
-    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "併入 5 條 ai_drafted（詞庫 entries → 159）；wishlist 清掉 5 個已收錄詞。\n"; },
+    runWishlistAuto: async (repoPath) => { wishlistAutoCalls.push(repoPath); return "併入 3 條 ai_drafted（詞庫 entries → 157）；wishlist 清掉 3 個已收錄詞。\n"; },
   });
   assert.deepStrictEqual(wishlistAutoCalls, ["/repo", "/repo"]);
-  assert.match(rendered, /併入 5 條 ai_drafted/);
+  assert.match(rendered, /併入 3 條 ai_drafted/);
   assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
   assert.ok(informationMessages.some((entry) => entry.message.startsWith("已併入詞庫。重新安裝 englex 讓新詞條生效？(python3 -m pip install --user /repo)")));
   assert.deepStrictEqual(reinstallCalls, ["/repo"]);
   assert.deepStrictEqual(informationMessages.slice(-1), [
     { message: "已重新安裝 englex，新詞條已生效。", actions: [] },
   ]);
+
+  // (j) PEP 668 externally-managed：runReinstall 以 --break-system-packages 重試一次；
+  //     非 PEP 668 的失敗不重試
+  const pipArgvs = [];
+  let pipAttempts = 0;
+  execFileBehavior = (file, args, options, callback) => {
+    pipArgvs.push(args);
+    pipAttempts += 1;
+    if (pipAttempts === 1) {
+      callback(new Error("Command failed"), "", "error: externally-managed-environment");
+      return;
+    }
+    callback(null, "Successfully installed englex-0.6.0", "");
+  };
+  await extension.runReinstall("/repo");
+  assert.deepStrictEqual(pipArgvs, [
+    ["-m", "pip", "install", "--user", "/repo"],
+    ["-m", "pip", "install", "--user", "--break-system-packages", "/repo"],
+  ]);
+  execFileBehavior = (file, args, options, callback) => {
+    pipArgvs.push(args);
+    callback(new Error("Command failed"), "", "ERROR: No matching distribution found");
+  };
+  await assert.rejects(() => extension.runReinstall("/repo"), /No matching distribution/);
+  assert.strictEqual(pipArgvs.length, 3);
+  execFileBehavior = null;
 
   extension.deactivate();
   childProcess.execFile = originalExecFile;

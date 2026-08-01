@@ -8,9 +8,10 @@ Three commands bracket the maintainer's offline-from-runtime AI drafting step:
   merge  — take a drafted ai_drafted fixture, validate it, append-only into
            seed_data.json (surgical, preserving file style), and prune the merged
            terms from the wishlist.
-  auto   — when the wishlist has >= WISHLIST_BATCH_THRESHOLD net-new terms, call the
-           Claude API to draft ai_drafted entries for them, then run the same
-           validate/merge/prune path as `merge`.
+  auto   — manual trigger, no threshold: when the wishlist has any net-new
+           terms, call the Claude API to draft ai_drafted entries for them,
+           then run the same validate/merge/prune path as `merge`. The
+           maintainer alone decides when a batch is worth running.
 
 `auto` is a maintainer curation step, not englex runtime: it calls an online model
 with the maintainer's own key. The shipped tool's lookup runtime stays fully
@@ -22,7 +23,6 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from englex.cli import WISHLIST_BATCH_THRESHOLD  # noqa: E402
 from englex.data import validate_entries, validate_local_data  # noqa: E402
 
 SEED = os.path.join(os.path.dirname(__file__), "..", "englex", "seed_data.json")
@@ -258,10 +258,10 @@ def cmd_auto(args):
         print(f"wishlist 不存在：{wl_path}", file=sys.stderr)
         return 1
     pending, _ = pending_terms(wl_path, args.seed)
-    if len(pending) < WISHLIST_BATCH_THRESHOLD:
-        print(f"淨新待補 {len(pending)} 個，未達 {WISHLIST_BATCH_THRESHOLD}，不觸發 AI 翻譯。")
+    if not pending:
+        print("沒有淨新待補詞，不觸發 AI 翻譯。")
         return 0
-    print(f"淨新待補 {len(pending)} 個（≥{WISHLIST_BATCH_THRESHOLD}）：以 {args.model} 草擬 AI 翻譯……")
+    print(f"淨新待補 {len(pending)} 個：以 {args.model} 草擬 AI 翻譯……")
     entries = _translate_pending(pending, args.model)
     return _merge_new_entries(entries, args.seed, wl_path)
 

@@ -81,10 +81,12 @@ function runWishlistAuto(repoPath) {
 }
 
 // The installed englex reads its seed via importlib.resources, so a merged
-// batch only takes effect after reinstalling from the checkout.
+// batch only takes effect after reinstalling from the checkout. PEP 668
+// externally-managed systems (Ubuntu 24.04+) reject plain pip installs; retry
+// once with --break-system-packages, which with --user only touches ~/.local.
 function runReinstall(repoPath) {
-  return new Promise((resolve, reject) => {
-    execFile("python3", ["-m", "pip", "install", "--user", repoPath], {
+  const pipInstall = (extraArgs) => new Promise((resolve, reject) => {
+    execFile("python3", ["-m", "pip", "install", "--user", ...extraArgs, repoPath], {
       encoding: "utf8",
       maxBuffer: 1024 * 1024,
       windowsHide: true,
@@ -95,6 +97,12 @@ function runReinstall(repoPath) {
       }
       resolve(stdout);
     });
+  });
+  return pipInstall([]).catch((firstError) => {
+    if (!firstError.message.includes("externally-managed-environment")) {
+      throw firstError;
+    }
+    return pipInstall(["--break-system-packages"]);
   });
 }
 
