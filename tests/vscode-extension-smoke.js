@@ -378,7 +378,7 @@ async function main() {
       callback(new Error("Command failed"), "", "error: externally-managed-environment");
       return;
     }
-    callback(null, "Successfully installed englex-0.6.0", "");
+    callback(null, "Successfully installed englex-0.7.0", "");
   };
   await extension.runReinstall("/repo");
   assert.deepStrictEqual(pipArgvs, [

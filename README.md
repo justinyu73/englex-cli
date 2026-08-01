@@ -1,4 +1,4 @@
-# englex v0.6
+# englex v0.7
 
 `englex` 是給 WSL／VS Code 終端機使用的離線優先英語 AI／軟體工程術語小詞典。它幫你在讀一行程式、設定、發布說明或技術文案時，快速理解裡面 AI／工程術語的**領域意思**——目的是「學會這個詞在工程脈絡下代表什麼」，不是做語言學上精準的翻譯。查詢只讀本機資料，不替你蒐集或傳送查詢內容。
 
@@ -89,9 +89,24 @@ python3 -m pip install .
 englex embedding
 ```
 
-## 本機／私下 wheel 散佈
+## 安裝與散佈
 
-Englex 不發佈到 PyPI 或 VS Code Marketplace。交付 wheel 前，在 source checkout 中建立暫存工作目錄；這會安裝開發期的 PyPA `build`，不會加入 Englex 的 runtime 依賴：
+Englex 不發佈到 PyPI 或 VS Code Marketplace；正式交付物（wheel、sdist 與 VS Code `.vsix`）附在 [GitHub Releases](https://github.com/justinyu73/englex-cli/releases)。取得 wheel 後，建議在獨立 venv 安裝該檔案：
+
+```bash
+python3 -m venv "$HOME/.local/share/englex/venv"
+"$HOME/.local/share/englex/venv/bin/python" -m pip install --no-deps /path/to/englex-*.whl
+"$HOME/.local/share/englex/venv/bin/englex" lookup --exact embedding
+```
+
+若已安裝 [pipx](https://pipx.pypa.io/)，也可直接從同一份 wheel 安裝：
+
+```bash
+pipx install /path/to/englex-*.whl
+englex lookup --exact embedding
+```
+
+自行從 source 建置 wheel 時，在 source checkout 中建立暫存工作目錄；這會安裝開發期的 PyPA `build`，不會加入 Englex 的 runtime 依賴：
 
 ```bash
 source_dir="$(pwd)"
@@ -104,22 +119,7 @@ python3 -m venv "$work_dir/build-tools"
 )
 ```
 
-`$work_dir/dist/` 會包含 `.whl` 與 `.tar.gz`。把 wheel 私下交付後，接收端可建立自己的 venv 並直接安裝該檔案；這不是 `pip install .`：
-
-```bash
-python3 -m venv "$HOME/.local/share/englex/venv"
-"$HOME/.local/share/englex/venv/bin/python" -m pip install --no-deps /path/to/englex-*.whl
-"$HOME/.local/share/englex/venv/bin/englex" lookup --exact embedding
-```
-
-若接收端已安裝 [pipx](https://pipx.pypa.io/)，也可從同一份私下 wheel 安裝：
-
-```bash
-pipx install /path/to/englex-*.whl
-englex lookup --exact embedding
-```
-
-上述步驟不會將 Englex 或查詢內容發佈、上傳或同步；runtime 仍只讀本機資料。
+`$work_dir/dist/` 會包含 `.whl` 與 `.tar.gz`。上述步驟不會將 Englex 或查詢內容發佈、上傳或同步；runtime 仍只讀本機資料。
 
 新增詞條只接受互動式提示，且預設為私人：
 
@@ -160,7 +160,7 @@ englex export --shareable-only
 
 ## 已知限制與延後範圍
 
-v0.6 的一個術語可包含多個可能義項、脈絡線索與「需要上下文」標記。查詢排名固定為：使用者 overlay 的 canonical 精確匹配、隨附資料的 canonical 精確匹配、別名、已知本機詞條的有限詞形還原、距離 1 的單詞候選、前綴匹配；scan 會依上下文公開標出最可能義項並說明命中線索，但仍列出全部、不隱藏其他。`--json` 會輸出 `schema_version`、`results` 與本機 ranking／provenance 說明；`--explain` 可在終端卡片顯示排名原因。若不想接受距離 1 候選，可用 `lookup --no-fuzzy TERM` 關閉；若只接受 canonical／alias 精確匹配，使用 `lookup --exact TERM`。`lookup --curated-only TERM` 會排除 private overlay 與 ECDICT，只讀隨附 curated glossary。`englex sources` 只回報各層可用狀態，不讀或顯示私人詞條。來源紀錄不等同正確性或人類驗收。
+v0.7 的一個術語可包含多個可能義項、脈絡線索與「需要上下文」標記。查詢排名固定為：使用者 overlay 的 canonical 精確匹配、隨附資料的 canonical 精確匹配、別名、已知本機詞條的有限詞形還原、距離 1 的單詞候選、前綴匹配；scan 會依上下文公開標出最可能義項並說明命中線索，但仍列出全部、不隱藏其他。`--json` 會輸出 `schema_version`、`results` 與本機 ranking／provenance 說明；`--explain` 可在終端卡片顯示排名原因。若不想接受距離 1 候選，可用 `lookup --no-fuzzy TERM` 關閉；若只接受 canonical／alias 精確匹配，使用 `lookup --exact TERM`。`lookup --curated-only TERM` 會排除 private overlay 與 ECDICT，只讀隨附 curated glossary。`englex sources` 只回報各層可用狀態，不讀或顯示私人詞條。來源紀錄不等同正確性或人類驗收。
 
 本機資料可用下列命令驗證 schema、重複 canonical／alias、必填欄位與 context-required 記錄：
 
@@ -185,6 +185,8 @@ python3 -m englex validate-data
 The extension also makes known terms in terminal output clickable. This terminal-link feature scans terminal output one line at a time locally and marks only terms returned by the local Englex glossary as links; each line is compared in memory only, never written to disk, uploaded, historized, or read from the clipboard. Hover 即顯示定義，點擊則開啟完整 Englex 解釋面板。This reads a larger surface than an input box that sees only what you type, so decide for yourself whether that terminal integration fits your privacy preference.
 
 When either VS Code entry gets a complete miss for a one-line term-shaped input of at most five words and 80 characters, it offers **找不到「<文字>」，加入 wishlist？**. Only an explicit click on **加入 wishlist** runs local `englex wishlist add <文字>`; long sentence-like misses do not trigger the prompt.
+
+For maintainers, **Englex: Translate Wishlist Batch** (the status-bar `$(sync) Englex 補批` button showing the net-new count) triggers the dev-time AI drafting batch: with explicit confirmation it runs `tools/wishlist_draft.py auto` inside the checkout named by `englex.maintainerRepo`, using the maintainer's own API key, then offers to reinstall so the merged entries take effect. This never changes the fully-offline lookup runtime.
 
 ## Optional ECDICT fallback base
 

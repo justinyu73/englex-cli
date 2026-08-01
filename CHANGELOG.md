@@ -1,9 +1,11 @@
 # Changelog
 
 本檔記錄值得注意的變更，格式參考 [Keep a Changelog](https://keepachangelog.com/)。
-本專案在 1.0 前，minor 版本可能包含破壞性變更。Englex 不發佈到 PyPI 或 VS Code Marketplace；「release」指私下交付的 wheel。
+本專案在 1.0 前，minor 版本可能包含破壞性變更。Englex 不發佈到 PyPI 或 VS Code Marketplace；release 以 [GitHub Releases](https://github.com/justinyu73/englex-cli/releases) 交付 wheel／sdist／vsix。
 
 ## [Unreleased]
+
+## [0.7.0] - 2026-08-01 — VS Code 補批按鈕與 dev-time AI 翻譯補批
 
 ### Added
 - **Wishlist AI 翻譯補批（dev-time curation）**：`tools/wishlist_draft.py auto`——由維護者手動觸發（無數量門檻，≥1 淨新詞即跑，批次由人決定），以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型草擬，沿用 `merge` 的 ai_drafted-only 驗證、canonical/alias 去重、surgical append-only 併入與失敗回滾；零淨新詞為離線 no-op。不進 wheel，查詢 runtime 維持全離線。實際 API 補批為人工驗收項（需憑證），同 VSIX smoke。
