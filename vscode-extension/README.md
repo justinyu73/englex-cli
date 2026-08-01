@@ -14,7 +14,7 @@ When either entry completely misses a term-shaped input (one line, at most five 
 
 ## Private `.vsix` package and local installation
 
-This extension is not published to VS Code Marketplace. To create a private `.vsix`, run the standard packaging tool in a temporary npm cache from the repository root:
+This extension is not published to VS Code Marketplace; each release attaches a packaged `.vsix` on the [GitHub Releases](https://github.com/justinyu73/englex-cli/releases) page. To build the `.vsix` yourself, run the standard packaging tool in a temporary npm cache from the repository root:
 
 ```bash
 work_dir="$(mktemp -d)"
