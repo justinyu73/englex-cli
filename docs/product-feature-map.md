@@ -70,6 +70,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 - curated shipped glossary 與 private overlay 的資料權責、驗證方式與分享權限必須分離。
 - provenance 是來源紀錄，不等同詞條正確性、人類審查或人類產品驗收。
 - englex 自己擁有產品目標、設計與驗收證據，不依賴任何外部編排系統保存任務內容。
+- 維護者的 dev-time curation 工具（`tools/` 內、不進 wheel）可呼叫線上模型草擬 `ai_drafted` 候選；這屬開發期，不改變 shipped lookup runtime 的全離線邊界，也不上傳使用者的 private overlay。
 
 ## 未來候選功能與拒絕條件
 
@@ -116,3 +117,14 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 5. **其他擴展**：任何 UI、同步、外部查詢、provider、檔案輸入或新依賴，皆需獨立產品與權限 campaign，不得從本機 lifecycle 工作單元外溢。
 
 MVP acceptance 以 [測試計畫](test-plan.md) 的 CI／PR 命令與實際 smoke 為準。未通過前，不得自動進入下一個會改變產品行為的 campaign。
+
+## Wishlist AI 翻譯補批（dev-time curation，已接受）
+
+wishlist 是使用者／維護者人工加入的待補術語清單。維護者可隨時手動執行 `python3 tools/wishlist_draft.py auto` 觸發一次 AI 翻譯補批（無數量門檻：≥1 淨新詞即跑，觸發時機與批次大小一律由人決定）：
+
+- 這是 **dev-time 維護者 curation，不是 lookup runtime**。以維護者自己的 `ANTHROPIC_API_KEY`（`.env`，永不 commit）呼叫 `claude-opus-5` 把 pending 詞草擬成 curated entry。shipped 工具的查詢 runtime 仍全離線，本工具不進 wheel。
+- 產出一律 `trust_level: ai_drafted`、`provenance: no_public_source`（誠實標示 AI 草擬、未經人工審定），走與 `merge` 相同的 schema 驗證、canonical／alias 去重、surgical append-only 併入 `seed_data.json` 與 wishlist prune；`validate_local_data` 失敗即回滾。
+- 零淨新詞時 `auto` 是離線 no-op，不呼叫網路；無自動排程，一律由人觸發。
+- VS Code 指令 `englex.translateWishlist`（狀態列 `$(sync) Englex 補批` 按鈕，顯示淨新待翻數）是同一步驟的 UI 觸發器：讀 `englex wishlist list --json`，確認後在 `englex.maintainerRepo` 指定的本機 checkout 內執行 `auto`；併入成功才提示重新安裝讓新詞條生效。未設定 `maintainerRepo` 時只顯示引導，不新增任何 runtime 能力。
+- runtime LLM 生成（查詢時以模型產生說明或候選）仍屬「明確延後或排除」；本項只放寬 dev-time curation，不放寬 runtime 邊界。
+- 最小驗收：零淨新詞 no-op 的離線 smoke 通過；實際 API 補批為人工驗收（需憑證），如同 VSIX smoke。

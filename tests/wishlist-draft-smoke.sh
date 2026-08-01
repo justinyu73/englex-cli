@@ -66,5 +66,15 @@ json.dump([dict(json.load(open(draft, encoding="utf-8"))[0], term="canary")],
           open(dup, "w", encoding="utf-8"), ensure_ascii=False)
 run("merge", dup, "--seed", seed, "--wishlist", wl, expect=1)
 
-print("wishlist-draft smoke passed: brief 去重、merge append-only+prune、拒 non-ai_drafted、拒 dup")
+# 5) `auto` with zero net-new pending is an offline no-op: no network, no API key, seed untouched
+wl2 = work + "/wl2.json"
+json.dump({"enabled": True, "terms": []}, open(wl2, "w", encoding="utf-8"))
+seed_before = open(seed, encoding="utf-8").read()
+auto_out = run("auto", "--seed", seed, "--wishlist", wl2)
+if "沒有淨新待補詞" not in auto_out:
+    raise SystemExit(f"auto 未在零淨新詞時 no-op：{auto_out}")
+if open(seed, encoding="utf-8").read() != seed_before:
+    raise SystemExit("auto no-op 卻改動了 seed")
+
+print("wishlist-draft smoke passed: brief 去重、merge append-only+prune、拒 non-ai_drafted、拒 dup、auto 零淨新詞 no-op")
 PY

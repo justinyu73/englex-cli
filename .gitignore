@@ -5,8 +5,18 @@ build/
 __pycache__/
 *.py[cod]
 
+# Node / VS Code extension tooling (extension is dependency-free today; guard the future)
+node_modules/
+dist/
+out/
+
 # Packaged VS Code extension artifact (build on demand)
 *.vsix
 
-# loop-hybrid runtime state (goal/run stores, workspaces, status snapshot) — never versioned
-runtime/
+# Secrets and local machine state — never versioned (tools/wishlist_draft.py auto reads .env)
+.env
+.env.*
+!.env.example
+*.log
+*.sqlite
+*.db

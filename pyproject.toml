@@ -10,6 +10,10 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 
+[project.optional-dependencies]
+# dev-time only: `wishlist_draft.py auto` AI-translation curation. Never used by the shipped lookup runtime.
+ai = ["anthropic"]
+
 [project.scripts]
 englex = "englex.cli:main"
 

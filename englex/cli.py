@@ -24,9 +24,6 @@ from .ecdict import EcdictError, import_csv
 from .sdcv import SdcvError, lookup as sdcv_lookup
 
 
-WISHLIST_BATCH_THRESHOLD = 5
-
-
 def _parser():
     parser = argparse.ArgumentParser(prog="englex", description="離線英語工程術語查詢")
     sub = parser.add_subparsers(dest="command")
@@ -220,10 +217,10 @@ def _show_wishlist(json_output=False):
         print("沒有 wishlist 詞條。")
     else:
         print("\n".join(terms))
-    if pending_new >= WISHLIST_BATCH_THRESHOLD:
-        print(f"淨新待補 {pending_new} 個（≥{WISHLIST_BATCH_THRESHOLD}，值得跑一批：tools/wishlist_draft.py brief）")
+    if pending_new > 0:
+        print(f"淨新待補 {pending_new} 個（可手動觸發補批：tools/wishlist_draft.py brief）")
     else:
-        print(f"淨新 {pending_new} 個，未達一批")
+        print("沒有淨新待補詞")
     return 0
 
 
