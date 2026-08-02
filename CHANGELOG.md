@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-08-01 — 一鍵發版腳本與補批數字即時校正
+
 ### Added
 - `tools/release.sh`：一鍵發版——fail-closed 檢查 main 同步、工作樹、版本一致性（`__init__.py`／`package.json`／CHANGELOG）與 tag 未存在，再 tag、build wheel/sdist/vsix、驗證交付物並建立 GitHub Release（`tools/release.sh <版本號> [-y]`）。
 
