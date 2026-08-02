@@ -125,6 +125,6 @@ wishlist 是使用者／維護者人工加入的待補術語清單。維護者�
 - 這是 **dev-time 維護者 curation，不是 lookup runtime**。以維護者自己的 `ANTHROPIC_API_KEY`（`.env`，永不 commit）呼叫 `claude-opus-5` 把 pending 詞草擬成 curated entry。shipped 工具的查詢 runtime 仍全離線，本工具不進 wheel。
 - 產出一律 `trust_level: ai_drafted`、`provenance: no_public_source`（誠實標示 AI 草擬、未經人工審定），走與 `merge` 相同的 schema 驗證、canonical／alias 去重、surgical append-only 併入 `seed_data.json` 與 wishlist prune；`validate_local_data` 失敗即回滾。
 - 零淨新詞時 `auto` 是離線 no-op，不呼叫網路；無自動排程，一律由人觸發。
-- VS Code 指令 `englex.translateWishlist`（狀態列 `$(sync) Englex 補批` 按鈕，顯示淨新待翻數）是同一步驟的 UI 觸發器：讀 `englex wishlist list --json`，確認後在 `englex.maintainerRepo` 指定的本機 checkout 內執行 `auto`；併入成功才提示重新安裝讓新詞條生效。未設定 `maintainerRepo` 時只顯示引導，不新增任何 runtime 能力。
+- VS Code 指令 `englex.translateWishlist`（由單一 `$(book) Englex` 狀態列按鈕的功能選單觸發，顯示淨新待翻數）是同一步驟的 UI 觸發器：讀 `englex wishlist list --json`，確認後在 `englex.maintainerRepo` 指定的本機 checkout 內執行 `auto`；併入成功才提示重新安裝讓新詞條生效。未設定 `maintainerRepo` 時只顯示引導，不新增任何 runtime 能力。查詞與補批在同一按鈕內分流，但仍是兩個獨立指令與權限邊界。
 - runtime LLM 生成（查詢時以模型產生說明或候選）仍屬「明確延後或排除」；本項只放寬 dev-time curation，不放寬 runtime 邊界。
 - 最小驗收：零淨新詞 no-op 的離線 smoke 通過；實際 API 補批為人工驗收（需憑證），如同 VSIX smoke。

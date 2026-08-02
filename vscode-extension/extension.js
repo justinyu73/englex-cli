@@ -207,17 +207,20 @@ async function scanAndRender(vscode, text, runScanImplementation) {
   }
 }
 
-let wishlistStatusItem;
+let englexStatusItem;
 
 function setWishlistStatusCount(pending) {
-  if (!wishlistStatusItem) {
+  if (!englexStatusItem) {
     return;
   }
-  wishlistStatusItem.text = pending > 0 ? `$(sync) Englex 補批 (${pending})` : "$(sync) Englex 補批";
+  englexStatusItem.text = pending > 0 ? `$(book) Englex (${pending})` : "$(book) Englex";
+  englexStatusItem.tooltip = pending > 0
+    ? `Englex：點擊後選擇查詞或維護者補批；目前 ${pending} 個淨新待翻詞`
+    : "Englex：點擊後選擇查詞或維護者補批";
 }
 
 async function refreshWishlistStatus(vscode, runWishlistListImplementation = runWishlistList) {
-  if (!wishlistStatusItem) {
+  if (!englexStatusItem) {
     return;
   }
   try {
@@ -227,6 +230,48 @@ async function refreshWishlistStatus(vscode, runWishlistListImplementation = run
     setWishlistStatusCount(pending);
   } catch (error) {
     // 狀態列計數只是提示；取數失敗（例如 CLI 未安裝）不得影響擴充啟動。
+  }
+}
+
+async function openMenu(vscode, runScanImplementation = runScan, runWishlistListImplementation = runWishlistList) {
+  let pending = null;
+  try {
+    const executable = vscode.workspace.getConfiguration("englex").get("executable", "englex");
+    const payload = await runWishlistListImplementation(executable);
+    pending = payload && typeof payload.pending_new === "number" ? payload.pending_new : 0;
+    setWishlistStatusCount(pending);
+  } catch (error) {
+    // The menu remains usable for local lookup when wishlist status is unavailable.
+  }
+
+  const batchDescription = pending === null
+    ? "維護者功能；目前無法讀取待翻數"
+    : pending > 0
+      ? `${pending} 個淨新待翻詞；需維護者確認`
+      : "目前沒有淨新待翻詞";
+  const choice = await vscode.window.showQuickPick([
+    {
+      label: "$(search) Englex 查詞",
+      description: "輸入或貼上工程術語，使用本機詞庫",
+      command: "englex.lookupInput",
+    },
+    {
+      label: "$(sync) Englex 補批（維護者）",
+      description: batchDescription,
+      command: "englex.translateWishlist",
+    },
+  ], {
+    placeHolder: "選擇 Englex 功能",
+  });
+
+  if (!choice) {
+    return;
+  }
+  if (choice.command === "englex.lookupInput") {
+    return lookupInput(vscode, runScanImplementation);
+  }
+  if (choice.command === "englex.translateWishlist") {
+    return translateWishlist(vscode, { runWishlistList: runWishlistListImplementation });
   }
 }
 
@@ -352,19 +397,19 @@ function activate(context, vscodeImplementation, runScanImplementation = runScan
     "englex.translateWishlist",
     () => translateWishlist(vscode),
   );
+  const menuCommand = vscode.commands.registerCommand(
+    "englex.openMenu",
+    () => openMenu(vscode, runScanImplementation, runWishlistListImplementation),
+  );
   const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   statusBarItem.text = "$(book) Englex";
-  statusBarItem.command = "englex.lookupInput";
-  statusBarItem.tooltip = "查工程術語（貼上詞→Enter）";
+  statusBarItem.command = "englex.openMenu";
+  statusBarItem.tooltip = "Englex：點擊後選擇查詞或維護者補批";
   statusBarItem.show();
-  wishlistStatusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-  wishlistStatusItem.text = "$(sync) Englex 補批";
-  wishlistStatusItem.command = "englex.translateWishlist";
-  wishlistStatusItem.tooltip = "觸發 wishlist AI 翻譯補批（維護者 dev-time）；括號數字是淨新待翻詞數";
-  wishlistStatusItem.show();
+  englexStatusItem = statusBarItem;
   terminalLinkProvider = createTerminalLinkProvider(vscode, runScanImplementation);
   const terminalLinkRegistration = vscode.window.registerTerminalLinkProvider(terminalLinkProvider);
-  context.subscriptions.push(selectionCommand, inputCommand, translateCommand, statusBarItem, wishlistStatusItem, terminalLinkRegistration);
+  context.subscriptions.push(selectionCommand, inputCommand, translateCommand, menuCommand, statusBarItem, terminalLinkRegistration);
   return refreshWishlistStatus(vscode, runWishlistListImplementation);
 }
 
@@ -373,9 +418,9 @@ function deactivate() {
     terminalLinkProvider.dispose();
     terminalLinkProvider = undefined;
   }
-  if (wishlistStatusItem) {
-    wishlistStatusItem.dispose();
-    wishlistStatusItem = undefined;
+  if (englexStatusItem) {
+    englexStatusItem.dispose();
+    englexStatusItem = undefined;
   }
   if (outputChannel) {
     outputChannel.dispose();
@@ -383,4 +428,4 @@ function deactivate() {
   }
 }
 
-module.exports = { activate, deactivate, explainSelection, isTermShape, lookupInput, render, runReinstall, runScan, runWishlistAdd, runWishlistAuto, runWishlistList, translateWishlist };
+module.exports = { activate, deactivate, explainSelection, isTermShape, lookupInput, openMenu, render, runReinstall, runScan, runWishlistAdd, runWishlistAuto, runWishlistList, translateWishlist };
