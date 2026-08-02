@@ -5,6 +5,9 @@
 
 ## [Unreleased]
 
+### Added
+- `tools/release.sh`：一鍵發版——fail-closed 檢查 main 同步、工作樹、版本一致性（`__init__.py`／`package.json`／CHANGELOG）與 tag 未存在，再 tag、build wheel/sdist/vsix、驗證交付物並建立 GitHub Release（`tools/release.sh <版本號> [-y]`）。
+
 ### Fixed
 - VS Code 狀態列補批數字改為點擊當下以即時 `wishlist list` 校正（不再停留在視窗啟動時的舊值）；tooltip 補上括號數字是淨新待翻詞數的說明。
 

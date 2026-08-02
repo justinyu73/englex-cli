@@ -121,6 +121,8 @@ python3 -m venv "$work_dir/build-tools"
 
 `$work_dir/dist/` 會包含 `.whl` 與 `.tar.gz`。上述步驟不會將 Englex 或查詢內容發佈、上傳或同步；runtime 仍只讀本機資料。
 
+維護者發版：版本號與 CHANGELOG 定版合進 main 後，`tools/release.sh <版本號>` 會完成同步／一致性檢查、tag、wheel／sdist／vsix 建置與 GitHub Release；缺任一前置條件即 fail-closed 停止，不會發出半成品。
+
 新增詞條只接受互動式提示，且預設為私人：
 
 ```bash
