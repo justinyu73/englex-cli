@@ -5,6 +5,9 @@
 
 ## [Unreleased]
 
+### Fixed
+- VS Code 狀態列補批數字改為點擊當下以即時 `wishlist list` 校正（不再停留在視窗啟動時的舊值）；tooltip 補上括號數字是淨新待翻詞數的說明。
+
 ## [0.7.0] - 2026-08-01 — VS Code 補批按鈕與 dev-time AI 翻譯補批
 
 ### Added

@@ -209,6 +209,13 @@ async function scanAndRender(vscode, text, runScanImplementation) {
 
 let wishlistStatusItem;
 
+function setWishlistStatusCount(pending) {
+  if (!wishlistStatusItem) {
+    return;
+  }
+  wishlistStatusItem.text = pending > 0 ? `$(sync) Englex 補批 (${pending})` : "$(sync) Englex 補批";
+}
+
 async function refreshWishlistStatus(vscode, runWishlistListImplementation = runWishlistList) {
   if (!wishlistStatusItem) {
     return;
@@ -217,7 +224,7 @@ async function refreshWishlistStatus(vscode, runWishlistListImplementation = run
     const executable = vscode.workspace.getConfiguration("englex").get("executable", "englex");
     const payload = await runWishlistListImplementation(executable);
     const pending = payload && typeof payload.pending_new === "number" ? payload.pending_new : 0;
-    wishlistStatusItem.text = pending > 0 ? `$(sync) Englex 補批 (${pending})` : "$(sync) Englex 補批";
+    setWishlistStatusCount(pending);
   } catch (error) {
     // 狀態列計數只是提示；取數失敗（例如 CLI 未安裝）不得影響擴充啟動。
   }
@@ -237,6 +244,7 @@ async function translateWishlist(vscode, implementations = {}) {
     return;
   }
   const pending = typeof payload.pending_new === "number" ? payload.pending_new : 0;
+  setWishlistStatusCount(pending);
   if (pending === 0) {
     vscode.window.showInformationMessage("wishlist 沒有淨新待翻詞。");
     return;
@@ -352,7 +360,7 @@ function activate(context, vscodeImplementation, runScanImplementation = runScan
   wishlistStatusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   wishlistStatusItem.text = "$(sync) Englex 補批";
   wishlistStatusItem.command = "englex.translateWishlist";
-  wishlistStatusItem.tooltip = "觸發 wishlist AI 翻譯補批（維護者 dev-time）";
+  wishlistStatusItem.tooltip = "觸發 wishlist AI 翻譯補批（維護者 dev-time）；括號數字是淨新待翻詞數";
   wishlistStatusItem.show();
   terminalLinkProvider = createTerminalLinkProvider(vscode, runScanImplementation);
   const terminalLinkRegistration = vscode.window.registerTerminalLinkProvider(terminalLinkProvider);
