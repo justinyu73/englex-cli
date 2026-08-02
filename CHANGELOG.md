@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-08-02 — Englex 單一狀態列入口
+
 ### Changed
 - VS Code 將查詞與 wishlist 補批整合到單一 `$(book) Englex` 狀態列按鈕；點擊後以功能選單分流，補批仍維持維護者設定與明確確認。
 
