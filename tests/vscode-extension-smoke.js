@@ -183,7 +183,7 @@ async function main() {
   assert.strictEqual(statusBarItems[0].shown, true);
   assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批 (3)");
   assert.strictEqual(statusBarItems[1].command, "englex.translateWishlist");
-  assert.strictEqual(statusBarItems[1].tooltip, "觸發 wishlist AI 翻譯補批（維護者 dev-time）");
+  assert.strictEqual(statusBarItems[1].tooltip, "觸發 wishlist AI 翻譯補批（維護者 dev-time）；括號數字是淨新待翻詞數");
   assert.strictEqual(statusBarItems[1].shown, true);
   assert.strictEqual(terminalLinkProviders.length, 1);
   assert.strictEqual(context.subscriptions.length, 6);
@@ -315,7 +315,7 @@ async function main() {
   }]);
   assert.strictEqual(wishlistAutoCalls.length, 0);
 
-  // (f) 無淨新詞 → 單純提示，不警告、不跑補批
+  // (f) 無淨新詞 → 單純提示、狀態列數字即時歸零，不警告、不跑補批
   const infoCountBeforeZero = informationMessages.length;
   await extension.translateWishlist(vscode, {
     ...batchSpies,
@@ -324,6 +324,7 @@ async function main() {
   assert.deepStrictEqual(informationMessages.slice(infoCountBeforeZero), [
     { message: "wishlist 沒有淨新待翻詞。", actions: [] },
   ]);
+  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
   assert.strictEqual(wishlistAutoCalls.length, 0);
 
   // (g) 使用者不確認 → 不跑補批
