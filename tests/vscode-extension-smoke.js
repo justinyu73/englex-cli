@@ -32,6 +32,9 @@ async function main() {
 
   const commandHandlers = new Map();
   const statusBarItems = [];
+  let quickPickItems;
+  let quickPickOptions;
+  let quickPickResponse;
   const terminalLinkProviders = [];
   let rendered = "";
   let inputBoxOptions;
@@ -44,7 +47,7 @@ async function main() {
   const vscode = {
     commands: {
       registerCommand(id, handler) {
-        assert.ok(["englex.explainSelection", "englex.lookupInput", "englex.translateWishlist"].includes(id));
+        assert.ok(["englex.explainSelection", "englex.lookupInput", "englex.translateWishlist", "englex.openMenu"].includes(id));
         commandHandlers.set(id, handler);
         return { dispose() {} };
       },
@@ -87,6 +90,11 @@ async function main() {
       async showInputBox(options) {
         inputBoxOptions = options;
         return inputResponse;
+      },
+      async showQuickPick(items, options) {
+        quickPickItems = items;
+        quickPickOptions = options;
+        return quickPickResponse;
       },
       async showInformationMessage(message, ...actions) {
         informationMessages.push({ message, actions });
@@ -176,15 +184,12 @@ async function main() {
   assert.ok(commandHandlers.has("englex.explainSelection"));
   assert.ok(commandHandlers.has("englex.lookupInput"));
   assert.ok(commandHandlers.has("englex.translateWishlist"));
-  assert.strictEqual(statusBarItems.length, 2);
-  assert.strictEqual(statusBarItems[0].text, "$(book) Englex");
-  assert.strictEqual(statusBarItems[0].command, "englex.lookupInput");
-  assert.strictEqual(statusBarItems[0].tooltip, "查工程術語（貼上詞→Enter）");
+  assert.ok(commandHandlers.has("englex.openMenu"));
+  assert.strictEqual(statusBarItems.length, 1);
+  assert.strictEqual(statusBarItems[0].text, "$(book) Englex (3)");
+  assert.strictEqual(statusBarItems[0].command, "englex.openMenu");
+  assert.strictEqual(statusBarItems[0].tooltip, "Englex：點擊後選擇查詞或維護者補批；目前 3 個淨新待翻詞");
   assert.strictEqual(statusBarItems[0].shown, true);
-  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批 (3)");
-  assert.strictEqual(statusBarItems[1].command, "englex.translateWishlist");
-  assert.strictEqual(statusBarItems[1].tooltip, "觸發 wishlist AI 翻譯補批（維護者 dev-time）；括號數字是淨新待翻詞數");
-  assert.strictEqual(statusBarItems[1].shown, true);
   assert.strictEqual(terminalLinkProviders.length, 1);
   assert.strictEqual(context.subscriptions.length, 6);
   const terminalLinkProvider = terminalLinkProviders[0];
@@ -272,6 +277,20 @@ async function main() {
   assert.strictEqual(scanCalls[scanCalls.length - 1].receivedText, "canary");
   assert.match(rendered, /本機測試術語解釋/);
 
+  // --- one status-bar button routes to the local lookup flow ---
+  quickPickResponse = { command: "englex.lookupInput" };
+  inputResponse = "menu-term";
+  const menuScanCountBefore = scanCalls.length;
+  await commandHandlers.get("englex.openMenu")();
+  assert.strictEqual(quickPickOptions.placeHolder, "選擇 Englex 功能");
+  assert.deepStrictEqual(quickPickItems.map((item) => item.command), [
+    "englex.lookupInput",
+    "englex.translateWishlist",
+  ]);
+  assert.strictEqual(scanCalls.length, menuScanCountBefore + 1);
+  assert.strictEqual(scanCalls[scanCalls.length - 1].receivedText, "menu-term");
+  quickPickResponse = undefined;
+
   // (d) No clipboard API access is allowed.
   assert.strictEqual(clipboardAccessed, false);
   // multi-sense: the most-likely sense is marked from context_ranking
@@ -324,7 +343,7 @@ async function main() {
   assert.deepStrictEqual(informationMessages.slice(infoCountBeforeZero), [
     { message: "wishlist 沒有淨新待翻詞。", actions: [] },
   ]);
-  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
+  assert.strictEqual(statusBarItems[0].text, "$(book) Englex");
   assert.strictEqual(wishlistAutoCalls.length, 0);
 
   // (g) 使用者不確認 → 不跑補批
@@ -361,7 +380,7 @@ async function main() {
   });
   assert.deepStrictEqual(wishlistAutoCalls, ["/repo", "/repo"]);
   assert.match(rendered, /併入 3 條 ai_drafted/);
-  assert.strictEqual(statusBarItems[1].text, "$(sync) Englex 補批");
+  assert.strictEqual(statusBarItems[0].text, "$(book) Englex");
   assert.ok(informationMessages.some((entry) => entry.message.startsWith("已併入詞庫。重新安裝 englex 讓新詞條生效？(python3 -m pip install --user /repo)")));
   assert.deepStrictEqual(reinstallCalls, ["/repo"]);
   assert.deepStrictEqual(informationMessages.slice(-1), [

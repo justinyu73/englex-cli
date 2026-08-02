@@ -24,6 +24,7 @@
     "onCommand:englex.explainSelection",
     "onCommand:englex.lookupInput",
     "onCommand:englex.translateWishlist",
+    "onCommand:englex.openMenu",
     "onStartupFinished"
   ],
   "contributes": {
@@ -39,6 +40,10 @@
       {
         "command": "englex.translateWishlist",
         "title": "Englex: Translate Wishlist Batch (Maintainer)"
+      },
+      {
+        "command": "englex.openMenu",
+        "title": "Englex: Open Feature Menu"
       }
     ],
     "menus": {

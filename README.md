@@ -142,7 +142,7 @@ englex wishlist clear --yes
 englex wishlist disable
 ```
 
-維護者另有 dev-time 補批路徑：手動執行 `python3 tools/wishlist_draft.py auto`（無數量門檻，≥1 淨新詞即跑，批次由人決定）會以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型，把 pending 詞草擬成 `ai_drafted` 詞條，驗證後 append-only 併入詞庫並清 wishlist——不進 wheel，查詢 runtime 維持全離線。VS Code 的 **Englex: Translate Wishlist Batch** 按鈕（狀態列 `$(sync) Englex 補批`）是同一動作的 UI 觸發器，需先在設定填 `englex.maintainerRepo` 指向本機 checkout；併入後會提示重新安裝讓新詞條生效。規則詳見 [docs/product-feature-map.md](docs/product-feature-map.md) 的「Wishlist AI 翻譯補批」一節。
+維護者另有 dev-time 補批路徑：手動執行 `python3 tools/wishlist_draft.py auto`（無數量門檻，≥1 淨新詞即跑，批次由人決定）會以維護者自己的 `ANTHROPIC_API_KEY`（repo 根 `.env`，永不 commit）呼叫線上模型，把 pending 詞草擬成 `ai_drafted` 詞條，驗證後 append-only 併入詞庫並清 wishlist——不進 wheel，查詢 runtime 維持全離線。VS Code 的 **Englex: Translate Wishlist Batch** 指令（由單一 **Englex** 狀態列按鈕的功能選單觸發）是同一動作的 UI 觸發器，需先在設定填 `englex.maintainerRepo` 指向本機 checkout；併入後會提示重新安裝讓新詞條生效。規則詳見 [docs/product-feature-map.md](docs/product-feature-map.md) 的「Wishlist AI 翻譯補批」一節。
 
 只有新增時明確回答 `yes` 的詞條才會出現在下列輸出；此命令只輸出 JSON 到終端，不會上傳：
 
@@ -182,13 +182,13 @@ python3 -m englex validate-data
 
 ## Optional VS Code lookup entry
 
-`vscode-extension/` contains a dependency-free P5 entry. **Englex: Look Up Engineering Term** opens an input box, and the always-visible **Englex** status-bar button and `Ctrl+Alt+L` (`Cmd+Alt+L` on macOS) invoke that same command. The input-box command sends only the text you personally type or paste through local `englex scan --json`; it does not automatically read the clipboard, terminal, editor, workspace, files, network, telemetry, or accounts. The editor-selection command remains available with `Ctrl+Alt+E` and its context menu. Both the selection version and input-box version do not touch the clipboard; user pressing Ctrl+V into the input box is still just input-box text. Query text is discarded after use and not persisted, uploaded, or historized. See its [local extension instructions](vscode-extension/README.md).
+`vscode-extension/` contains a dependency-free P5 entry. **Englex: Look Up Engineering Term** opens an input box, and the always-visible **Englex** status-bar button opens a menu for local lookup or the maintainer-only wishlist batch. `Ctrl+Alt+L` (`Cmd+Alt+L` on macOS) still invokes lookup directly. The input-box command sends only the text you personally type or paste through local `englex scan --json`; it does not automatically read the clipboard, terminal, editor, workspace, files, network, telemetry, or accounts. The editor-selection command remains available with `Ctrl+Alt+E` and its context menu. Both the selection version and input-box version do not touch the clipboard; user pressing Ctrl+V into the input box is still just input-box text. Query text is discarded after use and not persisted, uploaded, or historized. See its [local extension instructions](vscode-extension/README.md).
 
 The extension also makes known terms in terminal output clickable. This terminal-link feature scans terminal output one line at a time locally and marks only terms returned by the local Englex glossary as links; each line is compared in memory only, never written to disk, uploaded, historized, or read from the clipboard. Hover 即顯示定義，點擊則開啟完整 Englex 解釋面板。This reads a larger surface than an input box that sees only what you type, so decide for yourself whether that terminal integration fits your privacy preference.
 
 When either VS Code entry gets a complete miss for a one-line term-shaped input of at most five words and 80 characters, it offers **找不到「<文字>」，加入 wishlist？**. Only an explicit click on **加入 wishlist** runs local `englex wishlist add <文字>`; long sentence-like misses do not trigger the prompt.
 
-For maintainers, **Englex: Translate Wishlist Batch** (the status-bar `$(sync) Englex 補批` button showing the net-new count) triggers the dev-time AI drafting batch: with explicit confirmation it runs `tools/wishlist_draft.py auto` inside the checkout named by `englex.maintainerRepo`, using the maintainer's own API key, then offers to reinstall so the merged entries take effect. This never changes the fully-offline lookup runtime.
+For maintainers, **Englex: Translate Wishlist Batch** (the **Englex** status-bar menu, showing the net-new count) triggers the dev-time AI drafting batch: with explicit confirmation it runs `tools/wishlist_draft.py auto` inside the checkout named by `englex.maintainerRepo`, using the maintainer's own API key, then offers to reinstall so the merged entries take effect. This never changes the fully-offline lookup runtime.
 
 ## Optional ECDICT fallback base
 
