@@ -2,7 +2,7 @@
   "name": "englex-selection",
   "displayName": "Englex Selection",
   "description": "Explain engineering terms from explicit selection, input lookup, or terminal links through the local Englex CLI.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "publisher": "englex-local",
   "license": "MIT",
   "repository": {
