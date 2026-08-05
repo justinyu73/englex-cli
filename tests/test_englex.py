@@ -34,7 +34,6 @@ class EnglexTests(unittest.TestCase):
     def test_capsule_preserves_multiple_uncertain_senses(self):
         entry = lookup("capsule")[0]
         self.assertEqual(len(entry["senses"]), 3)
-        self.assertTrue(all(sense["context_required"] for sense in entry["senses"]))
 
     def test_alias_lookup(self):
         entry = lookup("RAG")[0]
@@ -101,27 +100,6 @@ class EnglexTests(unittest.TestCase):
         self.assertEqual([item["text"] for item in scan["unmatched"]], ["Use", "with", "and"])
         self.assertEqual(scan["unmatched"][0]["private_add"], {"command": "private add", "term": "Use"})
 
-    def test_scan_context_ranking_selects_unique_matching_sense(self):
-        release = scan_line("canary traffic rollout")["results"][0]["entry"]["context_ranking"]
-        test = scan_line("canary test monitor")["results"][0]["entry"]["context_ranking"]
-        self.assertEqual(release["decision"], "most_likely")
-        self.assertEqual(release["most_likely_sense_number"], 2)
-        self.assertEqual(release["matched_triggers"], ["traffic", "rollout"])
-        self.assertEqual(test["decision"], "most_likely")
-        self.assertEqual(test["most_likely_sense_number"], 3)
-        self.assertEqual(test["matched_triggers"], ["test", "monitor"])
-
-    def test_scan_context_ranking_keeps_ambiguous_senses_visible(self):
-        scan = scan_line("canary unrelated")
-        entry = scan["results"][0]["entry"]
-        self.assertEqual(entry["context_ranking"]["decision"], "undetermined")
-        self.assertIsNone(entry["context_ranking"]["most_likely_sense_number"])
-        self.assertEqual(len(entry["senses"]), 3)
-        self.assertIn("上下文判定：無法由上下文判定", core.format_scan(scan))
-        tied = scan_line("canary traffic test")["results"][0]["entry"]["context_ranking"]
-        self.assertEqual(tied["decision"], "undetermined")
-        self.assertIsNone(tied["most_likely_sense_number"])
-
     def test_scan_prefers_private_exact_match_and_never_uses_generic_fallback(self):
         save_user_entries([{
             "term": "canary deployment",
@@ -134,7 +112,6 @@ class EnglexTests(unittest.TestCase):
                 "full_name": "Team Canary Deployment",
                 "display_name": "teamcanary",
                 "kind": "team_release",
-                "context_required": False,
             },
         }])
         scan = scan_line("canary deployment teamcanary zorb")
@@ -388,16 +365,16 @@ class EnglexTests(unittest.TestCase):
         self.assertEqual(payload["schema_version"], 2)
         self.assertEqual([entry["term"] for entry in payload["results"]], ["roll forward", "rollback", "rollover"])
 
-    def test_data_validation_reports_schema_duplicates_and_context_errors(self):
+    def test_data_validation_reports_schema_duplicates_and_empty_fields(self):
         entries = [
-            {"schema_version": 99, "term": "duplicate", "aliases": ["same"], "status": "x", "senses": [{"domain": "x", "definition": "x", "context_triggers": [], "context_required": False}]},
-            {"schema_version": 2, "term": "other", "aliases": ["same"], "status": "", "senses": [{"domain": "", "definition": "x", "context_triggers": [], "context_required": True}]},
+            {"schema_version": 99, "term": "duplicate", "aliases": ["same"], "status": "x", "senses": [{"domain": "x", "definition": "x"}]},
+            {"schema_version": 2, "term": "other", "aliases": ["same"], "status": "", "senses": [{"domain": "", "definition": "x"}]},
         ]
         errors = validate_entries(entries, "test")
         self.assertTrue(any("invalid schema_version" in error for error in errors))
         self.assertTrue(any("duplicate canonical term or alias" in error for error in errors))
         self.assertTrue(any("empty required field status" in error for error in errors))
-        self.assertTrue(any("context-required record needs context_triggers" in error for error in errors))
+        self.assertTrue(any("empty required field domain" in error for error in errors))
 
     def test_abbreviation_schema_requires_all_structured_fields(self):
         entry = self._curated_entry({"version": 1, "kind": "sourced", "source_url": "https://example.com/term"})
@@ -411,7 +388,6 @@ class EnglexTests(unittest.TestCase):
             "full_name": "Future Term",
             "display_name": "FT",
             "kind": "test",
-            "context_required": False,
         }
         second = self._curated_entry({"version": 1, "kind": "sourced", "source_url": "https://example.com/second"})
         second["term"] = "another future term"
@@ -444,12 +420,10 @@ class EnglexTests(unittest.TestCase):
             self.assertEqual(entries[term]["trust_level"], "maintainer_verified")
             self.assertEqual(lookup(term)[0]["term"], term)
 
-    def test_gen_ai_extension_batch_is_curated_and_context_safe(self):
+    def test_gen_ai_extension_batch_is_curated_and_lookupable(self):
         entries = {entry["term"]: entry for entry in seed_entries()}
         source_url = "https://github.com/danielskry/gen-ai-glossary/blob/beee4ed4f0a81f53a1c367de63740cfcac729ba8/data/terms.json"
         self.assertEqual(entries["vector database"]["provenance"]["source_url"], source_url)
-        self.assertTrue(entries["prompt"]["senses"][0]["context_required"])
-        self.assertTrue(entries["agent memory"]["senses"][0]["context_required"])
         self.assertEqual(lookup("vector store")[0]["term"], "vector database")
 
     def test_gen_ai_locked_source_alias_expansion_is_lookupable(self):
@@ -475,7 +449,7 @@ class EnglexTests(unittest.TestCase):
         self.assertEqual(overlay_path().read_text(encoding="utf-8"), before)
 
     def _curated_entry(self, provenance):
-        return {"schema_version": 2, "term": "future term", "aliases": [], "status": "常用", "provenance": provenance, "trust_level": "maintainer_verified", "attribution": {"kind": "upgrade", "upgraded_by": "test maintainer", "evidence": "https://example.com/review", "date": "2026-07-14"}, "senses": [{"domain": "測試", "definition": "未來詞條", "context_triggers": [], "context_required": False}]}
+        return {"schema_version": 2, "term": "future term", "aliases": [], "status": "常用", "provenance": provenance, "trust_level": "maintainer_verified", "attribution": {"kind": "upgrade", "upgraded_by": "test maintainer", "evidence": "https://example.com/review", "date": "2026-07-14"}, "senses": [{"domain": "測試", "definition": "未來詞條"}]}
 
     def test_trust_level_schema_rejects_missing_or_unknown_values(self):
         missing = self._curated_entry({"version": 1, "kind": "sourced", "source_url": "https://example.com/term"})
@@ -584,7 +558,6 @@ class EnglexTests(unittest.TestCase):
             "full_name": "Team Release",
             "display_name": "TR",
             "kind": "team_release",
-            "context_required": False,
         })
 
     def test_private_add_rejects_incomplete_abbreviation_without_writing(self):

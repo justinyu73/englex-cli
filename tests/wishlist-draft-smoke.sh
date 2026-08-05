@@ -35,8 +35,7 @@ if "已收錄" not in brief or "daemon" not in brief:
 draft = work + "/draft.json"
 json.dump([{
     "schema_version": 2, "term": "wishlist smoke newterm", "aliases": [], "status": "常用",
-    "senses": [{"domain": "測試", "definition": "補批 smoke 用的原創解釋。",
-                "context_triggers": ["alpha", "beta"], "context_required": False}],
+    "senses": [{"domain": "測試", "definition": "補批 smoke 用的原創解釋。"}],
     "provenance": {"version": 1, "kind": "no_public_source", "reason": "smoke 測試，無公開來源。"},
     "trust_level": "ai_drafted",
 }], open(draft, "w", encoding="utf-8"), ensure_ascii=False)

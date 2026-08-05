@@ -122,8 +122,6 @@ def lookup_entry(query):
         "senses": [{
             "domain": "一般英中詞典",
             "definition": detail,
-            "context_triggers": [],
-            "context_required": False,
         }],
         "provenance": {"version": 1, "kind": "sourced", "source_url": SOURCE_URL},
         "trust_level": "community",

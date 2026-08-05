@@ -136,7 +136,7 @@ def cmd_brief(args):
         "",
         "## 規則（違反即失敗）",
         "- 每詞草擬一個 entry，`trust_level` **必須** `ai_drafted`。",
-        "- `senses`：原創繁中工程解釋、`domain`、`context_triggers`、`context_required`；多義項給多個 sense。",
+        "- `senses`：原創繁中工程解釋、`domain`；多義項給多個 sense。",
         "- `provenance`：`no_public_source`+非空 reason，或 `sourced`+合法 HTTPS `source_url`。**不要捏造 URL**。",
         "- schema 照既有 entry（`schema_version:2`、`aliases`、`status` ∈ {常用/需判讀/安全風險/安全原則}）。",
         "- 輸出成 JSON 陣列存檔，再 `python3 tools/wishlist_draft.py merge <檔>`。",
@@ -181,10 +181,8 @@ def _draft_schema():
         "properties": {
             "domain": {"type": "string"},
             "definition": {"type": "string"},
-            "context_triggers": {"type": "array", "items": {"type": "string"}},
-            "context_required": {"type": "boolean"},
         },
-        "required": ["domain", "definition", "context_triggers", "context_required"],
+        "required": ["domain", "definition"],
     }
     entry = {
         "type": "object", "additionalProperties": False,
@@ -217,7 +215,7 @@ def _draft_schema():
 _SYSTEM = (
     "你是 englex 的繁體中文工程術語 curator。把使用者給的英文工程／AI 術語，草擬成 curated glossary entry。"
     "規則：解釋是原創的繁中『工程語意』（這個詞在工程脈絡下代表什麼），不是字面翻譯；"
-    "同一詞在不同脈絡有多義項時給多個 sense，各自帶 domain、判讀用的 context_triggers 與 context_required；"
+    "同一詞在不同脈絡有多義項時給多個 sense，各自帶 domain；"
     "status 從 {常用,需判讀,安全風險,安全原則} 擇一；trust_level 一律 ai_drafted；"
     "provenance 一律 no_public_source 並在 reason 說明這是 AI 草擬、未經人工審定、需人工複核；"
     "不得捏造來源或 URL。只輸出 schema 指定的 JSON。"

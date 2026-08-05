@@ -123,16 +123,8 @@ function renderEntry(result) {
     ? ` · 信任等級：${entry.trust_level}${TRUST_LABEL[entry.trust_level] ? `（${TRUST_LABEL[entry.trust_level]}）` : ""}`
     : "";
   const lines = [`${entry.term}${abbreviation}${trust}`];
-  const ranking = entry.context_ranking;
-  const mostLikely = ranking && ranking.decision === "most_likely" && senses.length > 1
-    ? ranking.most_likely_sense_number
-    : null;
-  if (mostLikely) {
-    lines.push(`  最可能義項 ${mostLikely}（命中：${(ranking.matched_triggers || []).join(", ")}）`);
-  }
   senses.forEach((sense, index) => {
-    const mark = index + 1 === mostLikely ? "  ← 最可能" : "";
-    lines.push(`  ${index + 1}. [${sense.domain}] ${sense.definition}${mark}`);
+    lines.push(`  ${index + 1}. [${sense.domain}] ${sense.definition}`);
   });
   return lines.join("\n");
 }

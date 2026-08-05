@@ -24,8 +24,8 @@ body:
   - type: textarea
     id: senses
     attributes:
-      label: 可能義項與上下文線索
-      description: 若同一詞有多義項，請分別列出，並給每個義項的同行線索（context_triggers）。
+      label: 可能義項
+      description: 若同一詞有多個工程義項，請分別列出並各給領域標籤（domain）。
     validations:
       required: false
   - type: input

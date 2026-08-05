@@ -2,7 +2,7 @@
 
 以下是本機實際執行的 CLI 輸出。命令只使用本機 Englex 與本機詞庫；wishlist 段落以一次性 `XDG_DATA_HOME` 執行，沒有把個人資料寫入 repo 或預設資料目錄。
 
-## 1. 上下文消歧
+## 1. 多義項並列
 
 命令：
 
@@ -20,22 +20,17 @@ canary
 別名：—
 來源紀錄：legacy；未追溯驗證
 資料層：curated
-最可能義項：2（命中線索：traffic）
 可能義項：
 1. [發布／SRE] 早期或實驗性發布通道；在版本名稱與套件標籤中通常保留 canary。
-   線索：channel, nightly, package tag
-2. 最可能；[發布／SRE] 以少量流量或使用者驗證新版本的 canary deployment。
-   線索：traffic, rollout, deployment
+2. [發布／SRE] 以少量流量或使用者驗證新版本的 canary deployment。
 3. [測試／SRE] 用於及早偵測問題的 canary test 或監測檢查。
-   線索：test, monitor, health check
-注意：需要上下文；請依所在產品、團隊或技術文件確認。
 
 未命中：roll, out, to, 5, traffic
 
 明示新增 private：englex private add --term roll; englex private add --term out; englex private add --term to; englex private add --term 5; englex private add --term traffic
 ```
 
-這裡 `traffic` 線索使 `canary` 的第 2 義項成為最可能義項；其他義項仍完整保留。
+`canary` 的三個工程義項連同領域標籤完整並列；Englex 是本機靜態詞庫，不從句子猜測最可能義項，由讀者自行判讀。
 
 ## 2. 信任等級
 

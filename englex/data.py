@@ -37,8 +37,6 @@ def _normalize_entry(entry, default_provenance, default_trust_level=None):
             "senses": [{
             "domain": entry.get("domain", "未分類"),
             "definition": entry.get("definition", ""),
-            "context_triggers": [],
-            "context_required": False,
             }],
         })
     normalized.setdefault("provenance", default_provenance)
@@ -207,15 +205,18 @@ def _validate_abbreviation(abbreviation, location):
     """Validate the optional, local structured abbreviation contract."""
     if abbreviation is None:
         return []
-    required = {"short", "full_name", "display_name", "kind", "context_required"}
-    if not isinstance(abbreviation, dict) or set(abbreviation) != required:
+    required = {"short", "full_name", "display_name", "kind"}
+    # Legacy records may still carry the retired context_required flag; it is
+    # tolerated when boolean but never required and no longer written.
+    allowed = required | {"context_required"}
+    if not isinstance(abbreviation, dict) or not required <= set(abbreviation) <= allowed:
         return [f"{location}: invalid abbreviation record"]
     errors = []
     for field in ("short", "full_name", "display_name", "kind"):
         value = abbreviation.get(field)
         if not isinstance(value, str) or not value.strip() or "\n" in value or "\r" in value:
             errors.append(f"{location}: invalid abbreviation {field}")
-    if not isinstance(abbreviation.get("context_required"), bool):
+    if "context_required" in abbreviation and not isinstance(abbreviation["context_required"], bool):
         errors.append(f"{location}: abbreviation context_required must be boolean")
     return errors
 
@@ -286,15 +287,10 @@ def validate_entries(entries, source="data", allow_legacy=False, allow_private=F
             continue
         for sense_index, sense in enumerate(senses):
             sense_location = f"{location}.senses[{sense_index}]"
-            for field in ("domain", "definition", "context_triggers", "context_required"):
+            # Retired context_triggers/context_required keys are ignored when present.
+            for field in ("domain", "definition"):
                 if field not in sense or sense[field] in ("", None):
                     errors.append(f"{sense_location}: empty required field {field}")
-            if not isinstance(sense.get("context_triggers"), list):
-                errors.append(f"{sense_location}: context_triggers must be a list")
-            if not isinstance(sense.get("context_required"), bool):
-                errors.append(f"{sense_location}: context_required must be boolean")
-            elif sense["context_required"] and not sense.get("context_triggers"):
-                errors.append(f"{sense_location}: context-required record needs context_triggers")
     return errors
 
 

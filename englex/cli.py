@@ -58,7 +58,6 @@ def _parser():
     private_add_parser.add_argument("--full-name", metavar="FULL_NAME")
     private_add_parser.add_argument("--display-name", metavar="NAME")
     private_add_parser.add_argument("--abbreviation-kind", metavar="KIND", default="private_abbreviation")
-    private_add_parser.add_argument("--context-required", action="store_true")
     wishlist_parser = sub.add_parser("wishlist", help="明示管理本機 miss wishlist；預設關，不記查詢歷史")
     wishlist_sub = wishlist_parser.add_subparsers(dest="wishlist_command", required=True)
     wishlist_sub.add_parser("enable", help="開啟本機 miss wishlist 記錄")
@@ -118,8 +117,6 @@ def _add(prefilled_term=None, abbreviation=None):
     entry["senses"] = [{
         "domain": entry.pop("domain"),
         "definition": entry.pop("definition"),
-        "context_triggers": [],
-        "context_required": False,
     }]
     if abbreviation:
         short = abbreviation.get("short", "").strip()
@@ -131,7 +128,6 @@ def _add(prefilled_term=None, abbreviation=None):
             "full_name": full_name,
             "display_name": abbreviation.get("display_name", short).strip() or short,
             "kind": abbreviation.get("kind", "private_abbreviation").strip() or "private_abbreviation",
-            "context_required": bool(abbreviation.get("context_required")),
         }
     entries = raw_user_entries()
     existing_names = set().union(*(_private_names(existing) for existing in entries))
@@ -273,7 +269,6 @@ def main(argv=None):
                     "full_name": args.full_name,
                     "display_name": args.display_name or args.abbreviation,
                     "kind": args.abbreviation_kind,
-                    "context_required": args.context_required,
                 }
                 _add(prefilled_term=args.term, abbreviation=abbreviation)
                 return 0

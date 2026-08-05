@@ -33,8 +33,6 @@ def _entry(result):
         "senses": [{
             "domain": "使用者指定的本機 StarDict",
             "definition": definition,
-            "context_triggers": [],
-            "context_required": False,
         }],
     }
 

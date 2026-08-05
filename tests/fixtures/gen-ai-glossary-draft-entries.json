@@ -14,13 +14,7 @@
     "senses": [
       {
         "domain": "LLM／代理／工作流",
-        "definition": "在 AI 系統中協調 prompt、模型、工具、記憶與控制流程，使多個步驟依可預期順序執行的設計或控制層；實際職責仍須依產品架構判讀。",
-        "context_triggers": [
-          "workflow",
-          "tools",
-          "control flow"
-        ],
-        "context_required": true
+        "definition": "在 AI 系統中協調 prompt、模型、工具、記憶與控制流程，使多個步驟依可預期順序執行的設計或控制層；實際職責仍須依產品架構判讀。"
       }
     ],
     "trust_level": "maintainer_verified",
