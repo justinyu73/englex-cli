@@ -6,7 +6,7 @@ Englex 是離線、無遙測的本機工程術語工具。貢獻不得新增 run
 
 新增 curated 詞條預設為 `ai_drafted`。請在草稿 fixture 中提供現行 schema 的 `term`、`aliases`、`senses`、`status`、`provenance` 與 `trust_level`：
 
-- `senses` 要有原創的繁中工程解釋、`domain`、`context_triggers` 與 `context_required`。
+- `senses` 要有原創的繁中工程解釋與 `domain`。
 - `provenance` 使用可檢查的 HTTPS `source_url`；來源是候選或證據，不是定義的逐字來源，也不是正確性保證。
 - `trust_level` 設為 `ai_drafted`，等待人工抽查。不要因為有來源 URL 就直接標為 `community` 或 `maintainer_verified`。
 - 執行 `sh tests/glossary-schema-smoke.sh`、`sh tests/trust-level-smoke.sh`、`python3 -B -m unittest discover -s tests -v` 與 `python3 -B tests/p1_p5_machine_acceptance.py`。

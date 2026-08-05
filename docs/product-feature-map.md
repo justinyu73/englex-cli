@@ -19,7 +19,7 @@ englex 是供 WSL 與 VS Code Integrated Terminal 使用的本機、離線優先
 | 項目 | 使用者價值 | 輸入與輸出 | 本機資料讀寫 | 隱私／安全限制 | 人工審核 | 最小驗收條件 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 單詞與短術語 lookup | 快速理解工程語意 | 1–5 詞查詢 → 終端卡片或 JSON | 讀 shipped seed 與 overlay；查詢不寫入 | 無網路、無歷史、不可掃描專案檔案 | 不需要 | 已知 term 回傳 0；未知 term 回傳 1 |
-| 多義項與 context-required | 不把不確定語意偽裝成單一翻譯 | term → 全部 sense、脈絡線索、提示 | 唯讀 | 不以外部或模型判定語境 | curated sense 修訂需要 | `canary`、`capsule` 顯示所有義項與提示 |
+| 多義項並列 | 不把不確定語意偽裝成單一翻譯 | term → 全部工程 sense（附領域標籤） | 唯讀 | 本地靜態詞庫無 AI，不判定語境、不標最可能義項 | curated sense 修訂需要 | `canary`、`capsule` 顯示所有工程義項與領域標籤 |
 | `find` 前綴搜尋 | 在不確定拼字時找本機詞條 | 單一 prefix → 排序結果 | 唯讀 | 不做雲端或全文搜尋 | 不需要 | `find roll` 回傳本機 `roll` 結果 |
 | 私人 overlay 生命週期 | 保存、確認與清理個人或團隊術語 | 互動新增／明示 list／canonical remove → 終端或 JSON | 只寫 `$XDG_DATA_HOME` 或本機 fallback | 預設 private；list 僅由明示命令讀取；remove 必須 `--yes` 且不做 alias／fuzzy／prefix 刪除 | 使用者自行確認輸入與刪除 | 暫存 XDG 下 add、list、remove 的實際 smoke 通過 |
 | shareable-only export | 讓使用者選擇性取出可分享資料 | export flag → JSON stdout | 讀 overlay；不寫 shipped data | 僅顯式 shareable；不 upload | 使用者在 add 時選擇 | private entry 不出現在 export |

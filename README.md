@@ -6,19 +6,13 @@
 
 工程術語幾乎都嵌在你的實際工作裡：專案程式碼、設定檔、commit 訊息、產品文案。這些內容你通常不會、也不該整段丟給雲端翻譯。更關鍵的是，同一個詞在同一行會因脈絡指向完全不同的意思——`canary` 可能是發布通道、漸進流量驗證或監測測試；`seed` 可能是隨機種子或資料來源。直接翻譯很容易掉進字面義（金絲雀、種子）而失去工程語境。Englex 把你明示交給它的一行文字對照本機 curated 詞條，保留英文術語、繁中工程解釋、來源與信任等級，讓你自己判讀，而不是把內容送出去或交給不透明的翻譯。
 
-## 上下文消歧（核心）
+## 多義項並列
 
-同一個詞會因同一行的線索指向不同義項。`scan` 以確定性的 `context_triggers` 比對同一行其餘文字，公開標示「最可能義項」與命中的線索；所有義項仍會完整列出，不會被隱藏。
+同一個工程術語可能有多個領域義項（`canary` 可能是發布通道、漸進流量驗證或監測測試）。Englex 是本機靜態詞庫、沒有串接 AI，無法判斷「這個詞在這個句子裡是哪個意思」；因此多義詞會把**所有工程義項連同領域標籤完整列出**，由你自己判讀，不猜測、不隱藏。
 
 ```bash
 englex scan "roll out canary to 5% traffic"
-# canary：最可能義項 2（命中線索：traffic）
-
-englex scan "install from canary channel nightly"
-# canary：最可能義項 1（命中線索：channel, nightly）
-
-englex scan "the canary sang"
-# canary：上下文判定：無法由上下文判定
+# canary：並列全部 3 個工程義項（[發布／SRE] ×2、[測試／SRE]）
 ```
 
 ## 給誰用／適用環境
@@ -48,7 +42,7 @@ AI／工程術語持續在演化——例如 `harness`（字面是馬鞍具）�
 
 ## 功能 Demo
 
-見 [docs/DEMO.md](docs/DEMO.md)，包含上下文消歧、信任等級、wishlist 迴圈與 VS Code 手動錄製 TODO。
+見 [docs/DEMO.md](docs/DEMO.md)，包含多義項並列、信任等級、wishlist 迴圈與 VS Code 手動錄製 TODO。
 
 ## 使用方式
 
@@ -162,9 +156,9 @@ englex export --shareable-only
 
 ## 已知限制與延後範圍
 
-v0.7 的一個術語可包含多個可能義項、脈絡線索與「需要上下文」標記。查詢排名固定為：使用者 overlay 的 canonical 精確匹配、隨附資料的 canonical 精確匹配、別名、已知本機詞條的有限詞形還原、距離 1 的單詞候選、前綴匹配；scan 會依上下文公開標出最可能義項並說明命中線索，但仍列出全部、不隱藏其他。`--json` 會輸出 `schema_version`、`results` 與本機 ranking／provenance 說明；`--explain` 可在終端卡片顯示排名原因。若不想接受距離 1 候選，可用 `lookup --no-fuzzy TERM` 關閉；若只接受 canonical／alias 精確匹配，使用 `lookup --exact TERM`。`lookup --curated-only TERM` 會排除 private overlay 與 ECDICT，只讀隨附 curated glossary。`englex sources` 只回報各層可用狀態，不讀或顯示私人詞條。來源紀錄不等同正確性或人類驗收。
+一個術語可包含多個可能義項，全部連同領域標籤並列顯示；Englex 為本機靜態詞庫，不做上下文猜測。查詢排名固定為：使用者 overlay 的 canonical 精確匹配、隨附資料的 canonical 精確匹配、別名、已知本機詞條的有限詞形還原、距離 1 的單詞候選、前綴匹配。`--json` 會輸出 `schema_version`、`results` 與本機 ranking／provenance 說明；`--explain` 可在終端卡片顯示排名原因。若不想接受距離 1 候選，可用 `lookup --no-fuzzy TERM` 關閉；若只接受 canonical／alias 精確匹配，使用 `lookup --exact TERM`。`lookup --curated-only TERM` 會排除 private overlay 與 ECDICT，只讀隨附 curated glossary。`englex sources` 只回報各層可用狀態，不讀或顯示私人詞條。來源紀錄不等同正確性或人類驗收。
 
-本機資料可用下列命令驗證 schema、重複 canonical／alias、必填欄位與 context-required 記錄：
+本機資料可用下列命令驗證 schema、重複 canonical／alias 與必填欄位：
 
 ```bash
 python3 -m englex validate-data

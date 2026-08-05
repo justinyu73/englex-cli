@@ -184,42 +184,7 @@ def _scan_candidates():
     return candidates
 
 
-def _context_ranking(entry, text, start, end):
-    """Score multi-sense triggers only against the text outside this match span."""
-    senses = entry.get("senses", [])
-    if len(senses) <= 1:
-        return None
-    context_text = text[:start] + (" " * (end - start)) + text[end:]
-    scores = []
-    for number, sense in enumerate(senses, start=1):
-        matched_triggers = [
-            trigger for trigger in sense.get("context_triggers", [])
-            if _scan_name_pattern(trigger).search(context_text)
-        ]
-        scores.append({
-            "sense_number": number,
-            "score": len(matched_triggers),
-            "matched_triggers": matched_triggers,
-        })
-    highest_score = max(score["score"] for score in scores)
-    leaders = [score for score in scores if score["score"] == highest_score]
-    if highest_score and len(leaders) == 1:
-        leader = leaders[0]
-        return {
-            "decision": "most_likely",
-            "most_likely_sense_number": leader["sense_number"],
-            "matched_triggers": leader["matched_triggers"],
-            "scores": scores,
-        }
-    return {
-        "decision": "undetermined",
-        "most_likely_sense_number": None,
-        "matched_triggers": [],
-        "scores": scores,
-    }
-
-
-def _scan_entry_view(entry, source_layer, context_ranking=None):
+def _scan_entry_view(entry, source_layer):
     """Return a display-safe entry copy; private provenance never exposes URLs."""
     view = {
         "term": entry["term"],
@@ -232,8 +197,6 @@ def _scan_entry_view(entry, source_layer, context_ranking=None):
     }
     if entry.get("abbreviation"):
         view["abbreviation"] = entry["abbreviation"]
-    if context_ranking is not None:
-        view["context_ranking"] = context_ranking
     return view
 
 
@@ -265,11 +228,7 @@ def scan_line(text):
             "end": match["end"],
             "text": match["text"],
             "match_type": match["match_type"],
-            "entry": _scan_entry_view(
-                match["entry"],
-                match["source_layer"],
-                _context_ranking(match["entry"], text, match["start"], match["end"]),
-            ),
+            "entry": _scan_entry_view(match["entry"], match["source_layer"]),
         })
     unmatched = []
     for token in re.finditer(r"[A-Za-z0-9][A-Za-z0-9'_/-]*", text):
@@ -291,16 +250,8 @@ def format_scan(scan, concise=False):
     for result in scan["results"]:
         entry = result["entry"]
         span = f"{result['start']}:{result['end']}"
-        context_ranking = entry.get("context_ranking")
         if concise:
-            context_label = ""
-            if context_ranking:
-                context_label = (
-                    f"／最可能義項：{context_ranking['most_likely_sense_number']}"
-                    if context_ranking["decision"] == "most_likely"
-                    else "／上下文：無法判定"
-                )
-            lines.append(f"{span} {result['text']} → {entry['term']} [{result['match_type']}／{entry['source_layer']}／信任：{entry['trust_level']}{context_label}]")
+            lines.append(f"{span} {result['text']} → {entry['term']} [{result['match_type']}／{entry['source_layer']}／信任：{entry['trust_level']}]")
             continue
         card = [
             f"範圍：{span}；命中：{result['text']}；類型：{result['match_type']}",
@@ -311,26 +262,13 @@ def format_scan(scan, concise=False):
             f"來源紀錄：{entry['provenance']['message']}",
             f"資料層：{entry['source_layer']}",
         ]
-        if context_ranking:
-            if context_ranking["decision"] == "most_likely":
-                card.append(
-                    f"最可能義項：{context_ranking['most_likely_sense_number']}"
-                    f"（命中線索：{', '.join(context_ranking['matched_triggers'])}）"
-                )
-            else:
-                card.append("上下文判定：無法由上下文判定")
         if len(entry["senses"]) == 1:
             sense = entry["senses"][0]
             card.extend([f"領域：{sense['domain']}", f"釋義：{sense['definition']}"])
         else:
             card.append("可能義項：")
             for number, sense in enumerate(entry["senses"], start=1):
-                marker = "最可能；" if context_ranking and context_ranking["decision"] == "most_likely" and context_ranking["most_likely_sense_number"] == number else ""
-                card.append(f"{number}. {marker}[{sense['domain']}] {sense['definition']}")
-                if sense.get("context_triggers"):
-                    card.append(f"   線索：{', '.join(sense['context_triggers'])}")
-        if any(sense.get("context_required") for sense in entry["senses"]):
-            card.append("注意：需要上下文；請依所在產品、團隊或技術文件確認。")
+                card.append(f"{number}. [{sense['domain']}] {sense['definition']}")
         lines.append("\n".join(card))
         abbreviation = entry.get("abbreviation")
         if abbreviation:
@@ -437,10 +375,6 @@ def format_card(entry):
         lines.append("可能義項：")
         for number, sense in enumerate(senses, start=1):
             lines.append(f"{number}. [{sense['domain']}] {sense['definition']}")
-            if sense.get("context_triggers"):
-                lines.append(f"   線索：{', '.join(sense['context_triggers'])}")
-    if any(sense.get("context_required") for sense in senses):
-        lines.append("注意：需要上下文；請依所在產品、團隊或技術文件確認。")
     urls = [sense["source_url"] for sense in senses if sense.get("source_url")]
     if urls:
         lines.append(f"來源：{', '.join(urls)}")

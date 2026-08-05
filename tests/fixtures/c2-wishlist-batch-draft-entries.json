@@ -7,9 +7,7 @@
     "senses": [
       {
         "domain": "網路／基礎設施",
-        "definition": "外部流量進入系統或網路邊界的入口點或路徑；在容器編排中常指將外部請求路由至內部服務的資源。",
-        "context_triggers": ["traffic", "gateway", "route", "kubernetes"],
-        "context_required": false
+        "definition": "外部流量進入系統或網路邊界的入口點或路徑；在容器編排中常指將外部請求路由至內部服務的資源。"
       }
     ],
     "provenance": {
@@ -27,9 +25,7 @@
     "senses": [
       {
         "domain": "網路／基礎設施",
-        "definition": "流量從系統或網路邊界離開到外部的出口點或路徑；雲端環境中常與計費相關。",
-        "context_triggers": ["traffic", "outbound", "firewall", "cloud"],
-        "context_required": false
+        "definition": "流量從系統或網路邊界離開到外部的出口點或路徑；雲端環境中常與計費相關。"
       }
     ],
     "provenance": {
@@ -47,9 +43,7 @@
     "senses": [
       {
         "domain": "軟體架構／測試",
-        "definition": "程式碼中可以在不修改原始邏輯的前提下替換行為的接合點；來自 Michael Feathers《Working Effectively with Legacy Code》，常用於遺留系統的可測試性改造。",
-        "context_triggers": ["legacy", "testable", "injection point", "mock"],
-        "context_required": true
+        "definition": "程式碼中可以在不修改原始邏輯的前提下替換行為的接合點；來自 Michael Feathers《Working Effectively with Legacy Code》，常用於遺留系統的可測試性改造。"
       }
     ],
     "provenance": {
@@ -67,9 +61,7 @@
     "senses": [
       {
         "domain": "排程／執行環境",
-        "definition": "排程器、計時器或事件迴圈的最小離散執行單位；每次 tick 代表一輪檢查或處理週期。",
-        "context_triggers": ["scheduler", "timer", "event loop", "interval"],
-        "context_required": true
+        "definition": "排程器、計時器或事件迴圈的最小離散執行單位；每次 tick 代表一輪檢查或處理週期。"
       }
     ],
     "provenance": {
@@ -87,9 +79,7 @@
     "senses": [
       {
         "domain": "系統狀態",
-        "definition": "元件或服務已註冊於系統中但暫時不活躍、不接收也不處理事件的休眠狀態；與「已移除」不同，可被喚醒恢復運作。",
-        "context_triggers": ["inactive", "suspended", "idle", "wake"],
-        "context_required": true
+        "definition": "元件或服務已註冊於系統中但暫時不活躍、不接收也不處理事件的休眠狀態；與「已移除」不同，可被喚醒恢復運作。"
       }
     ],
     "provenance": {
@@ -107,9 +97,7 @@
     "senses": [
       {
         "domain": "事件系統",
-        "definition": "負責產生並廣播事件或訊號的元件；訂閱者透過註冊回呼函式監聽特定事件類型。",
-        "context_triggers": ["event", "listener", "subscribe", "emit"],
-        "context_required": false
+        "definition": "負責產生並廣播事件或訊號的元件；訂閱者透過註冊回呼函式監聽特定事件類型。"
       }
     ],
     "provenance": {
@@ -127,15 +115,11 @@
     "senses": [
       {
         "domain": "快取／資料管理",
-        "definition": "資料已超過有效期限或不再反映來源最新狀態，需重新取得或刷新才能信賴。",
-        "context_triggers": ["cache", "TTL", "expired", "refresh"],
-        "context_required": false
+        "definition": "資料已超過有效期限或不再反映來源最新狀態，需重新取得或刷新才能信賴。"
       },
       {
         "domain": "版本控制",
-        "definition": "分支或 pull request 因基底已有新提交而落後，需 rebase 或更新才能合併。",
-        "context_triggers": ["branch", "rebase", "outdated", "merge conflict"],
-        "context_required": true
+        "definition": "分支或 pull request 因基底已有新提交而落後，需 rebase 或更新才能合併。"
       }
     ],
     "provenance": {
@@ -153,9 +137,7 @@
     "senses": [
       {
         "domain": "運維／生命週期",
-        "definition": "當資源（日誌檔、連線、session、憑證）達到容量或時間上限時，自動關閉當前實例並切換到新實例以延續服務。",
-        "context_triggers": ["log rotation", "session", "certificate", "capacity"],
-        "context_required": true
+        "definition": "當資源（日誌檔、連線、session、憑證）達到容量或時間上限時，自動關閉當前實例並切換到新實例以延續服務。"
       }
     ],
     "provenance": {
@@ -173,15 +155,11 @@
     "senses": [
       {
         "domain": "CI／部署",
-        "definition": "在主要操作（部署、合併、遷移）執行前進行的前置驗證，確認前提條件已滿足以降低失敗風險。",
-        "context_triggers": ["deploy", "gate", "pre-check", "validation"],
-        "context_required": false
+        "definition": "在主要操作（部署、合併、遷移）執行前進行的前置驗證，確認前提條件已滿足以降低失敗風險。"
       },
       {
         "domain": "網路／瀏覽器",
-        "definition": "瀏覽器在發送跨來源請求前先發出的 OPTIONS 預檢請求，用於確認伺服器是否允許該跨來源操作。",
-        "context_triggers": ["CORS", "OPTIONS", "cross-origin"],
-        "context_required": true
+        "definition": "瀏覽器在發送跨來源請求前先發出的 OPTIONS 預檢請求，用於確認伺服器是否允許該跨來源操作。"
       }
     ],
     "provenance": {
@@ -199,9 +177,7 @@
     "senses": [
       {
         "domain": "測試／驗證",
-        "definition": "在測試過程中提供預期正確結果的判定來源，用以比對實際輸出是否符合預期；可以是規格、參考實作或人工判斷。",
-        "context_triggers": ["expected result", "verification", "test case", "ground truth"],
-        "context_required": true
+        "definition": "在測試過程中提供預期正確結果的判定來源，用以比對實際輸出是否符合預期；可以是規格、參考實作或人工判斷。"
       }
     ],
     "provenance": {
@@ -219,9 +195,7 @@
     "senses": [
       {
         "domain": "測試／驗證",
-        "definition": "嘗試證偽假說或找出反例的驗證機制；在自動化品質流程中指刻意以對抗性手段挑戰結論的檢查步驟。",
-        "context_triggers": ["adversarial", "refute", "counterexample", "verification"],
-        "context_required": true
+        "definition": "嘗試證偽假說或找出反例的驗證機制；在自動化品質流程中指刻意以對抗性手段挑戰結論的檢查步驟。"
       }
     ],
     "provenance": {
@@ -239,9 +213,7 @@
     "senses": [
       {
         "domain": "流程／方法論",
-        "definition": "開發流程中必須遵循但不直接產出功能的儀式性步驟，如 standup、retro、簽核；過多 ceremony 可降低交付速度。",
-        "context_triggers": ["agile", "process overhead", "ritual", "lightweight"],
-        "context_required": true
+        "definition": "開發流程中必須遵循但不直接產出功能的儀式性步驟，如 standup、retro、簽核；過多 ceremony 可降低交付速度。"
       }
     ],
     "provenance": {
@@ -259,9 +231,7 @@
     "senses": [
       {
         "domain": "監控／運維",
-        "definition": "集中顯示系統關鍵指標與狀態的監控介面，讓操作者能一覽全局並快速定位異常；源自航空駕駛艙隱喻。",
-        "context_triggers": ["monitoring", "metrics", "status", "overview"],
-        "context_required": true
+        "definition": "集中顯示系統關鍵指標與狀態的監控介面，讓操作者能一覽全局並快速定位異常；源自航空駕駛艙隱喻。"
       }
     ],
     "provenance": {
@@ -279,15 +249,11 @@
     "senses": [
       {
         "domain": "程式語言",
-        "definition": "將名稱或識別符與具體值、型別或實作關聯的機制；早期綁定在編譯期決定，晚期綁定在執行期決定。",
-        "context_triggers": ["variable", "name resolution", "late binding", "early binding"],
-        "context_required": true
+        "definition": "將名稱或識別符與具體值、型別或實作關聯的機制；早期綁定在編譯期決定，晚期綁定在執行期決定。"
       },
       {
         "domain": "系統整合",
-        "definition": "將外部資源（環境變數、服務端點、設定值）連接到應用程式的宣告式配置。",
-        "context_triggers": ["service binding", "environment", "configuration", "inject"],
-        "context_required": true
+        "definition": "將外部資源（環境變數、服務端點、設定值）連接到應用程式的宣告式配置。"
       }
     ],
     "provenance": {
@@ -305,9 +271,7 @@
     "senses": [
       {
         "domain": "資料工程",
-        "definition": "在資料管線中為原始記錄補充額外欄位、標籤或上下文資訊，提升其分析或決策價值。",
-        "context_triggers": ["pipeline", "augment", "metadata", "transform"],
-        "context_required": false
+        "definition": "在資料管線中為原始記錄補充額外欄位、標籤或上下文資訊，提升其分析或決策價值。"
       }
     ],
     "provenance": {
@@ -325,9 +289,7 @@
     "senses": [
       {
         "domain": "系統狀態／訊息",
-        "definition": "任務或訊息已被提交到佇列中等待處理的狀態；處理順序取決於佇列策略（FIFO、優先權等）。",
-        "context_triggers": ["queue", "pending", "worker", "FIFO"],
-        "context_required": false
+        "definition": "任務或訊息已被提交到佇列中等待處理的狀態；處理順序取決於佇列策略（FIFO、優先權等）。"
       }
     ],
     "provenance": {
@@ -345,15 +307,11 @@
     "senses": [
       {
         "domain": "軟體架構",
-        "definition": "連接兩個介面不相容的系統或模組的中介層，負責協定轉換或資料格式對映，使雙方能互通。",
-        "context_triggers": ["adapter", "integration", "protocol", "interop"],
-        "context_required": true
+        "definition": "連接兩個介面不相容的系統或模組的中介層，負責協定轉換或資料格式對映，使雙方能互通。"
       },
       {
         "domain": "網路",
-        "definition": "在資料鏈結層連接兩個網路區段的裝置或軟體，依 MAC 位址轉發封包。",
-        "context_triggers": ["network", "layer 2", "switch", "segment"],
-        "context_required": true
+        "definition": "在資料鏈結層連接兩個網路區段的裝置或軟體，依 MAC 位址轉發封包。"
       }
     ],
     "provenance": {
@@ -371,9 +329,7 @@
     "senses": [
       {
         "domain": "程式語言／工具鏈",
-        "definition": "將高階程式語言原始碼轉換為低階機器碼或中間表示的工具，通常包含詞法分析、語法分析、最佳化與代碼產生等階段。",
-        "context_triggers": ["compile", "build", "source code", "machine code"],
-        "context_required": false
+        "definition": "將高階程式語言原始碼轉換為低階機器碼或中間表示的工具，通常包含詞法分析、語法分析、最佳化與代碼產生等階段。"
       }
     ],
     "provenance": {
@@ -391,9 +347,7 @@
     "senses": [
       {
         "domain": "版本控制",
-        "definition": "將來源分支上的多個 commit 壓縮為單一 commit 後合併到目標分支的 git 策略，使歷史紀錄保持線性簡潔。",
-        "context_triggers": ["git", "pull request", "merge strategy", "commit history"],
-        "context_required": false
+        "definition": "將來源分支上的多個 commit 壓縮為單一 commit 後合併到目標分支的 git 策略，使歷史紀錄保持線性簡潔。"
       }
     ],
     "provenance": {
@@ -411,9 +365,7 @@
     "senses": [
       {
         "domain": "系統／執行環境",
-        "definition": "程式碼或指令被處理器或執行環境實際運行的過程；也指從計畫到產出結果的實施階段。",
-        "context_triggers": ["runtime", "process", "run", "execute"],
-        "context_required": true
+        "definition": "程式碼或指令被處理器或執行環境實際運行的過程；也指從計畫到產出結果的實施階段。"
       }
     ],
     "provenance": {
@@ -431,9 +383,7 @@
     "senses": [
       {
         "domain": "電腦科學",
-        "definition": "給定相同輸入與初始狀態，必定產生相同輸出與最終狀態的特性；與之相對的是非確定性。",
-        "context_triggers": ["reproducible", "idempotent", "predictable", "random"],
-        "context_required": false
+        "definition": "給定相同輸入與初始狀態，必定產生相同輸出與最終狀態的特性；與之相對的是非確定性。"
       }
     ],
     "provenance": {
@@ -451,15 +401,11 @@
     "senses": [
       {
         "domain": "設計／架構",
-        "definition": "使用者或系統動作背後的意圖宣告；在宣告式系統中表示期望達成的目標狀態而非具體操作步驟。",
-        "context_triggers": ["declarative", "desired state", "goal", "user intent"],
-        "context_required": true
+        "definition": "使用者或系統動作背後的意圖宣告；在宣告式系統中表示期望達成的目標狀態而非具體操作步驟。"
       },
       {
         "domain": "Android",
-        "definition": "Android 平台中用於在元件間傳遞訊息與啟動操作的物件。",
-        "context_triggers": ["Android", "activity", "broadcast", "startActivity"],
-        "context_required": true
+        "definition": "Android 平台中用於在元件間傳遞訊息與啟動操作的物件。"
       }
     ],
     "provenance": {
@@ -477,9 +423,7 @@
     "senses": [
       {
         "domain": "軟體工程",
-        "definition": "預先定義的可重用結構或樣板，填入參數後產生具體實例；涵蓋程式碼範本、專案腳手架、泛型型別參數等用法。",
-        "context_triggers": ["scaffold", "boilerplate", "generic", "reusable"],
-        "context_required": false
+        "definition": "預先定義的可重用結構或樣板，填入參數後產生具體實例；涵蓋程式碼範本、專案腳手架、泛型型別參數等用法。"
       }
     ],
     "provenance": {
@@ -497,9 +441,7 @@
     "senses": [
       {
         "domain": "程式語言／文字處理",
-        "definition": "原始碼或文字中不可見的空白字元，包含空格、Tab、換行等；在某些語言中具語法意義，在多數語言中影響可讀性與格式規範。",
-        "context_triggers": ["indent", "formatting", "trim", "space"],
-        "context_required": false
+        "definition": "原始碼或文字中不可見的空白字元，包含空格、Tab、換行等；在某些語言中具語法意義，在多數語言中影響可讀性與格式規範。"
       }
     ],
     "provenance": {

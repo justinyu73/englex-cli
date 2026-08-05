@@ -293,13 +293,12 @@ async function main() {
 
   // (d) No clipboard API access is allowed.
   assert.strictEqual(clipboardAccessed, false);
-  // multi-sense: the most-likely sense is marked from context_ranking
+  // multi-sense: every sense is listed with its domain label; nothing is ranked
   const multi = extension.render({
     results: [{
       start: 0, end: 6, text: "canary", match_type: "canonical",
       entry: {
         term: "canary", source_layer: "curated", trust_level: "legacy",
-        context_ranking: { decision: "most_likely", most_likely_sense_number: 2, matched_triggers: ["traffic"] },
         senses: [
           { domain: "發布／SRE", definition: "早期或實驗性發布通道。" },
           { domain: "發布／SRE", definition: "以少量流量驗證新版本。" },
@@ -308,8 +307,9 @@ async function main() {
     }],
     unmatched: [],
   });
-  assert.match(multi, /最可能義項 2/);
-  assert.match(multi, /← 最可能/);
+  assert.match(multi, /1\. \[發布／SRE\] 早期或實驗性發布通道。/);
+  assert.match(multi, /2\. \[發布／SRE\] 以少量流量驗證新版本。/);
+  assert.doesNotMatch(multi, /最可能/);
   assert.match(extension.render({ results: [], unmatched: [] }), /找不到/);
   assert.strictEqual(typeof extension.runScan, "function");
   assert.strictEqual(typeof extension.activate, "function");

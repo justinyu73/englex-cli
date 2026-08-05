@@ -39,7 +39,7 @@ for index, level in enumerate(sorted(TRUST_LEVELS)):
         "status": "常用",
         "provenance": {"version": 1, "kind": "sourced", "source_url": "https://example.com/source"},
         "trust_level": level,
-        "senses": [{"domain": "測試", "definition": "信任等級 smoke", "context_triggers": [], "context_required": False}],
+        "senses": [{"domain": "測試", "definition": "信任等級 smoke"}],
     }
     if level in {"community", "maintainer_verified"}:
         entry["attribution"] = {
@@ -59,7 +59,7 @@ for level in ("community", "maintainer_verified"):
         "status": "常用",
         "provenance": {"version": 1, "kind": "sourced", "source_url": "https://example.com/source"},
         "trust_level": level,
-        "senses": [{"domain": "測試", "definition": "信任等級 smoke", "context_triggers": [], "context_required": False}],
+        "senses": [{"domain": "測試", "definition": "信任等級 smoke"}],
     }
     if not any("trust upgrade requires attribution" in error for error in validate_entries([missing_attribution], "trust_smoke")):
         raise SystemExit(f"{level}: missing attribution was accepted")
@@ -72,7 +72,7 @@ for level in ("ai_drafted", "legacy"):
         "status": "常用",
         "provenance": {"version": 1, "kind": "sourced", "source_url": "https://example.com/source"},
         "trust_level": level,
-        "senses": [{"domain": "測試", "definition": "信任等級 smoke", "context_triggers": [], "context_required": False}],
+        "senses": [{"domain": "測試", "definition": "信任等級 smoke"}],
     }
     if validate_entries([no_attribution], "trust_smoke"):
         raise SystemExit(f"{level}: attribution should be optional")
@@ -85,7 +85,7 @@ grandfathered = {
     "provenance": {"version": 1, "kind": "sourced", "source_url": "https://example.com/source"},
     "trust_level": "maintainer_verified",
     "attribution": {"kind": "grandfathered", "note": "原始 seed,無正式升級紀錄"},
-    "senses": [{"domain": "測試", "definition": "信任等級 smoke", "context_triggers": [], "context_required": False}],
+    "senses": [{"domain": "測試", "definition": "信任等級 smoke"}],
 }
 if validate_entries([grandfathered], "seed"):
     raise SystemExit("grandfathered seed attribution was rejected")

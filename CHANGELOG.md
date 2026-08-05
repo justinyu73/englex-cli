@@ -5,6 +5,11 @@
 
 ## [Unreleased]
 
+### Removed
+- 退役上下文消歧：Englex 是本機靜態詞庫、無串接 AI，無法判斷「這個詞在這個句子裡是哪個意思」，靜態 `context_triggers` 關鍵字計數被判定為多餘。移除 `scan` 的 `context_ranking` 計算與 JSON 欄位、CLI 卡片的「最可能義項／命中線索／需要上下文」輸出、VS Code 擴充的「最可能義項」與「← 最可能」標示；多義詞改為全部工程義項連同領域標籤並列，由讀者自行判讀。
+- schema 的 sense 必填欄位移除 `context_triggers`／`context_required`（舊資料中的同名欄位視為遺留忽略；縮寫紀錄的舊 `context_required` 仍容忍但不再寫入）；`private add --context-required` 旗標一併移除。
+- 非工程義項：`reconcile` 的財務／對帳義、`stall` 的航太失速原義（借喻來源）；其餘多義詞維持全部工程義項。
+
 ## [0.7.2] - 2026-08-02 — Englex 單一狀態列入口
 
 ### Changed
